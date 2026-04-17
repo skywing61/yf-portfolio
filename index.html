@@ -130,7 +130,9 @@
       backdrop-filter: saturate(200%) blur(25px);
       -webkit-backdrop-filter: saturate(200%) blur(25px);
       border-bottom: 1px solid transparent;
-      transition: all 0.3s ease;
+      transition: border-color 0.3s ease;
+      will-change: transform;
+      transform: translateZ(0);
     }
 
     .nav.scrolled {
@@ -207,7 +209,7 @@
 
     /* ========== HERO ========== */
     .hero {
-      min-height: 100svh;
+      min-height: var(--real-vh, 100svh);
       display: flex;
       align-items: center;
       padding-top: 100px;
@@ -1700,6 +1702,22 @@
       applyLang(currentLang === 'en' ? 'zh' : 'en');
     });
     applyLang(currentLang);
+
+    /* ========== 鎖定 Viewport Height，防止網址列出現/消失導致抖動 ========== */
+    (function () {
+      let lastVW = window.innerWidth;
+      function lockVH() {
+        document.documentElement.style.setProperty('--real-vh', window.innerHeight + 'px');
+      }
+      lockVH();
+      window.addEventListener('resize', function () {
+        // 只有寬度改變（螢幕轉向）才重算，忽略高度變動（網址列）
+        if (window.innerWidth !== lastVW) {
+          lastVW = window.innerWidth;
+          lockVH();
+        }
+      });
+    })();
 
     /* ========== SCROLL-TRIGGERED NAV BORDER ========== */
     const nav = document.getElementById('nav');
