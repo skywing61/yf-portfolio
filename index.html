@@ -7,19 +7,37 @@
   <title>YuFeng Huang — Software × Hardware × AI</title>
   <meta name="description"
     content="YuFeng Huang — Product developer integrating PCB design, firmware, Android apps, and AI models. 14 years at InnoLux." />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23111111' /%3E%3Cpath d='M12 11L20 21M28 11L20 21M20 21V31' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' /%3E%3Ccircle cx='20' cy='21' r='3' fill='%23B8002E' /%3E%3C/svg%3E">
-
+    href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 40 40&#39;%3E%3Crect width=&#39;40&#39; height=&#39;40&#39; rx=&#39;8&#39; fill=&#39;%23111&#39;/%3E%3Cpath d=&#39;M12 11L20 21M28 11L20 21M20 21V31&#39; stroke=&#39;white&#39; stroke-width=&#39;3.5&#39; stroke-linecap=&#39;round&#39; stroke-linejoin=&#39;round&#39;/%3E%3Ccircle cx=&#39;20&#39; cy=&#39;21&#39; r=&#39;3&#39; fill=&#39;%23B8002E&#39;/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Noto+Sans+TC:wght@300;400;500&amp;family=Noto+Serif+TC:wght@300;500;700&amp;display=swap"
     rel="stylesheet">
-
   <style>
-    /* ========== RESET & BASE ========== */
+    /* ===== TOKENS ===== */
+    :root {
+      --bg: oklch(98.8% 0.005 80);
+      --bg2: oklch(97% 0.006 80);
+      --surface: #FFFFFF;
+      --text: #111110;
+      --muted: #666660;
+      --light: #999993;
+      --line: oklch(88% 0.006 80);
+      --accent: #B8002E;
+      --accent-2: oklch(38% 0.12 10);
+      --serif: 'DM Serif Display', 'Noto Serif TC', Georgia, serif;
+      --sans: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --max: 1280px;
+      --gutter: clamp(20px, 4vw, 48px);
+      --radius: 20px;
+    }
+
+    html[lang="zh"] {
+      --serif: 'Noto Serif TC', 'DM Serif Display', serif;
+    }
+
     *,
     *::before,
     *::after {
@@ -33,18 +51,11 @@
     }
 
     body {
-      font-family: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 400;
-      color: #111111;
-      background: #FFFFFF;
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
       line-height: 1.7;
-      font-size: 16px;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    html[lang="zh"] body {
-      font-family: 'Noto Sans TC', 'Inter', sans-serif;
     }
 
     img {
@@ -57,90 +68,38 @@
       text-decoration: none;
     }
 
-    /* ========== THEME TOKENS ========== */
-    :root {
-      --bg: #F8F9FA;
-      --text: #111111;
-      --text-muted: #666666;
-      --text-light: #999999;
-      --accent: #B8002E;
-      --hairline: #D1D1D1;
-      /* 稍微加深以提升在不同螢幕上的辨識度 */
-      --surface: #FFFFFF;
-
-      --font-serif: 'Fraunces', 'Noto Serif TC', Georgia, serif;
-      --font-sans: 'Inter', 'Noto Sans TC', sans-serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
-
-      --max-width: 1280px;
-      --content-width: 960px;
-      --gutter: 32px;
+    ::selection {
+      background: var(--accent);
+      color: #fff;
     }
 
-    html[lang="zh"] {
-      --font-serif: 'Noto Serif TC', 'Fraunces', serif;
-    }
-
-    /* ========== LAYOUT HELPERS ========== */
-    .container {
-      max-width: var(--max-width);
+    /* ===== LAYOUT ===== */
+    .wrap {
+      max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--gutter);
     }
 
-    .content {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-
-    section {
-      padding: 140px 0;
-      position: relative;
-    }
-
-    .section-label {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .section-label::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: var(--text-muted);
-    }
-
-    /* ========== NAVIGATION ========== */
+    /* ===== NAV ===== */
     .nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 100;
-      padding: 18px 0;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: saturate(200%) blur(25px);
-      -webkit-backdrop-filter: saturate(200%) blur(25px);
+      padding: 16px 0;
+      background: oklch(98.8% 0.005 80 / 0.82);
+      backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
-      will-change: transform;
-      transform: translateZ(0);
+      transition: border-color .3s;
     }
 
     .nav.scrolled {
-      border-bottom-color: var(--hairline);
+      border-bottom-color: var(--line);
     }
 
     .nav-inner {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
       padding: 0 var(--gutter);
       display: flex;
@@ -151,150 +110,128 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      gap: 10px;
+      font-family: var(--serif);
+      font-size: 20px;
     }
 
-    .logo-icon {
-      width: 32px;
-      height: 32px;
+    .logo {
+      width: 30px;
+      height: 30px;
       flex-shrink: 0;
     }
 
-    .logo-icon svg {
+    .logo svg {
       width: 100%;
       height: 100%;
-      display: block;
     }
 
-    .nav-brand span {
-      line-height: 1;
-    }
-
-    .nav-brand .dot {
+    .dot {
       color: var(--accent);
     }
 
-    .nav-menu {
+    .nav-links {
       display: flex;
-      gap: 36px;
+      gap: 32px;
       align-items: center;
-      font-size: 14px;
+      font-size: 13.5px;
+      font-weight: 500;
     }
 
-    .nav-menu a {
-      font-weight: 500;
+    .nav-links a {
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
       color: var(--text);
     }
 
-    .lang-switch {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      padding: 6px 14px;
-      border: 1px solid var(--hairline);
+    .lang-btn {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .1em;
+      padding: 5px 13px;
+      border: 1px solid var(--line);
       border-radius: 999px;
       cursor: pointer;
       background: transparent;
       color: var(--text);
+      transition: border-color .2s;
     }
 
-    .lang-switch .active {
+    .lang-btn:hover {
+      border-color: var(--muted);
+    }
+
+    .lang-btn .active {
       color: var(--accent);
       font-weight: 600;
     }
 
-    /* ========== HERO ========== */
+    /* ===== HERO ===== */
     .hero {
-      min-height: var(--real-vh, 100svh);
+      min-height: 100svh;
       display: flex;
       align-items: center;
-      padding-top: 100px;
-      padding-bottom: 80px;
-    }
-
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      width: 100%;
+      padding: 120px 0 80px;
     }
 
     .hero-layout {
       display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 80px;
+      grid-template-columns: 1fr 300px;
+      gap: 72px;
       align-items: center;
     }
 
-    .hero-content {
-      min-width: 0;
-    }
-
-    .hero-portrait {
-      position: relative;
-    }
-
-    .hero-portrait img {
-      width: 100%;
-      max-width: 320px;
-      border-radius: 24px;
-      display: block;
-      filter: grayscale(8%);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-    }
-
-    .hero-portrait::before {
-      content: '';
-      position: absolute;
-      inset: -15px -15px 15px 15px;
-      border: 1px solid var(--hairline);
-      background: linear-gradient(135deg, #fdfdfd 0%, #ffffff 100%);
-      border-radius: 24px;
-      z-index: -1;
-    }
-
-    @media (max-width: 900px) {
-      .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-portrait {
-        display: none;
-      }
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      letter-spacing: 0.15em;
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 32px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
     }
 
-    .hero-eyebrow .accent-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      margin-right: 10px;
-      vertical-align: middle;
+      background: var(--accent);
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .5;
+        transform: scale(.8);
+      }
     }
 
     .hero-title {
-      font-family: var(--font-serif);
-      font-size: clamp(42px, 8vw, 96px);
+      font-family: var(--serif);
+      font-size: clamp(44px, 7.5vw, 92px);
       font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 40px;
-      max-width: 1100px;
+      line-height: 1.04;
+      letter-spacing: -.02em;
+      margin-bottom: 36px;
+    }
+
+    .hero-title .cross {
+      font-family: var(--sans);
+      font-weight: 300;
+      color: var(--light);
+      padding: 0 .1em;
     }
 
     .hero-title .accent {
@@ -302,406 +239,590 @@
       font-style: italic;
     }
 
-    .hero-title .cross {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      color: var(--text-muted);
-      padding: 0 0.15em;
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 44px;
     }
 
-    .hero-subtitle {
-      font-size: 20px;
-      line-height: 1.6;
-      max-width: 640px;
-      color: var(--text);
-      margin-bottom: 48px;
-    }
-
-    .hero-meta {
+    .hero-actions {
       display: flex;
-      gap: 48px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
     }
 
-    .hero-meta strong {
-      color: var(--text);
+    .btn {
+      font-size: 14px;
       font-weight: 500;
+      padding: 13px 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .25s cubic-bezier(.4, 0, .2, 1);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      cursor: pointer;
     }
 
-    /* ========== CAPABILITIES ========== */
-    .capabilities {
-      border-top: 1px solid var(--hairline);
+    .btn-dark {
+      background: var(--text);
+      color: #fff;
     }
 
-    .cap-grid {
+    .btn-dark:hover {
+      background: #2a2a28;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--muted);
+      background: var(--surface);
+    }
+
+    .btn-reel {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .btn-reel:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .play-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform .2s;
+    }
+
+    .btn-reel:hover .play-icon {
+      transform: scale(1.1);
+    }
+
+    .play-icon svg {
+      width: 10px;
+      height: 10px;
+      fill: #fff;
+      margin-left: 1px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--light);
+      letter-spacing: .02em;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 22px;
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 400;
+      margin-bottom: 2px;
+    }
+
+    /* Portrait */
+    .portrait-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .portrait-bg {
+      position: absolute;
+      inset: -12px 12px 12px -12px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      z-index: 0;
+    }
+
+    .portrait-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+      object-fit: cover;
+    }
+
+    .portrait-badge {
+      position: absolute;
+      z-index: 2;
+      bottom: -16px;
+      right: -8px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .06em;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .06);
+    }
+
+    .portrait-badge span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    @media (max-width: 860px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-wrap {
+        display: none;
+      }
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    section {
+      padding: clamp(80px, 12vw, 140px) 0;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 62px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+    }
+
+    .divider {
+      border-top: 1px solid var(--line);
+    }
+
+    /* ===== CAPABILITIES ===== */
+    .cap-strip {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1px;
-      margin-top: 60px;
-      border: 1px solid var(--hairline);
-      border-radius: 32px;
+      margin-top: 56px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       overflow: hidden;
-      background: var(--hairline);
     }
 
     .cap-cell {
-      background: var(--bg);
-      padding: 48px;
-      position: relative;
-      z-index: 1;
+      background: var(--bg2);
+      padding: 40px 32px;
+      transition: background .2s;
     }
 
-    /* 角落圓角對齊 */
-    .cap-cell:nth-child(1) {
-      border-top-left-radius: 32px;
+    .cap-cell:hover {
+      background: var(--surface);
     }
 
-    .cap-cell:nth-child(2) {
-      border-top-right-radius: 32px;
+    .cap-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      margin-bottom: 20px;
     }
 
-    .cap-cell:nth-child(3) {
-      border-bottom-left-radius: 32px;
+    .cap-h {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 400;
+      margin-bottom: 14px;
     }
 
-    .cap-cell:nth-child(4) {
-      border-bottom-right-radius: 32px;
-    }
-
-    @media (max-width: 900px) {
-      .cap-cell:nth-child(1) {
-        border-radius: 24px 24px 0 0 !important;
-      }
-
-      .cap-cell:nth-child(2) {
-        border-radius: 0 !important;
-      }
-
-      .cap-cell:nth-child(3) {
-        border-radius: 0 !important;
-      }
-
-      .cap-cell:nth-child(4) {
-        border-radius: 0 0 24px 24px !important;
-      }
-    }
-
-    .cap-number {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-light);
-      margin-bottom: 16px;
-    }
-
-    .cap-title {
-      font-family: var(--font-serif);
-      font-size: 32px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-    }
-
-    .cap-title .accent {
+    .cap-h span {
       color: var(--accent);
     }
 
-    .cap-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      line-height: 1.6;
+    .cap-p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
     }
 
-    .cap-tags {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .cap-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 4px 12px;
-      background: rgba(184, 0, 46, 0.04);
-      border: 1px solid rgba(184, 0, 46, 0.1);
-      border-radius: 999px;
-      color: var(--accent);
-      letter-spacing: 0.02em;
+    .tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      letter-spacing: .03em;
     }
 
-    /* ========== FEATURED WORK ========== */
-    .work {
-      border-top: 1px solid var(--hairline);
+    @media (max-width: 860px) {
+      .cap-strip {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
+    @media (max-width: 520px) {
+      .cap-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== FEATURED WORK ===== */
     .work-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 80px;
-      flex-wrap: wrap;
+      margin-bottom: 64px;
       gap: 24px;
-    }
-
-    .work-title {
-      font-family: var(--font-serif);
-      font-size: clamp(40px, 6vw, 72px);
-      font-weight: 400;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      max-width: 720px;
+      flex-wrap: wrap;
     }
 
     .work-count {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--light);
     }
 
-    /* 每個 project 是一個獨立的區塊（交錯排列） */
     .project-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-auto-rows: 1fr;
-      gap: 64px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
     }
 
     .project {
       display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-      align-items: center;
-      background: #FFFFFF;
-      border: 1px solid var(--hairline);
-      border-radius: 32px;
-      padding: 48px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
-      position: relative;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+    }
+
+    .project:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .07);
+      transform: translateY(-2px);
     }
 
     .project:nth-child(even) {
-      grid-template-columns: 1.5fr 1fr;
+      grid-template-columns: 1.6fr 1fr;
     }
 
-    .project:nth-child(even) .project-text {
+    .project:nth-child(even) .proj-text {
       order: 2;
     }
 
-    .project:nth-child(even) .project-image {
+    .project:nth-child(even) .proj-img {
       order: 1;
     }
 
-    /* 文字區 */
-    .project-text {
+    .proj-text {
+      padding: 48px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .project-meta {
+    .proj-meta {
       display: flex;
-      gap: 20px;
-      font-family: var(--font-mono);
+      gap: 16px;
+      font-family: var(--mono);
       font-size: 11px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-      letter-spacing: 0.08em;
+      color: var(--light);
       text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
     }
 
-    .project-meta .project-num {
+    .proj-num {
       color: var(--accent);
       font-weight: 600;
     }
 
-    .project-name {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 3vw, 38px);
+    .proj-name {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 34px);
       font-weight: 400;
       line-height: 1.15;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
+      letter-spacing: -.01em;
+      margin-bottom: 14px;
     }
 
-    .project-tagline {
-      font-size: 15px;
-      color: var(--text-muted);
+    .proj-tagline {
+      font-size: 14.5px;
+      color: var(--muted);
       line-height: 1.7;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
-    .project-tags {
+    .proj-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-bottom: 32px;
     }
 
-    .project-tag {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 5px 12px;
-      background: #f1f1f1;
-      border: none;
+    .proj-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      padding: 4px 10px;
       border-radius: 6px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-weight: 500;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      letter-spacing: .03em;
     }
 
-    .project-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.02em;
-      margin-top: auto;
-      width: fit-content;
-    }
-
-    /* 圖片區：內部圖床圓角修飾 */
-    .project-image {
+    .proj-img {
       position: relative;
       overflow: hidden;
-      background: #F8F9FA;
-      border-radius: 16px;
-      aspect-ratio: 16 / 10;
+      background: var(--bg2);
+      min-height: 340px;
     }
 
-    .project-image img {
+    .proj-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1);
     }
 
-    /* 直立產品（後視鏡、支付機）：淺灰背景 + contain 完整顯示 */
-    .project-image--portrait {
-      background: #F8F9FA;
+    .project:hover .proj-img img {
+      transform: scale(1.03);
     }
 
-    .project-image--portrait img {
+    .proj-img--contain img {
       object-fit: contain;
-      padding: 24px;
+      padding: 32px;
     }
 
-    /* Re-Focus before/after：淺色背景，裁切上方置中 */
-    .project-image--comparison img {
-      object-position: center 30%;
+    @media (max-width: 860px) {
+
+      .project,
+      .project:nth-child(even) {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project:nth-child(even) .proj-text {
+        order: 2;
+      }
+
+      .project:nth-child(even) .proj-img {
+        order: 1;
+      }
+
+      .proj-img {
+        min-height: 240px;
+      }
+
+      .proj-text {
+        padding: 32px 24px;
+      }
     }
 
-    .project-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--text-light);
-      text-align: center;
-      padding: 24px;
-      line-height: 1.6;
-    }
-
-    /* ========== MORE WORKS ========== */
-    .more-works {
-      background: #FFFFFF;
-      border-top: 1px solid var(--hairline);
-      padding: 140px 0;
-    }
-
+    /* ===== MORE WORKS GRID ===== */
     .more-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 64px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+
+    @media (max-width: 860px) {
+      .more-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .more-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .more-card {
-      border: 1px solid var(--hairline);
+      background: var(--surface);
+      border: 1px solid var(--line);
       border-radius: 16px;
-      background: #F8F9FA;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      position: relative;
+    }
+
+    .more-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .07);
+      transform: translateY(-2px);
     }
 
     .more-card-img {
-      width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16/10;
       background: #FFFFFF;
-      position: relative;
+      overflow: hidden;
     }
 
     .more-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      object-position: center center;
+      transition: transform .4s;
+    }
+
+    .more-card:hover .more-card-img img {
+      transform: scale(1.04);
     }
 
     .more-card-body {
-      padding: 24px 32px 32px;
+      padding: 24px 28px 28px;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      flex: 1;
     }
 
     .more-card h4 {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      letter-spacing: -0.01em;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
     }
 
     .more-card p {
-      font-size: 14px;
-      color: var(--text-muted);
+      font-size: 13px;
+      color: var(--muted);
       line-height: 1.6;
-      margin-bottom: 32px;
+      margin-bottom: 20px;
     }
 
-    .more-card .cap-tags {
+    .more-card .tags {
       margin-top: auto;
     }
 
-    /* ========== EXPERIENCE ========== */
-    .experience {
-      background: #111111;
-      color: #F8F9FA;
-      padding: 140px 0;
-      margin-top: 40px;
+    .more-card .tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      letter-spacing: .03em;
     }
 
-    .experience .section-label {
-      color: rgba(248, 249, 250, 0.6);
+    .more-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 16px;
     }
 
-    .experience .section-label::before {
-      background: rgba(248, 249, 250, 0.6);
+    .more-card-footer .tags {
+      margin-top: 0;
+    }
+
+    .more-card-play {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.3;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .more-card-play:hover {
+      transform: scale(1.12);
+      opacity: 1;
+    }
+
+    .more-card-play svg {
+      width: 9px;
+      height: 9px;
+      fill: #fff;
+      margin-left: 1px;
+    }
+
+    /* ===== EXPERIENCE (dark) ===== */
+    .experience-section {
+      background: #111110;
+      color: oklch(97% 0.005 80);
+    }
+
+    .experience-section .section-label {
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .experience-section .section-label::before {
+      background: rgba(255, 255, 255, .2);
     }
 
     .exp-title {
-      font-family: var(--font-serif);
-      font-size: clamp(40px, 6vw, 64px);
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
       font-weight: 400;
       line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 80px;
-      max-width: 820px;
+      letter-spacing: -.02em;
+      margin-bottom: 72px;
     }
 
     .exp-title .accent {
-      color: #FF3D5F;
+      color: #FF4060;
+      font-style: italic;
     }
 
     .timeline {
@@ -710,20 +831,20 @@
       gap: 80px;
     }
 
-    .timeline-col h3 {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.15em;
+    .tl-col-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      color: rgba(248, 249, 250, 0.6);
-      margin-bottom: 32px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid rgba(250, 250, 247, 0.15);
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
     }
 
     .exp-item {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(250, 250, 247, 0.1);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
     }
 
     .exp-item:last-child {
@@ -731,64 +852,65 @@
     }
 
     .exp-year {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: rgba(250, 250, 247, 0.5);
-      margin-bottom: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
+      margin-bottom: 5px;
     }
 
     .exp-role {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 4px;
+      font-family: var(--serif);
+      font-size: 20px;
+      margin-bottom: 3px;
     }
 
     .exp-org {
-      font-size: 14px;
-      color: rgba(250, 250, 247, 0.7);
+      font-size: 13px;
+      color: rgba(255, 255, 255, .5);
     }
 
     .award-item {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(250, 250, 247, 0.1);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .07);
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 16px;
+      gap: 12px;
     }
 
     .award-name {
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .award-year {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: rgba(250, 250, 247, 0.5);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, .35);
       white-space: nowrap;
     }
 
-    /* ========== CONTACT ========== */
-    .contact {
-      padding: 160px 0 140px;
-      border-top: 1px solid var(--hairline);
+    @media (max-width: 700px) {
+      .timeline {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
     }
 
+    /* ===== CONTACT ===== */
     .contact-inner {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
+      text-align: left;
       padding: 0 var(--gutter);
-      text-align: center;
     }
 
     .contact-title {
-      font-family: var(--font-serif);
-      font-size: clamp(48px, 8vw, 96px);
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 82px);
       font-weight: 400;
       line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 32px;
+      letter-spacing: -.02em;
+      margin-bottom: 24px;
     }
 
     .contact-title .accent {
@@ -797,481 +919,372 @@
     }
 
     .contact-sub {
-      font-size: 18px;
-      color: var(--text-muted);
-      margin-bottom: 56px;
-      max-width: 580px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 0 48px;
+      line-height: 1.65;
     }
 
-    .contact-actions {
+    .contact-ctas {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
-      gap: 32px;
+      gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 64px;
+      margin-bottom: 52px;
     }
 
-    .contact-action-item {
+    .cta-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-    }
-
-    .btn {
-      font-size: 15px;
-      font-weight: 500;
-      padding: 16px 36px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       gap: 10px;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid transparent;
-      white-space: nowrap;
     }
 
-    .btn-primary {
-      background: #111111;
-      color: #FAFAF7;
-      box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-secondary {
-      background: #FFFFFF;
-      color: #111111;
-      border-color: var(--hairline);
-    }
-
-    .contact-pdf-hint {
-      font-size: 12px;
-      color: var(--text-muted);
-      max-width: 260px;
-      line-height: 1.5;
+    .pdf-hint {
+      font-size: 11.5px;
+      color: var(--light);
+      max-width: 240px;
       text-align: center;
-      opacity: 0.8;
+      line-height: 1.5;
     }
 
     .contact-roles {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.1em;
-      line-height: 2;
-      opacity: 0.7;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--light);
+      letter-spacing: .08em;
+      line-height: 2.2;
     }
 
-    .contact-roles .sep {
-      color: var(--text-light);
-      margin: 0 12px;
+    .sep {
+      margin: 0 10px;
+      color: var(--line);
     }
 
-    /* ========== FOOTER ========== */
-    .footer {
-      padding: 48px 0;
-      border-top: 1px solid var(--hairline);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    /* ========== SCROLL ANIMATIONS ========== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 900px) {
-      section {
-        padding: 100px 0;
-      }
-
-      .nav-menu {
-        gap: 20px;
-        font-size: 13px;
-      }
-
-      .nav-menu a:not(.lang-switch) {
-        display: none;
-      }
-
-      .cap-grid {
-        grid-template-columns: 1fr;
-        border-radius: 24px;
-      }
-
-      .cap-cell {
-        padding: 32px 24px;
-      }
-
-      .project-list {
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
-      }
-
-      .project,
-      .project:nth-child(even) {
-        grid-template-columns: 1fr;
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-        padding: 32px 24px;
-        border-radius: 24px;
-        text-align: left;
-      }
-
-      .project .project-image,
-      .project:nth-child(even) .project-image {
-        order: 1;
-        width: 100%;
-      }
-
-      .project .project-text,
-      .project:nth-child(even) .project-text {
-        order: 2;
-        text-align: left;
-        align-items: flex-start;
-      }
-
-      .project-meta,
-      .project-tags {
-        justify-content: flex-start;
-      }
-
-      .project-cta {
-        margin: 24px 0 0;
-      }
-
-      .project-name {
-        font-size: 32px;
-      }
-
-      .timeline {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-meta {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        margin-top: 32px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      :root {
-        --gutter: 20px;
-      }
-
-      section {
-        padding: 80px 0;
-      }
-
-      .hero {
-        padding-top: 120px;
-      }
-
-      .hero-subtitle {
-        font-size: 17px;
-      }
-
-      .contact-actions {
+    @media (max-width: 540px) {
+      .contact-ctas {
         flex-direction: column;
         align-items: center;
-        gap: 32px;
-      }
-
-      .contact-action-item {
-        width: 100%;
-        max-width: 320px;
       }
 
       .btn {
         width: 100%;
-        padding: 16px 24px;
+        max-width: 300px;
+        justify-content: center;
       }
     }
 
-    /* Selection */
-    ::selection {
-      background: var(--accent);
-      color: #FAFAF7;
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--light);
+    }
+
+    .footer-inner a:hover {
+      color: var(--text);
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .8s cubic-bezier(.25, .46, .45, .94), transform .8s cubic-bezier(.25, .46, .45, .94);
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
     }
   </style>
+  <template id="__bundler_thumbnail" data-bg-color="#fafaf8">
+    <svg viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="300" fill="#fafaf8" />
+      <rect x="40" y="40" width="48" height="48" rx="12" fill="#111110" />
+      <path d="M52 51L64 63M76 51L64 63M64 63V79" stroke="white" stroke-width="4" stroke-linecap="round"
+        stroke-linejoin="round" />
+      <circle cx="64" cy="63" r="4" fill="#B8002E" />
+      <rect x="40" y="108" width="180" height="8" rx="4" fill="#111110" opacity="0.8" />
+      <rect x="40" y="124" width="120" height="6" rx="3" fill="#111110" opacity="0.3" />
+      <rect x="40" y="160" width="320" height="60" rx="12" fill="#111110" opacity="0.06" />
+      <rect x="40" y="240" width="140" height="20" rx="6" fill="#B8002E" opacity="0.15" />
+    </svg>
+  </template>
+  <script type='text/javascript' nonce='bA7LPrlgDL+tyDYp7YF4rw=='
+    src='https://claude.ai/4e8MNhLvD-Hr0LqNwW_-kpD0V4C1Ltra6RqPEewE1vjBhispFsl6Dqx9LJMzWn_jCxG9p0I8KrHvy6a1gND0b3xbLRqrGC1k2yKWzW7gdpiW_nPybj9esDGxVdmbjZ_PK3mfR6Xtp7h77ZE_M2PPFFjxvOSZqnxl-Z2pcD-eQBK80OG4ehjv3Y2L-1XYqz3YCvTd25RJvCB5Jk75GEP_BD4JvhhJ2YQTaYBFkOHnID_ZmNybKVVvNCKxe9GhhkhD5mqOQyNfN5vQzIgi9eOmFeAgXhRCjhDJ-Yk8cVgZdh2eVNkJG22Sa91GUTNVOwETLXsFKLpvnOyn6nw4syZhboydR7D4AKZUyn_vYMkMjYB2H9IeNOTy_C9gX8CI9CWO6XeZyy5Q05-qw4iRtrTObykg9jXQGRV9MZhNe7SE1INnhZC01WDEjfC67yGhTl5NaH34wsxjkRpHK_nF5i_qlVyEF09c-5yB7I-I6KPpzAXqvbYyOnsZJUufXf-_inAybafofVLYVUyx2Agg6AjP6x1mFviA5RmfF9-8Iw99SdWvGQo'></script>
 </head>
 
 <body>
 
-  <!-- ============ NAVIGATION ============ -->
+  <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <a href="#" class="nav-brand">
-        <div class="logo-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="8" fill="#111111" />
-            <path d="M12 11L20 21M28 11L20 21M20 21V31" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-            <circle cx="20" cy="21" r="3" fill="var(--accent)" />
+        <div class="logo">
+          <svg viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="8" fill="#111110" />
+            <path d="M12 11L20 21M28 11L20 21M20 21V31" stroke="white" stroke-width="3.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <circle cx="20" cy="21" r="3" fill="#B8002E" />
           </svg>
         </div>
         <span>YuFeng<span class="dot">.</span></span>
       </a>
-      <div class="nav-menu">
+      <div class="nav-links">
         <a href="#work" data-i18n="nav.work">Work</a>
         <a href="#experience" data-i18n="nav.experience">Experience</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
-        <button class="lang-switch" id="langSwitch">
-          <span class="active" data-lang="en">EN</span> / <span data-lang="zh">中</span>
+        <button class="lang-btn" id="langBtn">
+          <span class="active" id="langEN">EN</span> / <span id="langZH">中</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- ============ HERO ============ -->
+  <!-- HERO -->
   <header class="hero">
-    <div class="hero-inner">
+    <div class="wrap">
       <div class="hero-layout">
         <div class="hero-content">
-          <div class="hero-eyebrow reveal">
-            <span class="accent-dot"></span>
+          <div class="eyebrow reveal">
+            <span class="eyebrow-dot"></span>
             <span data-i18n="hero.eyebrow">Available for new opportunities · Based in Taiwan</span>
           </div>
-
-          <h1 class="hero-title reveal">
-            <span data-i18n="hero.line1">Software</span>
-            <span class="cross">×</span>
-            <span data-i18n="hero.line2">Hardware</span>
-            <span class="cross">×</span>
-            <span class="accent" data-i18n="hero.line3">AI</span><br />
+          <h1 class="hero-title reveal reveal-delay-1">
+            <span data-i18n="hero.line1">Software</span><span class="cross">×</span><span
+              data-i18n="hero.line2">Hardware</span><span class="cross">×</span><span class="accent"
+              data-i18n="hero.line3">AI</span><br>
             <span data-i18n="hero.line4">Product Developer.</span>
           </h1>
-
-          <p class="hero-subtitle reveal" data-i18n="hero.subtitle">
+          <p class="hero-sub reveal reveal-delay-2" data-i18n="hero.subtitle">
             I design and build integrated products from the silicon up — schematic, firmware, Android apps, and AI
-            models. 14 years at InnoLux, now looking for teams where one engineer can ship a product end-to-end.
+            models. 14 years at InnoLux, now looking for teams where one engineer can ship end-to-end.
           </p>
-
-          <div class="hero-meta reveal">
-            <div>
-              <div data-i18n="hero.meta1.label">Experience</div>
-              <strong>14 <span data-i18n="hero.meta1.value">years</span></strong>
+          <div class="hero-actions reveal reveal-delay-2">
+            <a href="#work" class="btn btn-dark" data-i18n="hero.btn1">View Work →</a>
+            <a href="./YF portfolio_EN.pdf" class="btn btn-ghost" target="_blank" data-i18n="hero.btn2">PDF
+              Portfolio</a>
+          </div>
+          <div class="hero-stats reveal reveal-delay-3">
+            <div class="hero-stat">
+              <strong>14</strong>
+              <span data-i18n="stat.years">Years exp.</span>
             </div>
-            <div>
-              <div data-i18n="hero.meta2.label">Awards</div>
-              <strong>4+ <span data-i18n="hero.meta2.value">industry</span></strong>
+            <div class="hero-stat">
+              <strong>4+</strong>
+              <span data-i18n="stat.awards">Industry awards</span>
             </div>
-            <div>
-              <div data-i18n="hero.meta3.label">Disciplines</div>
-              <strong>HW · FW · SW · AI</strong>
+            <div class="hero-stat">
+              <strong>HW·FW·SW·AI</strong>
+              <span data-i18n="stat.disciplines">Disciplines</span>
             </div>
           </div>
         </div>
-
-        <div class="hero-portrait reveal">
-          <img src="./YF(small).png" alt="YuFeng Huang — Product Developer" />
+        <div class="portrait-wrap reveal reveal-delay-2">
+          <div class="portrait-bg"></div>
+          <img class="portrait-img" src="./yf-portrait.png" alt="YuFeng Huang">
+          <div class="portrait-badge"><span>InnoLux</span> · 14 yrs</div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ============ CAPABILITIES ============ -->
-  <section class="capabilities" id="capabilities">
-    <div class="container">
+  <!-- CAPABILITIES -->
+  <section class="divider" id="capabilities">
+    <div class="wrap">
       <div class="reveal">
         <div class="section-label" data-i18n="cap.label">01 — Capabilities</div>
-        <h2 class="work-title" data-i18n="cap.title">
-          The rare engineer who speaks every layer of the stack.
-        </h2>
+        <h2 class="section-title" style="max-width:680px" data-i18n="cap.title">The rare engineer who speaks every layer
+          of the stack.</h2>
       </div>
-
-      <div class="cap-grid reveal">
+      <div class="cap-strip reveal reveal-delay-1">
         <div class="cap-cell">
-          <div class="cap-number">01</div>
-          <h3 class="cap-title"><span class="accent">Hardware</span></h3>
-          <p class="cap-desc" data-i18n="cap.hw.desc">PCB schematic and layout, mechanical design, and system
-            integration from sensors to power management.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">PCB Design</span>
-            <span class="cap-tag">LCEDA</span>
-            <span class="cap-tag">SolidWorks</span>
-            <span class="cap-tag">Mechanical</span>
+          <div class="cap-num">01</div>
+          <h3 class="cap-h"><span>Hardware</span></h3>
+          <p class="cap-p" data-i18n="cap.hw.desc">PCB schematic and layout, mechanical design, system integration from
+            sensors to power management.</p>
+          <div class="tags">
+            <span class="tag">PCB Design</span><span class="tag">LCEDA</span><span class="tag">SolidWorks</span><span
+              class="tag">Mechanical</span>
           </div>
         </div>
-
         <div class="cap-cell">
-          <div class="cap-number">02</div>
-          <h3 class="cap-title"><span class="accent">Firmware</span></h3>
-          <p class="cap-desc" data-i18n="cap.fw.desc">MCU drivers, BLE/WiFi stacks, Android BSP integration, and
-            low-level panel & touch driver work.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">ESP32</span>
-            <span class="cap-tag">RK3568/3688</span>
-            <span class="cap-tag">Android BSP</span>
-            <span class="cap-tag">C / C++</span>
+          <div class="cap-num">02</div>
+          <h3 class="cap-h"><span>Firmware</span></h3>
+          <p class="cap-p" data-i18n="cap.fw.desc">MCU drivers, BLE/WiFi stacks, Android BSP integration, low-level
+            panel & touch driver work.</p>
+          <div class="tags">
+            <span class="tag">ESP32</span><span class="tag">RK3568/3688</span><span class="tag">Android BSP</span><span
+              class="tag">C / C++</span>
           </div>
         </div>
-
         <div class="cap-cell">
-          <div class="cap-number">03</div>
-          <h3 class="cap-title"><span class="accent">Software</span></h3>
-          <p class="cap-desc" data-i18n="cap.sw.desc">Android applications in Java, UI/UX in Figma, Windows/Linux tools
-            in C++, and web stacks in PHP/MySQL.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">Android / Java</span>
-            <span class="cap-tag">Figma</span>
-            <span class="cap-tag">C++</span>
-            <span class="cap-tag">Web</span>
+          <div class="cap-num">03</div>
+          <h3 class="cap-h"><span>Software</span></h3>
+          <p class="cap-p" data-i18n="cap.sw.desc">Android apps in Java, UI/UX in Figma, Windows/Linux tools in C++, web
+            stacks in PHP/MySQL.</p>
+          <div class="tags">
+            <span class="tag">Android / Java</span><span class="tag">Figma</span><span class="tag">C++</span><span
+              class="tag">Web</span>
           </div>
         </div>
-
         <div class="cap-cell">
-          <div class="cap-number">04</div>
-          <h3 class="cap-title"><span class="accent">AI / ML</span></h3>
-          <p class="cap-desc" data-i18n="cap.ai.desc">Computer vision with CNNs, image captioning with CNN+Attend+RNN,
-            and on-device inference with NPUs.</p>
-          <div class="cap-tags">
-            <span class="cap-tag">Python</span>
-            <span class="cap-tag">CNN / RNN</span>
-            <span class="cap-tag">NPU Inference</span>
-            <span class="cap-tag">Computer Vision</span>
+          <div class="cap-num">04</div>
+          <h3 class="cap-h"><span>AI / ML</span></h3>
+          <p class="cap-p" data-i18n="cap.ai.desc">Computer vision with CNNs, image captioning CNN+Attend+RNN, on-device
+            inference with NPUs.</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">CNN / RNN</span><span class="tag">NPU Inference</span><span
+              class="tag">Vision</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FEATURED WORK ============ -->
-  <section class="work" id="work">
-    <div class="container">
+  <!-- FEATURED WORK -->
+  <section class="divider" id="work">
+    <div class="wrap">
       <div class="reveal">
         <div class="section-label" data-i18n="work.label">02 — Featured Work</div>
         <div class="work-header">
-          <h2 class="work-title" data-i18n="work.title">
-            Four products, built end-to-end.
-          </h2>
+          <h2 class="section-title" data-i18n="work.title">Four products, built end-to-end.</h2>
           <div class="work-count" data-i18n="work.count">2018 — 2024 · Selected</div>
         </div>
       </div>
-
       <div class="project-list">
 
         <article class="project reveal">
-          <div class="project-text">
-            <div class="project-meta">
-              <span class="project-num">01</span>
+          <div class="proj-text">
+            <div class="proj-meta">
+              <span class="proj-num">01</span>
               <span>2024</span>
-              <span data-i18n="work.p1.role">Full-stack product lead</span>
+              <span data-i18n="p1.role">Full-stack product lead</span>
             </div>
-            <h3 class="project-name" data-i18n="work.p1.name">Color E-paper Desktop Sign</h3>
-            <p class="project-tagline" data-i18n="work.p1.tagline">A 7.3-inch color E-paper sign — designed, engineered,
-              and app-enabled by one person. A full year of battery life on a single charge.</p>
-            <div class="project-tags">
-              <span class="project-tag">PCB Design</span>
-              <span class="project-tag">ESP32-S3</span>
-              <span class="project-tag">BLE + WiFi</span>
-              <span class="project-tag">Android App</span>
-              <span class="project-tag">ID / Mech</span>
+            <h3 class="proj-name" data-i18n="p1.name">E-paper Meeting Room Sign</h3>
+            <p class="proj-tagline" data-i18n="p1.tagline">A 7.5-inch tri-color E-paper meeting room sign — zero-power
+              static display, BLE-enabled, with a companion Android booking app built and shipped by one person.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">PCB Design</span><span class="proj-tag">ESP32-S3</span><span class="proj-tag">BLE +
+                WiFi</span><span class="proj-tag">Android App</span><span class="proj-tag">ID / Mech</span>
             </div>
+            <a href="https://www.youtube.com/watch?v=7aF_x-LMT-A" target="_blank" class="btn btn-reel"
+              style="margin-top:20px;width:fit-content">
+              <span class="play-icon"><svg viewbox="0 0 10 10">
+                  <polygon points="3,2 8,5 3,8" />
+                </svg></span>
+              <span data-i18n="hero.reel">Watch Reel</span>
+            </a>
           </div>
-          <div class="project-image">
-            <img src="./images/Color E-paper Desktop Sign.png"
-              alt="7.3-inch Color E-paper Desktop Sign showing a dessert café menu" loading="lazy" />
-          </div>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-text">
-            <div class="project-meta">
-              <span class="project-num">02</span>
-              <span>2023</span>
-              <span data-i18n="work.p2.role">AI + Android + ID</span>
-            </div>
-            <h3 class="project-name" data-i18n="work.p2.name">Paper-like Digital Frame</h3>
-            <p class="project-tagline" data-i18n="work.p2.tagline">An ambient 27" digital frame that reads the room's
-              color temperature — and paints accordingly. Gesture-controlled, AI-enhanced.</p>
-            <div class="project-tags">
-              <span class="project-tag">AI Color Algo</span>
-              <span class="project-tag">RK3568 NPU</span>
-              <span class="project-tag">Android BSP</span>
-              <span class="project-tag">Gesture UI</span>
-            </div>
-          </div>
-          <div class="project-image">
-            <img src="./images/Paper-like Digital Frame.png"
-              alt="27-inch Paper-like Digital Frame with wooden frame displaying floral AI art" loading="lazy" />
+          <div class="proj-img proj-img--contain">
+            <img src="./images/epaper-meeting-sign.png" alt="E-paper Meeting Room Sign" loading="lazy">
           </div>
         </article>
 
         <article class="project reveal">
-          <div class="project-text">
-            <div class="project-meta">
-              <span class="project-num">03</span>
+          <div class="proj-text">
+            <div class="proj-meta">
+              <span class="proj-num">02</span>
               <span>2023</span>
-              <span data-i18n="work.p3.role">Computer vision + automotive</span>
+              <span data-i18n="p2.role">AI + Android + ID</span>
             </div>
-            <h3 class="project-name" data-i18n="work.p3.name">AI Truck E-Mirror</h3>
-            <p class="project-tagline" data-i18n="work.p3.tagline">Real-time AI object detection on a 12.3" truck
-              rearview mirror — running at 24+ fps, splitting inference and display across NPU and CPU threads.</p>
-            <div class="project-tags">
-              <span class="project-tag">Computer Vision</span>
-              <span class="project-tag">RK3688 NPU</span>
-              <span class="project-tag">Multi-threading</span>
-              <span class="project-tag">Automotive</span>
+            <h3 class="proj-name" data-i18n="p2.name">Paper-like Digital Frame</h3>
+            <p class="proj-tagline" data-i18n="p2.tagline">An ambient 27" digital frame that reads the room's color
+              temperature — and paints accordingly. Gesture-controlled, AI-enhanced.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">AI Color Algo</span><span class="proj-tag">RK3568 NPU</span><span
+                class="proj-tag">Android BSP</span><span class="proj-tag">Gesture UI</span>
             </div>
+            <a href="https://www.youtube.com/watch?v=ei__kNpzFDM" target="_blank" class="btn btn-reel"
+              style="margin-top:20px;width:fit-content">
+              <span class="play-icon"><svg viewbox="0 0 10 10">
+                  <polygon points="3,2 8,5 3,8" />
+                </svg></span>
+              <span data-i18n="hero.reel">Watch Reel</span>
+            </a>
           </div>
-          <div class="project-image project-image--portrait">
-            <img src="./images/AI Truck E-Mirror.png"
-              alt="12.3-inch AI Truck E-Mirror with real-time object detection bounding boxes" loading="lazy" />
+          <div class="proj-img">
+            <img src="./images/paper-digital-frame.png" alt="Paper-like Digital Frame" loading="lazy">
           </div>
         </article>
 
         <article class="project reveal">
-          <div class="project-text">
-            <div class="project-meta">
-              <span class="project-num">04</span>
+          <div class="proj-text">
+            <div class="proj-meta">
+              <span class="proj-num">03</span>
               <span>2023</span>
-              <span data-i18n="work.p4.role">ID + UI/UX + firmware</span>
+              <span data-i18n="p3.role">Computer vision + automotive</span>
             </div>
-            <h3 class="project-name" data-i18n="work.p4.name">Multi-Payment Terminal</h3>
-            <p class="project-tagline" data-i18n="work.p4.tagline">A 4.3" self-checkout terminal that speaks every
-              payment language — NFC, QR, barcode, e-ticket — with animated UI guidance for first-time users.</p>
-            <div class="project-tags">
-              <span class="project-tag">Product Design</span>
-              <span class="project-tag">NFC / QR / Barcode</span>
-              <span class="project-tag">Animated UI</span>
-              <span class="project-tag">Retail</span>
+            <h3 class="proj-name" data-i18n="p3.name">AI Truck E-Mirror</h3>
+            <p class="proj-tagline" data-i18n="p3.tagline">Real-time AI object detection on a 12.3" truck rearview
+              mirror — running at 24+ fps, splitting inference and display across NPU and CPU threads.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Computer Vision</span><span class="proj-tag">RK3688 NPU</span><span
+                class="proj-tag">Multi-threading</span><span class="proj-tag">Automotive</span>
             </div>
+            <a href="https://www.youtube.com/watch?v=0Wqjfp0PRo0" target="_blank" class="btn btn-reel"
+              style="margin-top:20px;width:fit-content">
+              <span class="play-icon"><svg viewbox="0 0 10 10">
+                  <polygon points="3,2 8,5 3,8" />
+                </svg></span>
+              <span data-i18n="hero.reel">Watch Reel</span>
+            </a>
           </div>
-          <div class="project-image project-image--portrait">
-            <img src="./images/Multi-Payment Terminal.png"
-              alt="4.3-inch Multi-Payment Terminal showing multiple payment options on screen" loading="lazy" />
+          <div class="proj-img proj-img--contain">
+            <img src="./images/ai-truck-emirror.png" alt="AI Truck E-Mirror" loading="lazy">
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="proj-text">
+            <div class="proj-meta">
+              <span class="proj-num">04</span>
+              <span>2023</span>
+              <span data-i18n="p4.role">ID + UI/UX + firmware</span>
+            </div>
+            <h3 class="proj-name" data-i18n="p4.name">Multi-Payment Terminal</h3>
+            <p class="proj-tagline" data-i18n="p4.tagline">A 4.3" self-checkout terminal supporting NFC, QR, barcode,
+              and e-ticket — with animated UI guidance for first-time users.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Product Design</span><span class="proj-tag">NFC / QR / Barcode</span><span
+                class="proj-tag">Animated UI</span><span class="proj-tag">Retail</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=9iwMd2i-YwM" target="_blank" class="btn btn-reel"
+              style="margin-top:20px;width:fit-content">
+              <span class="play-icon"><svg viewbox="0 0 10 10">
+                  <polygon points="3,2 8,5 3,8" />
+                </svg></span>
+              <span data-i18n="hero.reel">Watch Reel</span>
+            </a>
+          </div>
+          <div class="proj-img proj-img--contain">
+            <img src="./images/multi-payment-terminal.png" alt="Multi-Payment Terminal" loading="lazy">
           </div>
         </article>
 
@@ -1279,102 +1292,102 @@
     </div>
   </section>
 
-  <!-- ============ MORE HARDWARE INTEGRATIONS ============ -->
-  <section class="more-works" id="more-works">
-    <div class="container">
+  <!-- MORE WORKS -->
+  <section class="divider" id="more">
+    <div class="wrap">
       <div class="reveal">
         <div class="section-label" data-i18n="more.label">03 — Extended Catalog</div>
-        <h2 class="work-title" data-i18n="more.title">
-          15+ additional products bringing pixels to the physical world.
-        </h2>
-        <p class="hero-subtitle" data-i18n="more.subtitle" style="margin-top:24px; max-width:800px;">
-          Beyond the featured cases, I have designed and integrated a vast array of specialized displays and interactive
-          hardware. From automotive clusters to holographic floating screens, here's a glimpse of the extended catalog.
-        </p>
+        <h2 class="section-title" style="max-width:720px" data-i18n="more.title">15+ products bringing pixels to the
+          physical world.</h2>
       </div>
-
-      <div class="more-grid reveal">
+      <div class="more-grid reveal reveal-delay-1">
         <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/Digital Signature Pad.png" alt="Digital Signature Pad" loading="lazy"
-              onerror="this.style.display='none'">
-          </div>
+          <div class="more-card-img"><img src="./images/digital-signature-pad.png" alt="Digital Signature Pad"
+              loading="lazy" style="object-fit:contain;padding:16px"></div>
           <div class="more-card-body">
-            <h4 data-i18n="more.c1.name">Digital Signature Pad</h4>
-            <p data-i18n="more.c1.desc">13.3" display with MPP 2.0 active pen (4096 pressure levels) and Type-C
-              integration.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">RK SoC</span> <span class="cap-tag">Hardware</span>
-            </div>
-          </div>
-        </div>
-        <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/E-paper Meeting Sign.png" alt="E-paper Meeting Sign" loading="lazy"
-              onerror="this.style.display='none'">
-          </div>
-          <div class="more-card-body">
-            <h4 data-i18n="more.c2.name">E-paper Meeting Sign</h4>
-            <p data-i18n="more.c2.desc">7.5" tri-color e-paper sign with zero-power static display and Android booking
-              app.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">ESP32</span> <span class="cap-tag">Android APP</span>
-            </div>
-          </div>
-        </div>
-        <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/Cluster and CID.png" alt="Cluster and CID" loading="lazy"
-              onerror="this.style.display='none'">
-          </div>
-          <div class="more-card-body">
-            <h4 data-i18n="more.c3.name">Cluster & CID</h4>
-            <p data-i18n="more.c3.desc">12.3" dual-screen automotive display with CarPlay, Android Auto, and NPU
-              integration.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">RK3588</span> <span class="cap-tag">Automotive</span>
-            </div>
-          </div>
-        </div>
-        <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/Floating Display.png" alt="Floating Display" loading="lazy"
-              onerror="this.style.display='none'">
-          </div>
-          <div class="more-card-body">
-            <h4 data-i18n="more.c4.name">Floating Display</h4>
-            <p data-i18n="more.c4.desc">12.1" holographic mid-air display with gesture control, no physical medium
-              required.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Freescale iMX6</span> <span class="cap-tag">Android 6</span>
-            </div>
-          </div>
-        </div>
-        <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/Touch NFT Frame.png" alt="Touch NFT Frame" loading="lazy"
-              onerror="this.style.display='none'">
-          </div>
-          <div class="more-card-body">
-            <h4 data-i18n="more.c5.name">Touch NFT Frame</h4>
-            <p data-i18n="more.c5.desc">13.3" 4K frame featuring 3D visual illusions driven by HD camera eyes-tracking.
+            <h4 data-i18n="c1.name">Digital Signature Pad</h4>
+            <p data-i18n="c1.desc">13.3" display with MPP 2.0 active pen (4096 pressure levels) and Type-C integration.
             </p>
-            <div class="cap-tags">
-              <span class="cap-tag">RK3399</span> <span class="cap-tag">Computer Vision</span>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">RK SoC</span><span class="tag">Hardware</span></div>
+              <a href="https://www.youtube.com/watch?v=fnlvjyPcpXw" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
             </div>
           </div>
         </div>
         <div class="more-card">
-          <div class="more-card-img">
-            <img src="./images/Patient Monitor.png" alt="Patient Monitor" loading="lazy"
-              onerror="this.style.display='none'">
+          <div class="more-card-img"><img src="./images/ar-glasses-mirror.png" alt="AR Glasses Mirror" loading="lazy"
+              style="object-fit:cover;object-position:right center"></div>
+          <div class="more-card-body">
+            <h4>AR Glasses Mirror</h4>
+            <p>12.3" see-through AR mirror for try-on glasses with advertising playback — in-cell capacitive touch.</p>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">RK3399</span><span class="tag">AR</span></div>
+              <a href="https://www.youtube.com/watch?v=g6SgClWmdwk" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="more-card">
+          <div class="more-card-img"><img src="./images/cluster-cid.png" alt="Cluster and CID" loading="lazy"></div>
+          <div class="more-card-body">
+            <h4 data-i18n="c3.name">Cluster &amp; CID</h4>
+            <p data-i18n="c3.desc">12.3" dual-screen automotive display with CarPlay, Android Auto, and NPU integration.
+            </p>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">RK3588</span><span class="tag">Automotive</span></div>
+              <a href="https://www.youtube.com/watch?v=vqH7kxlGcC4" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="more-card">
+          <div class="more-card-img"><img src="./images/floating-display.png" alt="Floating Display" loading="lazy">
           </div>
           <div class="more-card-body">
-            <h4 data-i18n="more.c6.name">Patient Monitor</h4>
-            <p data-i18n="more.c6.desc">12.1" medical display featuring 99% antibacterial protection and wet/glove
-              touch.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Medical</span> <span class="cap-tag">Freescale</span>
+            <h4 data-i18n="c4.name">Floating Display</h4>
+            <p data-i18n="c4.desc">12.1" holographic mid-air display with gesture control, no physical medium required.
+            </p>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">Freescale iMX6</span><span class="tag">Android 6</span></div>
+              <a href="https://www.youtube.com/watch?v=ezrZNuHLRwc" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="more-card">
+          <div class="more-card-img"><img src="./images/touch-nft-frame.png" alt="Touch NFT Frame" loading="lazy"></div>
+          <div class="more-card-body">
+            <h4 data-i18n="c5.name">Touch NFT Frame</h4>
+            <p data-i18n="c5.desc">13.3" 4K frame featuring 3D visual illusions driven by HD camera eye-tracking.</p>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">RK3399</span><span class="tag">Computer Vision</span></div>
+              <a href="https://www.youtube.com/watch?v=pjw9yd8Pnbo" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="more-card">
+          <div class="more-card-img"><img src="./images/patient-monitor.png" alt="Patient Monitor" loading="lazy"></div>
+          <div class="more-card-body">
+            <h4 data-i18n="c6.name">Patient Monitor</h4>
+            <p data-i18n="c6.desc">12.1" medical display with 99% antibacterial protection and wet/glove touch.</p>
+            <div class="more-card-footer">
+              <div class="tags"><span class="tag">Medical</span><span class="tag">Freescale</span></div>
+              <a href="https://www.youtube.com/watch?v=4bwHxm5rJAg" target="_blank" class="more-card-play"
+                aria-label="Watch video"><svg viewBox="0 0 12 12">
+                  <polygon points="3,2 10,6 3,10" />
+                </svg></a>
             </div>
           </div>
         </div>
@@ -1382,62 +1395,60 @@
     </div>
   </section>
 
-  <!-- ============ EXPERIENCE ============ -->
-  <section class="experience" id="experience">
-    <div class="container">
+  <!-- EXPERIENCE -->
+  <section class="experience-section" id="experience">
+    <div class="wrap">
       <div class="reveal">
         <div class="section-label" data-i18n="exp.label">04 — Track Record</div>
         <h2 class="exp-title">
-          <span data-i18n="exp.title1">14 years in the panel industry.</span><br />
-          <span class="accent" data-i18n="exp.title2">Four award-winning products.</span>
+          <span data-i18n="exp.line1">14 years in the panel industry.</span><br>
+          <span class="accent" data-i18n="exp.line2">Four award-winning products.</span>
         </h2>
       </div>
-
-      <div class="timeline reveal">
-        <div class="timeline-col">
-          <h3 data-i18n="exp.col1">Experience</h3>
+      <div class="timeline reveal reveal-delay-1">
+        <div>
+          <div class="tl-col-title" data-i18n="exp.col1">Experience</div>
           <div class="exp-item">
             <div class="exp-year">2015 — Present</div>
-            <div class="exp-role" data-i18n="exp.role1">Product Developer</div>
+            <div class="exp-role" data-i18n="role1">Product Developer</div>
             <div class="exp-org">InnoLux Corporation</div>
           </div>
           <div class="exp-item">
             <div class="exp-year">2014 — 2016</div>
-            <div class="exp-role" data-i18n="exp.role2">Outsourcing Evaluation</div>
+            <div class="exp-role" data-i18n="role2">Outsourcing Evaluation</div>
             <div class="exp-org">InnoLux Corporation</div>
           </div>
           <div class="exp-item">
             <div class="exp-year">2010 — 2014</div>
-            <div class="exp-role" data-i18n="exp.role3">Panel Package Design</div>
+            <div class="exp-role" data-i18n="role3">Panel Package Design</div>
             <div class="exp-org">InnoLux Corporation</div>
           </div>
           <div class="exp-item">
             <div class="exp-year">2007 — 2009</div>
-            <div class="exp-role" data-i18n="exp.role4">M.S. Industrial Design</div>
+            <div class="exp-role" data-i18n="role4">M.S. Industrial Design</div>
             <div class="exp-org">National Cheng Kung University</div>
           </div>
         </div>
-
-        <div class="timeline-col">
-          <h3 data-i18n="exp.col2">Awards & Recognition</h3>
+        <div>
+          <div class="tl-col-title" data-i18n="exp.col2">Awards &amp; Recognition</div>
           <div class="award-item">
-            <div class="award-name" data-i18n="exp.award1">Gold Panel Award @19</div>
+            <div class="award-name" data-i18n="award1">Gold Panel Award</div>
             <div class="award-year">2024</div>
           </div>
           <div class="award-item">
-            <div class="award-name" data-i18n="exp.award2">Go Next Digital — 1st Place</div>
+            <div class="award-name" data-i18n="award2">Go Next Digital — 1st Place</div>
             <div class="award-year">2023</div>
           </div>
           <div class="award-item">
-            <div class="award-name" data-i18n="exp.award3">AI Academy Project — 1st Place</div>
+            <div class="award-name" data-i18n="award3">AI Academy Project — 1st Place</div>
             <div class="award-year">2022</div>
           </div>
           <div class="award-item">
-            <div class="award-name" data-i18n="exp.award4">Taiwan Excellent Award ×3</div>
+            <div class="award-name" data-i18n="award4">Taiwan Excellent Award</div>
             <div class="award-year">2021 / 2023 / 2024</div>
           </div>
           <div class="award-item">
-            <div class="award-name" data-i18n="exp.award5">AI Academy Project — 2nd Place</div>
+            <div class="award-name" data-i18n="award5">AI Academy Project — 2nd Place</div>
             <div class="award-year">2018</div>
           </div>
         </div>
@@ -1445,299 +1456,148 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="reveal">
-        <div class="section-label" style="justify-content: center;" data-i18n="contact.label">05 — Let's Build Something
+  <!-- CONTACT -->
+  <section class="divider" id="contact" style="padding: 140px 0;">
+    <div class="contact-inner reveal">
+      <div class="section-label" data-i18n="contact.label">05 — Let's Build Something</div>
+      <h2 class="contact-title">
+        <span data-i18n="contact.line1">Looking for an engineer who</span><br>
+        <span class="accent" data-i18n="contact.line2">ships it end-to-end?</span>
+      </h2>
+      <p class="contact-sub" data-i18n="contact.sub">Open to full-time and contract roles in smart hardware, IoT,
+        consumer electronics, and panel & semiconductor industries.</p>
+      <div class="contact-ctas">
+        <div class="cta-item">
+          <a href="/cdn-cgi/l/email-protection#77041c0e001e1910414637101a161e1b5914181a" class="btn btn-dark"><span
+              data-i18n="contact.email">Email Me</span> →</a>
         </div>
-        <h2 class="contact-title">
-          <span data-i18n="contact.title1">Looking for a product engineer who</span>
-          <span class="accent" data-i18n="contact.title2">ships it end-to-end?</span>
-        </h2>
-        <p class="contact-sub" data-i18n="contact.sub">Currently open to full-time and contract roles in smart hardware,
-          IoT, consumer electronics, and panel & semiconductor industries.</p>
-
-        <div class="contact-actions">
-          <div class="contact-action-item">
-            <a href="mailto:skywing61@gmail.com" class="btn btn-primary">
-              <span data-i18n="contact.btn1">Email Me</span> →
-            </a>
-          </div>
-          <div class="contact-action-item">
-            <a href="./YF portfolio_EN.pdf" class="btn btn-secondary" target="_blank" id="pdfLink">
-              <span data-i18n="contact.btn2">View Full PDF Portfolio</span>
-            </a>
-            <span class="contact-pdf-hint" data-i18n="contact.pdfhint">
-              * Includes detailed PCB layouts, architecture diagrams, and full spec lists.
-            </span>
-          </div>
+        <div class="cta-item">
+          <a href="./YF portfolio_EN.pdf" class="btn btn-ghost" target="_blank" data-i18n="contact.pdf">View Full PDF
+            Portfolio</a>
+          <span class="pdf-hint" data-i18n="contact.hint">Includes PCB layouts, architecture diagrams, and full spec
+            lists.</span>
         </div>
-
-        <div class="contact-roles">
-          <span data-i18n="contact.role1">Smart Hardware</span><span class="sep">·</span>
-          <span>IoT</span><span class="sep">·</span>
-          <span data-i18n="contact.role2">Consumer Electronics</span><span class="sep">·</span>
-          <span data-i18n="contact.role3">Panel &amp; Semiconductor</span>
-        </div>
+      </div>
+      <div class="contact-roles">
+        <span data-i18n="cr1">Smart Hardware</span><span class="sep">·</span>
+        <span>IoT</span><span class="sep">·</span>
+        <span data-i18n="cr2">Consumer Electronics</span><span class="sep">·</span>
+        <span data-i18n="cr3">Panel &amp; Semiconductor</span>
       </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
-      <div>© 2026 YuFeng Huang · <span data-i18n="footer.crafted">Crafted with HTML, CSS, and care.</span></div>
+      <div>© 2026 YuFeng Huang</div>
       <div>
-        <a href="mailto:skywing61@gmail.com">skywing61@gmail.com</a>
+        <a href="/cdn-cgi/l/email-protection#fe8d958789979099c8cfbe99939f9792d09d9193"><span class="__cf_email__"
+            data-cfemail="780b13010f11161f4e49381f15191114561b1715">[email&#160;protected]</span></a>
         &nbsp;·&nbsp;
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/yufeng-huang" target="_blank">LinkedIn</a>
       </div>
     </div>
   </footer>
 
-  <!-- ============ SCRIPTS ============ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer=""></script>
   <script>
-    /* ========== I18N DICTIONARY ========== */
-    const i18n = {
+    /* ---- i18n ---- */
+    const dict = {
       en: {
-        'nav.work': 'Work',
-        'nav.experience': 'Experience',
-        'nav.contact': 'Contact',
-
+        'nav.work': 'Work', 'nav.experience': 'Experience', 'nav.contact': 'Contact',
         'hero.eyebrow': 'Available for new opportunities · Based in Taiwan',
-        'hero.line1': 'Software',
-        'hero.line2': 'Hardware',
-        'hero.line3': 'AI',
-        'hero.line4': 'Product Designer.',
-        'hero.subtitle': "I bridge the gap between engineering and design. From PCB schematic to UI/UX and AI models, I bring concepts to physical reality. 14 years at InnoLux, now looking for cross-disciplinary product roles.",
-        'hero.meta1.label': 'Experience',
-        'hero.meta1.value': 'years',
-        'hero.meta2.label': 'Awards',
-        'hero.meta2.value': 'industry',
-        'hero.meta3.label': 'Disciplines',
-
-        'cap.label': '01 — Capabilities',
-        'cap.title': 'A cross-disciplinary developer fluent in every layer of the product stack.',
-        'cap.hw.desc': 'PCB schematic and layout, mechanical design, and system integration from sensors to power management.',
-        'cap.fw.desc': 'MCU drivers, BLE/WiFi stacks, Android BSP integration, and low-level panel & touch driver work.',
-        'cap.sw.desc': 'Android applications in Java, UI/UX in Figma, Windows/Linux tools in C++, and web stacks in PHP/MySQL.',
-        'cap.ai.desc': 'Computer vision with CNNs, image captioning with CNN+Attend+RNN, and on-device inference with NPUs.',
-
-        'work.label': '02 — Featured Work',
-        'work.title': 'Four products, designed and engineered from the ground up.',
-        'work.count': '2018 — 2024 · Selected',
-        'work.view': 'View Case Study',
-        'work.p1.role': 'Full-stack product lead',
-        'work.p1.name': 'Color E-paper Desktop Sign',
-        'work.p1.tagline': 'A 7.3-inch color E-paper sign — designed, engineered, and app-enabled by one person. A full year of battery life on a single charge.',
-        'work.p2.role': 'AI + Android + ID',
-        'work.p2.name': 'Paper-like Digital Frame',
-        'work.p2.tagline': "An ambient 27\" digital frame that reads the room's color temperature — and paints accordingly. Gesture-controlled, AI-enhanced.",
-        'work.p3.role': 'Computer vision + automotive',
-        'work.p3.name': 'AI Truck E-Mirror',
-        'work.p3.tagline': 'Real-time AI object detection on a 12.3" truck rearview mirror — running at 24+ fps, splitting inference and display across NPU and CPU threads.',
-        'work.p4.role': 'ID + UI/UX + firmware',
-        'work.p4.name': 'Multi-Payment Terminal',
-        'work.p4.tagline': 'A 4.3" self-checkout terminal that speaks every payment language — NFC, QR, barcode, e-ticket — with animated UI guidance for first-time users.',
-
-        'more.label': '03 — Extended Catalog',
-        'more.title': '15+ additional products bringing pixels to the physical world.',
-        'more.subtitle': 'Beyond the featured cases, I have designed and integrated a vast array of specialized displays and interactive hardware. From automotive clusters to holographic floating screens, here\'s a glimpse of the extended catalog.',
-        'more.c1.name': 'Digital Signature Pad',
-        'more.c1.desc': '13.3" display with MPP 2.0 active pen (4096 pressure levels) and Type-C integration.',
-        'more.c2.name': 'E-paper Meeting Sign',
-        'more.c2.desc': '7.5" tri-color e-paper sign with zero-power static display and Android booking app.',
-        'more.c3.name': 'Cluster & CID',
-        'more.c3.desc': '12.3" dual-screen automotive display with CarPlay, Android Auto, and NPU integration.',
-        'more.c4.name': 'Floating Display',
-        'more.c4.desc': '12.1" holographic mid-air display with gesture control, no physical medium required.',
-        'more.c5.name': 'Touch NFT Frame',
-        'more.c5.desc': '13.3" 4K frame featuring 3D visual illusions driven by HD camera eyes-tracking.',
-        'more.c6.name': 'Patient Monitor',
-        'more.c6.desc': '12.1" medical display featuring 99% antibacterial protection and wet/glove touch.',
-
-        'exp.label': '04 — Track Record',
-        'exp.title1': '14 years in the panel industry.',
-        'exp.title2': 'Four award-winning products.',
-        'exp.col1': 'Experience',
-        'exp.col2': 'Awards & Recognition',
-        'exp.role1': 'Product Developer',
-        'exp.role2': 'Outsourcing Evaluation',
-        'exp.role3': 'Panel Package Design',
-        'exp.role4': 'M.S. Industrial Design',
-        'exp.award1': 'Gold Panel Award',
-        'exp.award2': 'Go Next Digital — 1st Place',
-        'exp.award3': 'AI Academy Project — 1st Place',
-        'exp.award4': 'Taiwan Excellent Award ×3',
-        'exp.award5': 'AI Academy Project — 2nd Place',
-
-        'contact.label': '05 — Let\'s Build Something',
-        'contact.title1': 'Looking for a product developer who',
-        'contact.title2': 'bridges design and engineering?',
-        'contact.sub': 'Currently open to full-time and contract roles in smart hardware, IoT, consumer electronics, and panel & semiconductor industries.',
-        'contact.btn1': 'Email Me',
-        'contact.btn2': 'View Full PDF Portfolio',
-        'contact.pdfhint': '* Includes detailed PCB layouts, architecture diagrams, and full spec lists.',
-        'contact.role1': 'Smart Hardware',
-        'contact.role2': 'Consumer Electronics',
-        'contact.role3': 'Panel & Semiconductor',
-
-        'footer.crafted': 'Crafted with HTML, CSS, and care.'
+        'hero.line1': 'Software', 'hero.line2': 'Hardware', 'hero.line3': 'AI', 'hero.line4': 'Product Developer.',
+        'hero.subtitle': 'I design and build integrated products from the silicon up — schematic, firmware, Android apps, and AI models. 14 years at InnoLux, now looking for teams where one engineer can ship end-to-end.',
+        'hero.btn1': 'View Work →', 'hero.btn2': 'PDF Portfolio', 'hero.reel': 'Watch Reel',
+        'stat.years': 'Years exp.', 'stat.awards': 'Industry awards', 'stat.disciplines': 'Disciplines',
+        'cap.label': '01 — Capabilities', 'cap.title': 'The rare engineer who speaks every layer of the stack.',
+        'cap.hw.desc': 'PCB schematic and layout, mechanical design, system integration from sensors to power management.',
+        'cap.fw.desc': 'MCU drivers, BLE/WiFi stacks, Android BSP integration, low-level panel & touch driver work.',
+        'cap.sw.desc': 'Android apps in Java, UI/UX in Figma, Windows/Linux tools in C++, web stacks in PHP/MySQL.',
+        'cap.ai.desc': 'Computer vision with CNNs, image captioning CNN+Attend+RNN, on-device inference with NPUs.',
+        'work.label': '02 — Featured Work', 'work.title': 'Four products, built end-to-end.', 'work.count': '2018 — 2024 · Selected',
+        'p1.role': 'Full-stack product lead', 'p1.name': 'Color E-paper Desktop Sign', 'p1.tagline': 'A 7.3-inch color E-paper sign — designed, engineered, and app-enabled by one person. A full year of battery life on a single charge.',
+        'p2.role': 'AI + Android + ID', 'p2.name': 'Paper-like Digital Frame', 'p2.tagline': "An ambient 27\" digital frame that reads the room's color temperature — and paints accordingly. Gesture-controlled, AI-enhanced.",
+        'p3.role': 'Computer vision + automotive', 'p3.name': 'AI Truck E-Mirror', 'p3.tagline': 'Real-time AI object detection on a 12.3" truck rearview mirror — running at 24+ fps, splitting inference and display across NPU and CPU threads.',
+        'p4.role': 'ID + UI/UX + firmware', 'p4.name': 'Multi-Payment Terminal', 'p4.tagline': 'A 4.3" self-checkout terminal supporting NFC, QR, barcode, and e-ticket — with animated UI guidance for first-time users.',
+        'more.label': '03 — Extended Catalog', 'more.title': '15+ products bringing pixels to the physical world.',
+        'c1.name': 'Digital Signature Pad', 'c1.desc': '13.3" display with MPP 2.0 active pen (4096 pressure levels) and Type-C integration.',
+        'c2.name': 'E-paper Meeting Sign', 'c2.desc': '7.5" tri-color e-paper sign with zero-power static display and Android booking app.',
+        'c3.name': 'Cluster & CID', 'c3.desc': '12.3" dual-screen automotive display with CarPlay, Android Auto, and NPU integration.',
+        'c4.name': 'Floating Display', 'c4.desc': '12.1" holographic mid-air display with gesture control, no physical medium required.',
+        'c5.name': 'Touch NFT Frame', 'c5.desc': '13.3" 4K frame featuring 3D visual illusions driven by HD camera eye-tracking.',
+        'c6.name': 'Patient Monitor', 'c6.desc': '12.1" medical display with 99% antibacterial protection and wet/glove touch.',
+        'c7.name': 'AI Truck E-Mirror', 'c7.desc': 'Real-time NPU object detection at 24+ fps for truck rearview safety.',
+        'exp.label': '04 — Track Record', 'exp.line1': '14 years in the panel industry.', 'exp.line2': 'Four award-winning products.',
+        'exp.col1': 'Experience', 'exp.col2': 'Awards & Recognition',
+        'role1': 'Product Developer', 'role2': 'Outsourcing Evaluation', 'role3': 'Panel Package Design', 'role4': 'M.S. Industrial Design',
+        'award1': 'Gold Panel Award', 'award2': 'Go Next Digital — 1st Place', 'award3': 'AI Academy Project — 1st Place', 'award4': 'Taiwan Excellent Award ×3', 'award5': 'AI Academy Project — 2nd Place',
+        'contact.label': '05 — Let\'s Build Something', 'contact.line1': 'Looking for an engineer who', 'contact.line2': 'ships it end-to-end?',
+        'contact.sub': 'Open to full-time and contract roles in smart hardware, IoT, consumer electronics, and panel & semiconductor industries.',
+        'contact.email': 'Email Me', 'contact.pdf': 'View Full PDF Portfolio', 'contact.hint': 'Includes PCB layouts, architecture diagrams, and full spec lists.',
+        'cr1': 'Smart Hardware', 'cr2': 'Consumer Electronics', 'cr3': 'Panel & Semiconductor'
       },
       zh: {
-        'nav.work': '作品',
-        'nav.experience': '經歷',
-        'nav.contact': '聯絡',
-
+        'nav.work': '作品', 'nav.experience': '經歷', 'nav.contact': '聯絡',
         'hero.eyebrow': '開放新機會 · 台灣',
-        'hero.line1': '軟體',
-        'hero.line2': '硬體',
-        'hero.line3': 'AI',
-        'hero.line4': '產品設計師。',
-        'hero.subtitle': '精通硬體、軟體與設計的跨領域結合。從 PCB 電路、Android 韌體到 UI/UX 與 AI 模型，我具備將概念落地為硬體產品的完整執行力。在群創擁有 14 年產品開發經驗，正在尋找重視跨領域價值的團隊。',
-        'hero.meta1.label': '經驗年資',
-        'hero.meta1.value': '年',
-        'hero.meta2.label': '產業獲獎',
-        'hero.meta2.value': '項',
-        'hero.meta3.label': '跨足領域',
-
-        'cap.label': '01 — 專業能力',
-        'cap.title': '打破硬體、韌體、軟體與設計邊界的跨領域開發者。',
+        'hero.line1': '軟體', 'hero.line2': '硬體', 'hero.line3': 'AI', 'hero.line4': '產品開發者。',
+        'hero.subtitle': '精通硬體、軟體與設計的跨領域結合。從 PCB 電路、Android 韌體到 UI/UX 與 AI 模型，我具備將概念落地為硬體產品的完整執行力。群創 14 年產品開發資歷。',
+        'hero.btn1': '查看作品 →', 'hero.btn2': 'PDF 作品集', 'hero.reel': '觀看影片',
+        'stat.years': '年資歷', 'stat.awards': '產業獲獎', 'stat.disciplines': '跨足領域',
+        'cap.label': '01 — 專業能力', 'cap.title': '打破硬體、韌體、軟體與設計邊界的跨領域開發者。',
         'cap.hw.desc': '從感測器到電源管理的 PCB 電路設計、機構設計、系統整合。',
         'cap.fw.desc': 'MCU 驅動、BLE/WiFi 協定、Android BSP 整合、面板與觸控底層驅動開發。',
         'cap.sw.desc': 'Java Android 應用、Figma UI/UX 設計、C++ Windows/Linux 工具、PHP/MySQL 網頁系統。',
         'cap.ai.desc': 'CNN 電腦視覺、CNN+Attend+RNN 影像敘事、NPU 邊緣運算推論。',
-
-        'work.label': '02 — 精選作品',
-        'work.title': '四個從概念設計到系統落地完整實踐的產品。',
-        'work.count': '2018 — 2024 · 精選',
-        'work.view': '查看完整案例',
-        'work.p1.role': '全棧產品負責人',
-        'work.p1.name': '彩色電子紙桌面告示牌',
-        'work.p1.tagline': '7.3 吋彩色電子紙告示牌 — PCB、韌體、機構、APP 由一人完成。一次充電待機整整一年。',
-        'work.p2.role': 'AI + Android + 工業設計',
-        'work.p2.name': '仿紙質數位畫框',
-        'work.p2.tagline': '27 吋仿紙數位畫框能感知環境色溫，並即時調整畫面。搭配手勢控制與 AI 色彩演算法。',
-        'work.p3.role': '電腦視覺 + 車用',
-        'work.p3.name': 'AI 卡車電子後視鏡',
-        'work.p3.tagline': '12.3 吋卡車後視鏡即時 AI 物件辨識，穩定跑在 24 fps 以上，NPU 推論與 CPU 繪製雙執行緒並行。',
-        'work.p4.role': '工業設計 + UI/UX + 韌體',
-        'work.p4.name': '多元支付終端機',
-        'work.p4.tagline': '4.3 吋自助結帳終端，同時支援 NFC、QR、條碼、電子票券，動畫化 UI 指引新手使用者。',
-
-        'more.label': '03 — 跨界整合目錄',
-        'more.title': '超過 15 款涵蓋各領域的特殊硬體專案。',
-        'more.subtitle': '除了上述精選作品，我也負責各種專門應用場景的顯示器與互動硬體開發，從車載儀表、全息投影到醫療級抗菌螢幕，這裡列出了 PDF 中的部份隱藏版專案。',
-        'more.c1.name': '13.3" 數位簽名板',
-        'more.c1.desc': '整合 MPP 2.0 4096 階感壓主動筆與一線連 Type-C 影音傳輸。',
-        'more.c2.name': '7.5" 電子紙會議排程牌',
-        'more.c2.desc': '三色電子紙無電源靜態顯示，結合 Android 會議預約系統。',
-        'more.c3.name': '12.3" 汽車儀表與中控',
-        'more.c3.desc': '雙螢幕車載顯示，整合 CarPlay、Android Auto 以及 NPU 推論。',
-        'more.c4.name': '12.1" 全息漂浮顯示器',
-        'more.c4.desc': '無須實體介質的空中成像技術，並搭配手勢感測進行懸空操作。',
-        'more.c5.name': '13.3" 觸控 NFT 實體框',
-        'more.c5.desc': '透過 HD 攝影機追蹤眼動，生成具有 3D 視覺錯覺的高畫質互動影像。',
-        'more.c6.name': '12.1" 醫療抗菌螢幕',
-        'more.c6.desc': '99% 抗菌防護處理，並支援醫療手套觸控與沾水操控。',
-
-        'exp.label': '04 — 經歷與榮譽',
-        'exp.title1': '面板產業 14 年資歷。',
-        'exp.title2': '四項產業大獎肯定。',
-        'exp.col1': '工作經歷',
-        'exp.col2': '獲獎紀錄',
-        'exp.role1': '產品開發工程師',
-        'exp.role2': '外包評估',
-        'exp.role3': '面板包裝設計',
-        'exp.role4': '工業設計碩士',
-        'exp.award1': '顯示器元件產品技術獎',
-        'exp.award2': 'Go Next Digital 冠軍',
-        'exp.award3': 'AI Academy 專題 冠軍',
-        'exp.award4': '台灣精品獎 ×3',
-        'exp.award5': 'AI Academy 專題 亞軍',
-
-        'contact.label': '05 — 開始合作',
-        'contact.title1': '正在尋找能兼顧設計質感與',
-        'contact.title2': '工程落地的產品開發者？',
-        'contact.sub': '目前開放全職與契約機會，產業方向：智慧硬體、IoT、消費電子、面板與半導體。',
-        'contact.btn1': '寄信給我',
-        'contact.btn2': '查看完整 PDF 作品集',
-        'contact.pdfhint': '* 內含實體機構圖、PCB Layout、演算法架構圖與完整規格表。',
-        'contact.role1': '智慧硬體',
-        'contact.role2': '消費電子',
-        'contact.role3': '面板與半導體',
-
-        'footer.crafted': '以 HTML、CSS 與用心打造。'
+        'work.label': '02 — 精選作品', 'work.title': '四個端到端完整實踐的產品。', 'work.count': '2018 — 2024 · 精選',
+        'p1.role': '全棧產品負責人', 'p1.name': '彩色電子紙桌面告示牌', 'p1.tagline': '7.3 吋彩色電子紙告示牌 — PCB、韌體、機構、APP 由一人完成。一次充電待機整整一年。',
+        'p2.role': 'AI + Android + 工業設計', 'p2.name': '仿紙質數位畫框', 'p2.tagline': '27 吋仿紙數位畫框能感知環境色溫，並即時調整畫面。搭配手勢控制與 AI 色彩演算法。',
+        'p3.role': '電腦視覺 + 車用', 'p3.name': 'AI 卡車電子後視鏡', 'p3.tagline': '12.3 吋卡車後視鏡即時 AI 物件辨識，穩定跑在 24 fps 以上。NPU 推論與 CPU 繪製雙執行緒並行。',
+        'p4.role': '工業設計 + UI/UX + 韌體', 'p4.name': '多元支付終端機', 'p4.tagline': '4.3 吋自助結帳終端，同時支援 NFC、QR、條碼、電子票券，動畫化 UI 指引新手使用者。',
+        'more.label': '03 — 跨界整合目錄', 'more.title': '超過 15 款涵蓋各領域的特殊硬體專案。',
+        'c1.name': '數位簽名板', 'c1.desc': '13.3 吋顯示器，搭載 MPP 2.0 主動筆（4096 壓力感應）與 Type-C 整合。',
+        'c2.name': '電子紙會議告示牌', 'c2.desc': '7.5 吋三色電子紙告示牌，零待機電力靜態顯示，搭配 Android 預約 APP。',
+        'c3.name': '車用儀表與中控螢幕', 'c3.desc': '12.3 吋雙螢幕車用顯示器，支援 CarPlay、Android Auto 與 NPU 整合。',
+        'c4.name': '空中懸浮顯示器', 'c4.desc': '12.1 吋全像中空顯示器，手勢操控，無需任何實體介質。',
+        'c5.name': '觸控 NFT 畫框', 'c5.desc': '13.3 吋 4K 畫框，搭載 HD 鏡頭眼球追蹤，呈現 3D 視覺錯覺。',
+        'c6.name': '醫療患者監控器', 'c6.desc': '12.1 吋醫療顯示器，99% 抗菌保護，支援濕手/手套觸控。',
+        'c7.name': 'AI 卡車電子後視鏡', 'c7.desc': 'NPU 即時物件偵測，24+ fps 穩定執行，提升卡車後視安全。',
+        'exp.label': '04 — 資歷記錄', 'exp.line1': '14 年面板產業資歷。', 'exp.line2': '四項獲獎產品。',
+        'exp.col1': '工作經歷', 'exp.col2': '獲獎記錄',
+        'role1': '產品開發工程師', 'role2': '外包評估', 'role3': '面板封裝設計', 'role4': '工業設計碩士',
+        'award1': '顯示器元件產品技術獎', 'award2': 'Go Next Digital — 第一名', 'award3': 'AI 學院專案 — 第一名', 'award4': '台灣精品獎 ×3', 'award5': 'AI 學院專案 — 第二名',
+        'contact.label': '05 — 一起來做點什麼', 'contact.line1': '在找一位能把產品', 'contact.line2': '端到端全部搞定的工程師嗎？',
+        'contact.sub': '開放全職或合約職位，領域包含智慧硬體、IoT、消費電子、面板與半導體產業。',
+        'contact.email': '寄信給我', 'contact.pdf': '查看完整 PDF 作品集', 'contact.hint': '包含詳細 PCB 佈線、架構圖與完整規格表。',
+        'cr1': '智慧硬體', 'cr2': '消費電子', 'cr3': '面板與半導體'
       }
     };
 
-    /* ========== LANGUAGE SWITCHER ========== */
-    const langSwitch = document.getElementById('langSwitch');
-    let currentLang = localStorage.getItem('yf-lang') || 'en';
-
-    function applyLang(lang) {
-      document.documentElement.lang = lang;
+    let lang = 'en';
+    function applyLang(l) {
+      lang = l;
+      document.documentElement.lang = l;
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (i18n[lang] && i18n[lang][key]) {
-          el.textContent = i18n[lang][key];
-        }
+        if (dict[l][key]) el.textContent = dict[l][key];
       });
-
-      // 動態切換 PDF 連結
-      const pdfLink = document.getElementById('pdfLink');
-      if (pdfLink) {
-        pdfLink.href = lang === 'en' ? './YF portfolio_EN.pdf' : './YF portfolio_CHT.pdf';
-      }
-
-      langSwitch.querySelectorAll('span[data-lang]').forEach(s => {
-        s.classList.toggle('active', s.getAttribute('data-lang') === lang);
-      });
-      currentLang = lang;
-      localStorage.setItem('yf-lang', lang);
+      document.getElementById('langEN').className = l === 'en' ? 'active' : '';
+      document.getElementById('langZH').className = l === 'zh' ? 'active' : '';
     }
+    document.getElementById('langBtn').addEventListener('click', () => applyLang(lang === 'en' ? 'zh' : 'en'));
 
-    langSwitch.addEventListener('click', () => {
-      applyLang(currentLang === 'en' ? 'zh' : 'en');
-    });
-    applyLang(currentLang);
-
-    /* ========== 鎖定 Viewport Height，防止網址列出現/消失導致抖動 ========== */
-    (function () {
-      let lastVW = window.innerWidth;
-      function lockVH() {
-        document.documentElement.style.setProperty('--real-vh', window.innerHeight + 'px');
-      }
-      lockVH();
-      window.addEventListener('resize', function () {
-        // 只有寬度改變（螢幕轉向）才重算，忽略高度變動（網址列）
-        if (window.innerWidth !== lastVW) {
-          lastVW = window.innerWidth;
-          lockVH();
-        }
-      });
-    })();
-
-    /* ========== SCROLL-TRIGGERED NAV BORDER ========== */
+    /* ---- scroll nav ---- */
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    });
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40), { passive: true });
 
-    /* ========== INTERSECTION OBSERVER — REVEAL ANIMATIONS ========== */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    /* ---- scroll reveal ---- */
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-
 </body>
 
 </html>
