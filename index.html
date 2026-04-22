@@ -440,38 +440,40 @@
       }
 
       .nav-inner {
-        flex-direction: column;
-        gap: 12px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
         padding: 0 16px;
+        justify-content: space-between;
       }
 
       .nav-brand {
-        font-size: 18px;
-        width: 100%;
-        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
       }
 
       .nav-links {
-        width: 100%;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap;
+        gap: 10px;
+        flex-wrap: nowrap;
       }
 
       .nav-links a {
-        font-size: 11.5px;
-        display: block;
+        font-size: 11px;
       }
 
       .lang-btn {
-        padding: 4px 10px;
+        padding: 4px 8px;
         font-size: 10px;
+      }
+
+      .hero {
+        padding-top: 80px;
       }
 
       .hero-title {
         font-size: clamp(28px, 9.5vw, 44px);
         line-height: 1.2;
-        word-break: normal; /* Better for readability */
+        word-break: normal;
         overflow-wrap: break-word;
       }
 
@@ -714,7 +716,7 @@
     .proj-img {
       position: relative;
       overflow: hidden;
-      background: var(--bg2);
+      background: #ffffff;
       min-height: 340px;
     }
 
@@ -743,12 +745,15 @@
         flex-direction: column;
       }
 
-      .project:nth-child(even) .proj-text {
-        order: 2;
-      }
-
+      /* 手機版統一：圖片在上，文字在下 */
+      .project .proj-img,
       .project:nth-child(even) .proj-img {
         order: 1;
+      }
+
+      .project .proj-text,
+      .project:nth-child(even) .proj-text {
+        order: 2;
       }
 
       .proj-img {
