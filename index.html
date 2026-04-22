@@ -473,8 +473,8 @@
       .hero-title {
         font-size: clamp(28px, 9.5vw, 44px);
         line-height: 1.2;
-        word-break: normal;
-        overflow-wrap: break-word;
+        word-break: break-all;
+        overflow-wrap: anywhere;
       }
 
       .eyebrow {
@@ -1176,8 +1176,8 @@
             <span data-i18n="hero.eyebrow">Available for new opportunities · Based in Taiwan</span>
           </div>
           <h1 class="hero-title reveal reveal-delay-1">
-            <span data-i18n="hero.line1">Software</span><span class="cross">×</span><span
-              data-i18n="hero.line2">Hardware</span><span class="cross">×</span><span class="accent"
+            <span data-i18n="hero.line1">Software</span><span class="cross">×</span><wbr><span
+              data-i18n="hero.line2">Hardware</span><span class="cross">×</span><wbr><span class="accent"
               data-i18n="hero.line3">AI</span><br>
             <span data-i18n="hero.line4">Product Developer.</span>
           </h1>
