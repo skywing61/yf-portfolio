@@ -975,9 +975,8 @@
     /* ===== CONTACT ===== */
     .contact-inner {
       max-width: 860px;
-      margin: 0 auto;
+      margin: 0;
       text-align: left;
-      padding: 0 var(--gutter);
     }
 
     .contact-title {
@@ -1041,8 +1040,7 @@
 
     @media (max-width: 540px) {
       .contact-ctas {
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
       }
 
       .btn {
@@ -1534,31 +1532,33 @@
 
   <!-- CONTACT -->
   <section class="divider" id="contact" style="padding: 140px 0;">
-    <div class="contact-inner reveal">
-      <div class="section-label" data-i18n="contact.label">05 — Let's Build Something</div>
-      <h2 class="contact-title">
-        <span data-i18n="contact.line1">Looking for an engineer who</span><br>
-        <span class="accent" data-i18n="contact.line2">ships it end-to-end?</span>
-      </h2>
-      <p class="contact-sub" data-i18n="contact.sub">Open to full-time and contract roles in smart hardware, IoT,
-        consumer electronics, and panel & semiconductor industries.</p>
-      <div class="contact-ctas">
-        <div class="cta-item">
-          <a href="/cdn-cgi/l/email-protection#77041c0e001e1910414637101a161e1b5914181a" class="btn btn-dark"><span
-              data-i18n="contact.email">Email Me</span> →</a>
+    <div class="wrap">
+      <div class="contact-inner reveal">
+        <div class="section-label" data-i18n="contact.label">05 — Let's Build Something</div>
+        <h2 class="contact-title">
+          <span data-i18n="contact.line1">Looking for an engineer who</span><br>
+          <span class="accent" data-i18n="contact.line2">ships it end-to-end?</span>
+        </h2>
+        <p class="contact-sub" data-i18n="contact.sub">Open to full-time and contract roles in smart hardware, IoT,
+          consumer electronics, and panel & semiconductor industries.</p>
+        <div class="contact-ctas">
+          <div class="cta-item">
+            <a href="/cdn-cgi/l/email-protection#77041c0e001e1910414637101a161e1b5914181a" class="btn btn-dark"><span
+                data-i18n="contact.email">Email Me</span> →</a>
+          </div>
+          <div class="cta-item">
+            <a href="./YF portfolio_EN.pdf" class="btn btn-ghost" target="_blank" data-i18n="contact.pdf">View Full PDF
+              Portfolio</a>
+            <span class="pdf-hint" data-i18n="contact.hint">Includes PCB layouts, architecture diagrams, and full spec
+              lists.</span>
+          </div>
         </div>
-        <div class="cta-item">
-          <a href="./YF portfolio_EN.pdf" class="btn btn-ghost" target="_blank" data-i18n="contact.pdf">View Full PDF
-            Portfolio</a>
-          <span class="pdf-hint" data-i18n="contact.hint">Includes PCB layouts, architecture diagrams, and full spec
-            lists.</span>
+        <div class="contact-roles">
+          <span data-i18n="cr1">Smart Hardware</span><span class="sep">·</span>
+          <span>IoT</span><span class="sep">·</span>
+          <span data-i18n="cr2">Consumer Electronics</span><span class="sep">·</span>
+          <span data-i18n="cr3">Panel &amp; Semiconductor</span>
         </div>
-      </div>
-      <div class="contact-roles">
-        <span data-i18n="cr1">Smart Hardware</span><span class="sep">·</span>
-        <span>IoT</span><span class="sep">·</span>
-        <span data-i18n="cr2">Consumer Electronics</span><span class="sep">·</span>
-        <span data-i18n="cr3">Panel &amp; Semiconductor</span>
       </div>
     </div>
   </section>
