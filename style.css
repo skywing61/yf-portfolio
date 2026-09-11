@@ -310,16 +310,17 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .featured-header {
-  max-width: 680px;
-  margin: 0 auto 24px;
+  width: 100%;
+  margin: 0 0 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .featured-title {
@@ -354,11 +355,11 @@ a:focus-visible, button:focus-visible {
 }
 
 .featured-footer {
-  max-width: 680px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .featured-role {
