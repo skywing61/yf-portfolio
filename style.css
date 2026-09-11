@@ -283,7 +283,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 700;
   line-height: 1.25;
   color: var(--text-main);
-  margin-bottom: 8px;
+  margin-bottom: 28px;
 }
 
 .section-note {
