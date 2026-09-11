@@ -120,6 +120,20 @@ a:focus-visible, button:focus-visible {
 .brand {
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.brand:hover .brand-logo {
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 .brand-name {
