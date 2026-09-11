@@ -1,6 +1,6 @@
 document.documentElement.classList.add('js');
-const menuButton = document.querySelector('.menu-button');
-const navigation = document.querySelector('#site-nav');
+const menuButton = document.querySelector('.menu, .menu-button');
+const navigation = document.querySelector('#nav, #site-nav');
 if (menuButton && navigation) {
   const closeMenu = () => {
     navigation.classList.remove('open');
@@ -22,5 +22,5 @@ if (menuButton && navigation) {
   document.addEventListener('click', (event) => {
     if (!navigation.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
   });
-  window.matchMedia('(max-width: 700px)').addEventListener('change', closeMenu);
+  window.matchMedia('(max-width: 767px)').addEventListener('change', closeMenu);
 }

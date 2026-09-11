@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AI 卡車電子後視鏡：Linux RKNN 推論與產品整合｜黃鈺峰</title>
+    <meta
+      name="description"
+      content="12.3 吋 AI 卡車電子後視鏡：Rockchip RK3588、Debian 11、Linux RKNN 推論軟體與工業機構設計。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">跳至主要內容</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="返回首頁">
+          <span class="brand-name">
+            <strong>黃鈺峰</strong>
+          </span>
+        </a>
+        <button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          選單
+        </button>
+        <nav id="nav" aria-label="主要導覽">
+          <a href="../../index.html#projects">作品</a>
+          <a href="../../index.html#capabilities">能力</a>
+          <a href="../../index.html#about">關於</a>
+          <a href="../../index.html#contact">聯絡</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Breadcrumbs -->
+      <div class="page crumbs">
+        <a href="../../index.html#projects">全部作品</a> / AI 卡車電子後視鏡
+      </div>
+
+      <!-- Hero Header -->
+      <section class="detail-hero page">
+        <span class="project-tag">04 / 邊緣 AI</span>
+        <h1>AI 卡車電子後視鏡</h1>
+        <p class="detail-intro">
+          整合 Linux RKNN 推論軟體與雙視角顯示，配合產品工業與機構設計。
+        </p>
+        <div class="detail-role">
+          <strong>我負責</strong>Linux RKNN 推論軟體，以及工業與機構設計。
+        </div>
+      </section>
+
+      <!-- Main Product Stage (局部圖窗與說明分割舞台，1040px, 440px high) -->
+      <div class="page">
+        <figure class="detail-stage-figure">
+          <div class="detail-stage detail-stage-emirror-split">
+            <div class="emirror-stage-crop">
+              <img
+                src="../../assets/images/ai-truck-emirror-trimmed.webp"
+                alt="12.3 吋 AI 卡車電子後視鏡相機與雙視角顯示局部"
+                loading="eager"
+              />
+            </div>
+            <div class="emirror-stage-text">
+              <p class="emirror-stage-callout">相機與顯示配置<br />雙視角影像與推論標記</p>
+            </div>
+          </div>
+          <figcaption class="stage-caption">產品上半部局部：展示頂部相機配置與駕駛視野顯示區域。</figcaption>
+        </figure>
+      </div>
+
+      <!-- Non-sticky In-page Navigation -->
+      <nav class="local-nav" aria-label="章節導覽">
+        <div class="local-nav-inner">
+          <a href="#role">概況</a>
+          <a href="#architecture">架構</a>
+          <a href="#implementation">實作</a>
+          <a href="#verification">驗證</a>
+          <a href="#outcome">成果</a>
+        </div>
+      </nav>
+
+      <!-- 01 / SCOPE -->
+      <section class="detail-section page" id="role">
+        <div class="detail-section-head">
+          <p class="detail-label">01 / SCOPE</p>
+          <h2>運算平台與模組劃分</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            本專案採用 Rockchip RK3588 運算平台運行 Debian 11 Linux 系統，搭配 12.3 吋顯示螢幕。工程實作聚焦邊緣 AI 軟體與外觀機構整合：軟體端開發基於 RKNN 的推論管線並與顯示端整合；機構端負責外殼造型、相機固定與內部散熱路徑配置。
+          </p>
+          <div class="facts-grid">
+            <div>
+              <dt>運算平台</dt>
+              <dd>Rockchip RK3588 · Debian 11 Linux</dd>
+            </div>
+            <div>
+              <dt>推論軟體</dt>
+              <dd>RKNN NPU 加速、多執行緒管線架構</dd>
+            </div>
+            <div>
+              <dt>工業與機構</dt>
+              <dd>12.3 吋長條機身、相機固定與散熱設計</dd>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / ARCHITECTURE -->
+      <section class="detail-section page" id="architecture">
+        <div class="detail-section-head">
+          <p class="detail-label">02 / ARCHITECTURE</p>
+          <h2>多執行緒擷取、推論與顯示架構</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            為維持行車畫面的即時流暢度，系統將影像顯示與 AI 推論拆解為多執行緒解耦架構：相機擷取後由顯示管線維持輸出，推論管線則非同步調用 NPU 進行物件辨識，並將辨識框座標疊加至雙視角畫布。
+          </p>
+        </div>
+        <div class="detail-wide">
+          <div class="flow-grid">
+            <div class="flow-card">
+              <b>01 · 相機擷取</b>
+              <span>雙鏡頭影像輸入與暫存</span>
+            </div>
+            <div class="flow-card">
+              <b>02 · 推論管線</b>
+              <span>RKNN NPU 非同步物件辨識</span>
+            </div>
+            <div class="flow-card">
+              <b>03 · 座標疊加</b>
+              <span>標記框投影至雙視角畫面</span>
+            </div>
+            <div class="flow-card">
+              <b>04 · 即時顯示</b>
+              <span>12.3 吋螢幕流暢合成輸出</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 / IMPLEMENTATION -->
+      <section class="detail-section page" id="implementation">
+        <div class="detail-section-head">
+          <p class="detail-label">03 / IMPLEMENTATION</p>
+          <h2>推論顯示與機構設計</h2>
+        </div>
+        <div class="detail-text">
+          <div class="split-grid">
+            <div class="split-card">
+              <h3>推論與顯示整合</h3>
+              <p>
+                將目標辨識模型轉換為 RKNN 格式調用 NPU 加速，建立非同步影格交接流程，確保推論耗時不阻斷影像顯示串流。
+              </p>
+            </div>
+            <div class="split-card">
+              <h3>工業與機構設計</h3>
+              <p>
+                針對駕駛艙視野規劃視角安裝結構，並於機身內部配置導熱元件，兼顧車載環境之抗震穩定性與散熱需求。
+              </p>
+            </div>
+          </div>
+          <div class="placeholder" id="ai-01">
+            <span class="placeholder-id">AI-01</span>
+            <span class="placeholder-title">機構與相機／顯示配置</span>
+            <span class="placeholder-note">外觀樣機、剖面結構圖或安裝配置照片，建議比例 4:3</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / VERIFICATION -->
+      <section class="detail-section page" id="verification">
+        <div class="detail-section-head">
+          <p class="detail-label">04 / VERIFICATION</p>
+          <h2>問題與驗證</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            邊緣推論管線的穩定性與跨執行緒影格傳遞時序為排查重點。
+          </p>
+          <div class="verification-box">
+            <div class="verification-header">
+              <b>推論管線驗證狀態</b>
+              <span class="badge-pending">驗證紀錄待補</span>
+            </div>
+            <p>
+              已確認完成雙視角即時顯示與 RKNN NPU 目標標記框疊加之原型運作流程。跨執行緒時序延遲、推論效能與連續運作之詳細測試數據待補入。
+            </p>
+          </div>
+          <div class="placeholder" id="ai-02">
+            <span class="placeholder-id">AI-02</span>
+            <span class="placeholder-title">真實推論結果或測試紀錄</span>
+            <span class="placeholder-note">RKNN 推論結果截圖、測試 log 或管線時序圖，建議比例 16:10</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 / OUTCOME -->
+      <section class="detail-section page" id="outcome">
+        <div class="detail-section-head">
+          <p class="detail-label">05 / OUTCOME</p>
+          <h2>整合邊緣 AI 與雙視角顯示的原型機</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            完成可實際運作之 AI 卡車電子後視鏡原型系統，整合工業外觀樣機、Linux RKNN 推論軟體與雙視角行車監控介面。
+          </p>
+          <div class="outcome-actions">
+            <a
+              class="button button-outline"
+              href="https://www.youtube.com/watch?v=0Wqjfp0PRo0"
+              target="_blank"
+              rel="noopener"
+              >觀看實機 Demo 影片</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Works -->
+      <section class="related-section page">
+        <h2>相關案例</h2>
+        <div class="related-links">
+          <a href="../glasses-free-3d/index.html">多人多視角裸視 3D</a>
+          <a href="../payment-terminal/index.html">4.3 吋多元支付機</a>
+          <a href="../../index.html#projects">返回全部作品</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+        <span>PRODUCT · DISPLAY · SYSTEMS</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>類紙感數位畫框與 CMS｜黃鈺峰</title>
+    <meta
+      name="description"
+      content="27 吋類紙感數位畫框：軟體系統開發、感測器硬體與取樣韌體整合，包含早期感測版本與 CMS 連網版本。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">跳至主要內容</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="返回首頁">
+          <span class="brand-name">
+            <strong>黃鈺峰</strong>
+          </span>
+        </a>
+        <button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          選單
+        </button>
+        <nav id="nav" aria-label="主要導覽">
+          <a href="../../index.html#projects">作品</a>
+          <a href="../../index.html#capabilities">能力</a>
+          <a href="../../index.html#about">關於</a>
+          <a href="../../index.html#contact">聯絡</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Breadcrumbs -->
+      <nav class="crumbs page" aria-label="麵包屑導覽">
+        <a href="../../index.html">首頁</a> /
+        <span>02 類紙感數位畫框與 CMS</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="detail-hero page">
+        <span class="project-tag">02 / 顯示與內容管理</span>
+        <h1>類紙感數位畫框與 CMS</h1>
+        <p class="detail-subtitle">感測自適應與雲端內容管理系統</p>
+        <p class="detail-intro">
+          從環境感測到內容更新，整合畫框的軟體與感測器硬體、韌體。
+        </p>
+        <div class="detail-role">
+          <strong>我負責</strong>畫框軟體開發，以及感測器硬體與韌體整合。
+        </div>
+      </section>
+
+      <!-- Main Product Stage (色溫自適應對照，1040px, 480px high) -->
+      <div class="page" id="ambient-stage">
+        <figure class="detail-stage-figure">
+          <div class="detail-stage detail-stage-frame">
+            <img
+              src="../../assets/images/cms-ambient-comparison.webp"
+              alt="27 吋數位畫框環境色溫自適應雙機對照"
+              loading="eager"
+            />
+          </div>
+          <figcaption class="stage-caption">環境色溫調整的顯示對照。</figcaption>
+        </figure>
+      </div>
+
+      <!-- Non-sticky In-page Navigation -->
+      <nav class="local-nav" aria-label="章節導覽">
+        <div class="local-nav-inner">
+          <a href="#role">概況</a>
+          <a href="#architecture">架構</a>
+          <a href="#implementation">實作</a>
+          <a href="#verification">驗證</a>
+          <a href="#outcome">成果</a>
+        </div>
+      </nav>
+
+      <!-- 01 / SCOPE -->
+      <section class="detail-section page" id="role">
+        <div class="detail-section-head">
+          <p class="detail-label">01 / SCOPE</p>
+          <h2>雙版本演進與職責劃分</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            本專案在不同發展階段對應兩種產品架構：早期感測版本專注於機身硬體感測與本機互動；CMS 連網版本則聚焦於遠端內容更新與手機連網設定，並推進至量產銷售。
+          </p>
+          <div class="split-grid">
+            <div class="split-card">
+              <h3>早期感測版本</h3>
+              <p>
+                整合手勢、重力方向與環境色溫感測硬體，於周邊 MCU 開發取樣韌體，透過 I²C / UART 介面將環境光與姿態數據對接至 Android 顯示核心。
+              </p>
+            </div>
+            <div class="split-card">
+              <h3>CMS 連網版本（量產銷售）</h3>
+              <p>
+                串接雲端 CMS 平台進行作品排程派送，並開發手機端 BLE 連網設定流程，讓裝置連上 Wi-Fi 自動更新展示內容。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / ARCHITECTURE -->
+      <section class="detail-section page" id="architecture">
+        <div class="detail-section-head">
+          <p class="detail-label">02 / ARCHITECTURE</p>
+          <h2>感測對接與內容更新路徑</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            系統架構由環境自適應與內容更新兩部分構成。感測端由感測板即時取樣環境光線傳遞給 Android 顯示層；內容端則透過手機連網設定後，由雲端 CMS 派送展示內容與排程。
+          </p>
+        </div>
+        <div class="detail-wide">
+          <div class="flow-grid">
+            <div class="flow-card">
+              <b>01 · BLE 設定</b>
+              <span>手機探索設備並配置 Wi-Fi 連線</span>
+            </div>
+            <div class="flow-card">
+              <b>02 · 雲端連線</b>
+              <span>畫框連網對接 CMS 內容管理伺服器</span>
+            </div>
+            <div class="flow-card">
+              <b>03 · 內容更新</b>
+              <span>接收並更新高解析度數位畫作與排程</span>
+            </div>
+            <div class="flow-card">
+              <b>04 · 環境調適</b>
+              <span>感測器取樣環境光，自適應微調顯示</span>
+            </div>
+          </div>
+          <figure class="proof-figure">
+            <img
+              src="../../assets/images/cms-content-pipeline.webp"
+              alt="CMS 內容更新與裝置管理流程架構圖"
+              loading="lazy"
+            />
+            <figcaption>CMS 連網版本之內容派送與裝置管理流程。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 03 / IMPLEMENTATION -->
+      <section class="detail-section page" id="implementation">
+        <div class="detail-section-head">
+          <p class="detail-label">03 / IMPLEMENTATION</p>
+          <h2>環境感測與連網設定實作</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            針對 27 吋大螢幕的類紙質感，環境光調節需保持平滑無閃爍（環境色溫調整效果見<a href="#ambient-stage">開場展示</a>）；同時在使用者端，提供簡潔的手機連網配置介面。
+          </p>
+        </div>
+        <div class="detail-wide">
+          <figure class="proof-figure">
+            <img
+              src="../../assets/images/cms-ble-setup.webp"
+              alt="手機 BLE 配網設定流程畫面"
+              loading="lazy"
+            />
+            <figcaption>CMS 連網版本：手機端 BLE 搜尋裝置、配對與 Wi-Fi 連線設定流程。</figcaption>
+          </figure>
+          <div class="placeholder" id="fr-01">
+            <span class="placeholder-id">FR-01</span>
+            <span class="placeholder-title">感測板與通訊整合（標註所屬版本）</span>
+            <span class="placeholder-note">感測板硬體、接線介面與通訊標示，建議比例 4:3</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / VERIFICATION -->
+      <section class="detail-section page" id="verification">
+        <div class="detail-section-head">
+          <p class="detail-label">04 / VERIFICATION</p>
+          <h2>問題與驗證</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            感測數據傳輸平滑度與遠端連網更新流程為整合測試之重點。
+          </p>
+          <div class="verification-box">
+            <div class="verification-header">
+              <b>感測與更新驗證狀態</b>
+              <span class="badge-pending">驗證紀錄待補</span>
+            </div>
+            <p>
+              已確認完成早期感測版本之環境光取樣顯示連動，以及 CMS 連網版本之配網與內容派送。不同光源下的感測數據平滑度與網路重試紀錄待補入。
+            </p>
+          </div>
+          <div class="placeholder" id="fr-02">
+            <span class="placeholder-id">FR-02</span>
+            <span class="placeholder-title">感測資料與顯示對照紀錄</span>
+            <span class="placeholder-note">真實驗證紀錄待補：實際數據 log、光照對照或排查紀錄，建議比例 16:10</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 / OUTCOME -->
+      <section class="detail-section page" id="outcome">
+        <div class="detail-section-head">
+          <p class="detail-label">05 / OUTCOME</p>
+          <h2>量產銷售的智慧藝術畫框</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            CMS 連網版本成功推進至量產銷售階段，完成了畫框軟體開發、感測器硬體與取樣韌體整合，以及雲端內容管理平台的串接落地。
+          </p>
+        </div>
+      </section>
+
+      <!-- Related Works -->
+      <section class="related-section page">
+        <h2>相關案例</h2>
+        <div class="related-links">
+          <a href="../payment-terminal/index.html">4.3 吋多元支付機</a>
+          <a href="../color-epaper/index.html">彩色電子紙桌面立牌</a>
+          <a href="../../index.html#projects">返回全部作品</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+        <span>PRODUCT · DISPLAY · SYSTEMS</span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,193 +1,415 @@
 <!doctype html>
 <html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>黃鈺峰｜產品與系統開發工程師</title>
+    <meta
+      name="description"
+      content="黃鈺峰的作品集：從工業設計出發，延伸至電路、韌體與應用開發，專注於顯示與互動產品的系統整合。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="黃鈺峰｜產品與系統開發工程師" />
+    <meta
+      property="og:description"
+      content="從工業設計出發，串起電路、韌體與應用開發。"
+    />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%23202725%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">跳至主要內容</a>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>黃鈺峰｜設計與產品作品集</title>
-  <meta name="description" content="黃鈺峰，2010 年起投入顯示產品開發，從工業設計出發，整合智慧顯示、Android、感測器、互動系統與 Edge AI，將概念推進至可驗證、可交付的產品。">
-  <meta name="theme-color" content="#13272d">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="黃鈺峰｜設計與產品作品集">
-  <meta property="og:description" content="從工業設計到智慧顯示、跨端互動與量產交付。查看黃鈺峰的代表專案與開發經歷。">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2313272d'/%3E%3Cpolygon points='23.25,25 35.25,25 40.75,36 40.25,37 78.75,37 78.75,25 58.25,25 33.25,75 21.25,75 34.75,48' fill='%2300c3ff'/%3E%3Cpolygon points='51.25,47 78.75,47 78.75,59 57.25,59 49.25,75 37.25,75' fill='%233b82f6'/%3E%3C/svg%3E">
-  <script src="main.js" defer></script>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">跳至主要內容</a>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="返回首頁">
-      <svg viewBox="0 0 100 100" class="brand-logo" aria-hidden="true">
-        <rect width="100" height="100" rx="22" fill="#13272d" />
-        <polygon points="23.25,25 35.25,25 40.75,36 40.25,37 78.75,37 78.75,25 58.25,25 33.25,75 21.25,75 34.75,48" fill="#00c3ff" />
-        <polygon points="51.25,47 78.75,47 78.75,59 57.25,59 49.25,75 37.25,75" fill="#3b82f6" />
-      </svg>
-      <div class="brand-text">
-        <strong>黃鈺峰</strong><span>YU-FENG HUANG</span>
+    <!-- H0: Header & Navigation -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="返回首頁">
+          <span class="brand-name">
+            <strong>黃鈺峰</strong>
+          </span>
+        </a>
+        <button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          選單
+        </button>
+        <nav id="nav" aria-label="主要導覽">
+          <a href="#projects">作品</a>
+          <a href="#capabilities">能力</a>
+          <a href="#about">關於</a>
+          <a href="#contact">聯絡</a>
+        </nav>
       </div>
-    </a>
-    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">選單</button>
-    <nav id="site-nav" aria-label="主要導覽">
-      <a href="#projects">作品</a><a href="#about">關於我</a><a href="#awards">獎項</a><a href="#contact">聯絡</a>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="portfolio-intro page-width" id="top">
-      <div><p class="eyebrow">YU-FENG HUANG / PORTFOLIO</p><h1>設計、顯示與互動。</h1></div>
-      <p>探索產品的樣貌，<br>也讓想法成為實際的體驗。</p>
-    </section>
-    <div class="work-marker page-width" id="projects"><span>SELECTED WORK</span><span>01 — 06</span></div>
-    <article class="project" id="tokugawa">
-      <div class="project-body page-width">
-        <header class="work-header"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>浮光樂影・浮空投影音樂盒</h2></div><p class="project-status">產品驗證中</p></header>
-      <div class="project-visual project-visual-image tokugawa-hero">
-        <div class="media-stage media-stage--original"><img src="assets/images/tokugawa-hero.webp" alt="浮光樂影浮空投影智慧音樂盒外觀設計渲染" width="1600" height="900" decoding="async" srcset="assets/images/tokugawa-hero-640.webp 640w, assets/images/tokugawa-hero.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" fetchpriority="high"></div>
-      </div>
-        <div class="work-caption"><p class="work-description">浮光樂影將音樂與浮空影像收進木質箱體，探索居家擺件與互動裝置之間的可能。頂部整合浮空投影視窗與觸控操作，搭配六種顯示情境，讓聆聽音樂之外，也多了一份可觀看、可操作的樂趣。目前正進行產品驗證，持續調整外觀、機構與使用體驗。</p></div>
-        <div class="evidence-grid tokugawa-evidence">
-          <figure class="evidence-image"><div class="media-stage media-stage--original"><img src="assets/images/tokugawa-controls.webp" alt="浮光樂影頂部浮空投影視窗與觸控操作區設計" width="1600" height="900" decoding="async" srcset="assets/images/tokugawa-controls-640.webp 640w, assets/images/tokugawa-controls.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>PROJECTION &amp; CONTROL</span><strong>浮空投影與觸控整合</strong>
+    </header>
 
-            </figcaption>
-          </figure>
-          <figure class="evidence-image"><div class="media-stage media-stage--original"><img src="assets/images/tokugawa-rear.webp" alt="浮光樂影後方 I/O 與木質箱體設計" width="1600" height="900" decoding="async" srcset="assets/images/tokugawa-rear-640.webp 640w, assets/images/tokugawa-rear.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>MECHANISM &amp; I/O</span><strong>木質箱體內的機構配置</strong>
-
-            </figcaption>
-          </figure>
-          <figure class="evidence-image tokugawa-scenes"><div class="media-stage media-stage--original"><img src="assets/images/tokugawa-six-scenes-ui.webp"
-              alt="浮光樂影浮空投影音樂盒的六種顯示情境 UI" width="1600" height="900" decoding="async" srcset="assets/images/tokugawa-six-scenes-ui-640.webp 640w, assets/images/tokugawa-six-scenes-ui.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>DISPLAY EXPERIENCE</span><strong>6 種顯示情境 UI</strong>
-
-            </figcaption>
-          </figure>
-
+    <main id="main">
+      <!-- H1: Hero Section (置中首屏展示風格) -->
+      <section class="hero page">
+        <p class="hero-eyebrow">產品與系統開發工程師</p>
+        <h1>整合軟硬體，<br />讓產品實際運作。</h1>
+        <p class="hero-intro">
+          從工業設計出發，串起電路、韌體與應用，完成可操作的顯示與互動產品。
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">查看作品</a>
+          <a
+            class="arrow-link"
+            href="documents/YF-CV-EN.pdf"
+            target="_blank"
+            rel="noopener"
+            >英文履歷（PDF） →</a
+          >
         </div>
-      </div>
-    </article>
+      </section>
 
-    <article class="project" id="display-3d">
-      <div class="project-body page-width">
-        <header class="work-header"><div><p class="eyebrow">02 / SELECTED WORK</p><h2>多人多視角裸視 3D</h2></div><p class="project-status">台灣・法國展出</p></header>
-      <div class="project-visual project-visual-image project-3d-system">
-        <div class="media-stage media-stage--original"><img src="assets/images/glasses-free-3d-hero.webp" alt="多人多視角裸視 3D 顯示系統架構概念" width="1600" height="900" decoding="async" srcset="assets/images/glasses-free-3d-hero-640.webp 640w, assets/images/glasses-free-3d-hero.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-      </div>
-        <div class="work-caption"><p class="work-description">不需配戴眼鏡，觀眾便能從不同位置觀看立體影像，並透過手機選擇模型、調整外觀，主動探索展示內容。設計串連顯示端、手機操作與模型管理介面，讓內容準備與現場互動形成完整流程。作品曾於台灣與法國展出，將裸視 3D 帶入可參與的展示體驗。</p></div>
-        <div class="evidence-grid evidence-grid-two">
-          <figure class="evidence-image">
-            <div class="media-stage media-stage--cutout"><img src="assets/images/glasses-free-3d-mobile-control.webp" alt="手機控制端操作介面" width="1600" height="900" decoding="async" srcset="assets/images/glasses-free-3d-mobile-control-640.webp 640w, assets/images/glasses-free-3d-mobile-control.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>REMOTE INTERACTION</span><strong>用手機選擇模型與調整外觀</strong>
+      <!-- H2 & H3: 代表作品 (01 - 05) -->
+      <section class="section page" id="projects">
+        <h2 class="section-title">代表作品</h2>
 
-            </figcaption>
-          </figure>
-          <figure class="evidence-image">
-            <div class="media-stage media-stage--original"><img src="assets/images/glasses-free-3d-model-upload.webp" alt="模型上傳與管理後台介面" width="1600" height="900" decoding="async" srcset="assets/images/glasses-free-3d-model-upload-640.webp 640w, assets/images/glasses-free-3d-model-upload.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>ASSET PIPELINE</span><strong>模型上傳與管理</strong>
+        <!-- H2: 01 Color ePaper Showcase (主展示舞台) -->
+        <article class="featured-project">
+          <div class="featured-media">
+            <img
+              src="assets/images/color-epaper-sign.webp"
+              alt="7.3 吋彩色電子紙桌面立牌正面外觀"
+              loading="eager"
+            />
+          </div>
+          <div class="featured-content">
+            <span class="project-tag">01 / 整案開發</span>
+            <h3 class="featured-title">彩色電子紙桌面立牌</h3>
+            <p class="featured-desc">
+              整合手機設定、圖片更新與電子紙顯示，完成可操作的桌面產品。
+            </p>
+            <div class="featured-role">
+              <strong>我的工作</strong>
+              <span>PCB 電路與布局、MCU 韌體 · Android App · 工業與機構設計</span>
+            </div>
+            <a class="arrow-link" href="work/color-epaper/index.html"
+              >查看開發過程 →</a
+            >
+          </div>
+        </article>
 
-            </figcaption>
-          </figure>
+        <!-- H3: 02 - 05 Four Selected Project Cards (2x2 淺灰圓角卡片) -->
+        <div class="project-grid">
+          <!-- 02 Digital Frame -->
+          <article class="project-card">
+            <span class="project-tag">02 / 顯示與內容管理</span>
+            <h3>類紙感數位畫框與 CMS</h3>
+            <p class="card-desc">
+              整合感測器硬體、韌體與畫框軟體，串接內容更新流程。
+            </p>
+            <div class="card-media">
+              <img
+                src="assets/images/cms-digital-frame.webp"
+                alt="27 吋類紙感數位畫框"
+                loading="lazy"
+              />
+            </div>
+            <p class="card-role">
+              <strong>我的工作</strong>我負責軟體系統架構，以及環境光感測硬體與 MCU 取樣韌體整合。
+            </p>
+            <a class="arrow-link" href="work/digital-frame/index.html"
+              >查看案例 →</a
+            >
+          </article>
+
+          <!-- 03 Payment Terminal -->
+          <article class="project-card">
+            <span class="project-tag">03 / 顯示與觸控整合</span>
+            <h3>4.3 吋多元支付機</h3>
+            <p class="card-desc">
+              在 Android 平台完成 DTS 螢幕設定與 I²C 觸控整合。
+            </p>
+            <div class="card-media">
+              <img
+                src="assets/images/payment-terminal-hero.webp"
+                alt="4.3 吋多元支付機產品外觀"
+                loading="lazy"
+              />
+            </div>
+            <p class="card-role">
+              <strong>我的工作</strong>我負責 Android 平台 DTS 顯示時序配置與 I²C 觸控驅動適配。
+            </p>
+            <a class="arrow-link" href="work/payment-terminal/index.html"
+              >查看案例 →</a
+            >
+          </article>
+
+          <!-- 04 Edge AI Truck Mirror -->
+          <article class="project-card">
+            <span class="project-tag">04 / 邊緣 AI</span>
+            <h3>AI 卡車電子後視鏡</h3>
+            <p class="card-desc">
+              將 Linux RKNN 推論軟體與雙視角顯示、產品機構整合。
+            </p>
+            <div class="card-media">
+              <img
+                src="assets/images/ai-truck-emirror-trimmed.webp"
+                alt="12.3 吋 AI 卡車電子後視鏡"
+                loading="lazy"
+              />
+            </div>
+            <p class="card-role">
+              <strong>我的工作</strong>我負責 Linux RKNN 神經網路推論管線開發，以及雙鏡頭與外觀機構設計。
+            </p>
+            <a class="arrow-link" href="work/ai-truck-emirror/index.html"
+              >查看案例 →</a
+            >
+          </article>
+
+          <!-- 05 Glasses-Free 3D -->
+          <article class="project-card">
+            <span class="project-tag">05 / 跨端互動</span>
+            <h3>多人多視角裸視 3D</h3>
+            <p class="card-desc">
+              以 PyQt、Three.js 與 Node.js／GCP 串接跨端互動。
+            </p>
+            <div class="card-media">
+              <img
+                src="assets/images/glasses-free-3d-hero.webp"
+                alt="多人多視角裸視 3D 展示系統"
+                loading="lazy"
+              />
+            </div>
+            <p class="card-role">
+              <strong>我的工作</strong>我負責 PyQt 桌面校準工具、Web Three.js 視差渲染與 GCP 雲端服務開發。
+            </p>
+            <a class="arrow-link" href="work/glasses-free-3d/index.html"
+              >查看案例 →</a
+            >
+          </article>
         </div>
-      </div>
-    </article>
+      </section>
 
-    <article class="project" id="cms">
-      <div class="project-body page-width">
-        <header class="work-header"><div><p class="eyebrow">03 / SELECTED WORK</p><h2>27 吋類紙感數位畫框</h2></div><p class="project-status">量產銷售</p></header>
-      <div class="project-visual project-visual-image cms-hero"><div class="media-stage media-stage--cutout"><img src="assets/images/cms-digital-frame.webp"
-          alt="27 吋類紙感數位畫框量產產品" width="1600" height="1000" decoding="async" srcset="assets/images/cms-digital-frame-640.webp 640w, assets/images/cms-digital-frame.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-      </div>
-        <div class="work-caption"><p class="work-description">以類紙質感的顯示效果，讓數位畫作自然融入居家與展示空間，並隨環境光調整畫面色溫。這一代從原本的離線畫框延伸至連網內容管理，透過手機完成連網設定，再由後台更新展示內容。保留畫框的觀看感受，同時讓日常換圖與內容維護更方便，產品已量產銷售。</p></div>
-        <div class="evidence-grid evidence-grid-wide">
-          <figure class="evidence-image"><div class="media-stage media-stage--cutout"><img src="assets/images/cms-ble-setup.webp" alt="手機透過 BLE 完成 CMS 數位畫框連網設定的操作流程" width="1600" height="900" decoding="async" srcset="assets/images/cms-ble-setup-640.webp 640w, assets/images/cms-ble-setup.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>DEVICE ONBOARDING</span><strong>手機 BLE 連網設定</strong>
-
-            </figcaption>
-          </figure>
-          <figure class="evidence-image"><div class="media-stage media-stage--original"><img src="assets/images/cms-content-pipeline.webp"
-              alt="CMS 後台上架內容並同步至 Android 顯示端的流程" width="1600" height="900" decoding="async" srcset="assets/images/cms-content-pipeline-640.webp 640w, assets/images/cms-content-pipeline.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>CONTENT PIPELINE</span><strong>CMS 與顯示端同步</strong>
-
-            </figcaption>
-          </figure>
-          <figure class="evidence-image comparison-placeholder"><div class="media-stage media-stage--cutout"><img src="assets/images/cms-ambient-comparison.webp"
-              alt="CMS 數位畫框在不同環境色溫下的顯示效果對照" width="1600" height="1000" decoding="async" srcset="assets/images/cms-ambient-comparison-640.webp 640w, assets/images/cms-ambient-comparison.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
-            <figcaption><span>AMBIENT ADAPTATION</span><strong>隨環境光調整畫面色溫</strong>
-
-            </figcaption>
-          </figure>
+      <!-- H4: 工作領域與對應案例 -->
+      <section class="capabilities-section page" id="capabilities">
+        <h2 class="section-title">工作領域與對應案例</h2>
+        <div class="cap-table">
+          <div class="cap-row">
+            <div class="cap-title">產品整合</div>
+            <div class="cap-desc">電路、韌體、App 與機構共同配置。</div>
+            <a class="cap-link" href="work/color-epaper/index.html#architecture"
+              >電子紙 · 系統架構 →</a
+            >
+          </div>
+          <div class="cap-row">
+            <div class="cap-title">顯示與觸控</div>
+            <div class="cap-desc">DTS 螢幕設定與 I²C 觸控整合。</div>
+            <a
+              class="cap-link"
+              href="work/payment-terminal/index.html#implementation"
+              >支付機 · 關鍵實作 →</a
+            >
+          </div>
+          <div class="cap-row">
+            <div class="cap-title">感測與韌體</div>
+            <div class="cap-desc">連接感測硬體、取樣韌體與顯示應用。</div>
+            <a
+              class="cap-link"
+              href="work/digital-frame/index.html#implementation"
+              >畫框 · 感測整合 →</a
+            >
+          </div>
+          <div class="cap-row">
+            <div class="cap-title">跨端應用</div>
+            <div class="cap-desc">串接桌面介面、Web 互動與雲端服務。</div>
+            <a
+              class="cap-link"
+              href="work/glasses-free-3d/index.html#architecture"
+              >裸視 3D · 系統架構 →</a
+            >
+          </div>
         </div>
-      </div>
-    </article>
+      </section>
 
-    <section class="other-work page-width" aria-labelledby="other-work-title">
-      <div class="section-title">
-        <p class="eyebrow">MORE SELECTED WORK</p>
-        <h2 id="other-work-title">更多作品</h2>
-      </div>
-      <article class="other-work-card" data-reveal>
-        <header class="other-work-heading"><p class="eyebrow">EDGE AI / AUTOMOTIVE DISPLAY</p><h3>AI 卡車電子後視鏡</h3></header>
-        <div class="other-work-summary">
+      <!-- H5: 關於與榮譽 (淺灰底) -->
+      <section class="about-section" id="about">
+        <div class="page">
+          <div class="about-grid">
+            <div class="about-photo">
+              <img
+                src="assets/images/yf-portrait.webp"
+                alt="黃鈺峰肖像"
+                loading="lazy"
+              />
+            </div>
+            <div class="about-content">
+              <h2>從工業設計，走向產品與系統整合。</h2>
+              <p>
+                我從工業設計出發，逐步將工作延伸到軟體、韌體與硬體整合。關注的不只是產品外觀，也包含它如何設定、更新，以及實際被使用。
+              </p>
+              <p class="about-background">
+                國立成功大學工業設計碩士 · 2010 年起投入顯示產品與軟硬體開發
+              </p>
+              <a
+                class="arrow-link"
+                href="documents/YF-CV-EN.pdf"
+                target="_blank"
+                rel="noopener"
+                >查看英文履歷（PDF） →</a
+              >
+            </div>
+          </div>
 
-
-          <p>針對卡車駕駛需要掌握車側與後方動態的情境，整合即時影像、AI 物件辨識與盲區提示。畫面呈現不同視角，標示行人與車輛等目標，並以燈光提醒需要留意的周邊動態，協助駕駛判讀資訊。</p>
-          <a href="https://www.youtube.com/watch?v=0Wqjfp0PRo0" target="_blank" rel="noopener" class="button-video">
-            觀看實機 Demo ↗
-          </a>
+          <!-- Awards Subsection -->
+          <div class="awards-block" id="awards">
+            <h3>榮譽獎項</h3>
+            <ul class="awards-grid">
+              <li>
+                <span class="award-year">2024</span>
+                <div class="award-details">
+                  <b>Gold Panel Award 顯示元件產品技術獎</b>
+                  <small>智慧顯示產品團隊獲獎</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">2023</span>
+                <div class="award-details">
+                  <b>Go Next Digital — 1st Place 冠軍</b>
+                  <small>數位創新專案競賽</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">2022</span>
+                <div class="award-details">
+                  <b>台灣人工智慧學校 AI Academy — 1st Place 冠軍</b>
+                  <small>Re-Focus 工業影像瑕疵檢測專題</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">×3</span>
+                <div class="award-details">
+                  <b>Taiwan Excellence Award 台灣精品獎（三次獲獎）</b>
+                  <small>顯示與周邊硬體產品團隊獲獎</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="media-stage media-stage--cutout"><img src="assets/images/ai-truck-emirror.webp" alt="AI 卡車電子後視鏡產品" width="1600" height="1127" decoding="async" srcset="assets/images/ai-truck-emirror-640.webp 640w, assets/images/ai-truck-emirror.webp 1600w" sizes="(max-width: 900px) calc(100vw - 32px), 1120px" loading="lazy"></div>
+      </section>
 
-      </article>
-      <article class="other-work-card other-work-gallery" id="epaper" data-reveal>
-        <header class="other-work-heading"><p class="eyebrow">LOW-POWER DISPLAY / PRODUCT DESIGN</p><h3>7.3 吋彩色電子紙桌面立牌</h3></header>
-        <div class="other-work-summary"><p>為餐飲與桌面展示設計，讓菜單、活動與提醒資訊能透過手機換圖，減少反覆抽換紙卡的工作。彩色電子紙在斷電後仍可保留畫面，搭配內建電池，方便彈性擺放；背面的木桿支架支援直、橫向使用，適應不同版面的展示需求。</p><a href="https://www.youtube.com/watch?v=7aF_x-LMT-A" target="_blank" rel="noopener" class="button-video">觀看實機 Demo ↗</a></div>
-        <div class="evidence-grid">
-<figure class="evidence-image"><div class="media-stage media-stage--cutout"><img src="assets/images/color-epaper-sign.webp" alt="彩色電子紙桌面立牌正面外觀" width="1600" height="1000" srcset="assets/images/color-epaper-sign-640.webp 640w, assets/images/color-epaper-sign.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1216px) calc((100vw - 120px) / 2), 548px" loading="lazy" decoding="async"></div><figcaption><strong>以手機更新桌面展示內容</strong></figcaption></figure><figure class="evidence-image"><div class="media-stage media-stage--cutout media-stage--stand-detail"><img src="assets/images/epaper-stand.webp" alt="電子紙立牌背面木桿支架與操作按鍵" width="1600" height="890" srcset="assets/images/epaper-stand-640.webp 640w, assets/images/epaper-stand.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1216px) calc((100vw - 120px) / 2), 548px" loading="lazy" decoding="async"></div><figcaption><strong>木桿支架，支援直／橫向擺放</strong></figcaption></figure>
+      <!-- H6: 其他作品與持續開發 -->
+      <section class="more-section page">
+        <h2 class="section-title">其他作品與持續開發</h2>
+
+        <div class="more-grid">
+          <div class="more-item has-thumb">
+            <div class="more-thumb">
+              <img
+                src="assets/images/nft-frame-hero.webp"
+                alt="13.3 吋 Touch NFT Frame 外觀展示"
+                loading="lazy"
+              />
+            </div>
+            <div class="more-copy">
+              <h4>13.3 吋 Touch NFT Frame</h4>
+              <p>
+                DTS 螢幕整合、I²C 觸控整合。<br />
+                Rockchip RK3399 · Android 7 · 4K 高畫質面板。
+              </p>
+            </div>
+          </div>
+          <div class="more-item has-thumb">
+            <div class="more-thumb">
+              <img
+                src="assets/images/signature-pad-hero.webp"
+                alt="13.3 吋數位簽名板產品外觀與人體工學筆槽"
+                loading="lazy"
+              />
+            </div>
+            <div class="more-copy">
+              <h4>13.3 吋數位簽名板</h4>
+              <p>
+                單傳輸線整合供電與視訊，配合磁吸收納與充電之人體工學機構設計。
+              </p>
+            </div>
+          </div>
+          <div class="more-item">
+            <h4>7.5 吋電子紙會議室門牌</h4>
+            <p>
+              雙 SPI 介面與雙面板超低功耗驅動設計，提供智慧辦公室常時狀態顯示。
+            </p>
+          </div>
+          <div class="more-item">
+            <h4>Re-Focus</h4>
+            <p>
+              基於深度學習的工業影像修復，專注於工廠瑕疵檢測前的模糊去交錯前處理。
+            </p>
+          </div>
+          <div class="more-item">
+            <h4>AI 說</h4>
+            <p>
+              Image Captioning 跨模態圖像描述生成應用專題。
+            </p>
+          </div>
         </div>
 
-      </article>
-      <article class="other-work-card other-work-gallery" id="signature-pad" data-reveal>
-        <header class="other-work-heading"><p class="eyebrow">DIGITAL WRITING / PRODUCT DESIGN</p><h3>13.3 吋數位簽名板</h3></header>
-        <div class="other-work-summary"><p>以一條 USB-C 線連接電腦，將文件顯示與筆觸輸入整合在同一裝置，讓紙本簽署轉為數位操作。輕薄機身搭配折疊支架，兼顧桌面使用與收納；磁吸筆座則將定位、收納與充電集中在一起，讓筆有固定的放置位置。</p></div>
-        <div class="evidence-grid">
-<figure class="evidence-image"><div class="media-stage media-stage--cutout"><img src="assets/images/signature-pad.webp" alt="使用折疊支架架起的數位簽名板" width="1600" height="913" srcset="assets/images/signature-pad-640.webp 640w, assets/images/signature-pad.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1216px) calc((100vw - 120px) / 2), 548px" loading="lazy" decoding="async"></div><figcaption><strong>折疊支架，便於使用與收納</strong></figcaption></figure><figure class="evidence-image"><div class="media-stage media-stage--cutout media-stage--pen-detail"><img src="assets/images/signature-pen.webp" alt="數位簽名板的磁吸充電筆座細節" width="1600" height="634" srcset="assets/images/signature-pen-640.webp 640w, assets/images/signature-pen.webp 1600w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1216px) calc((100vw - 120px) / 2), 548px" loading="lazy" decoding="async"></div><figcaption><strong>磁吸筆座，整合定位與充電</strong></figcaption></figure>
+        <div class="progress-block">
+          <h3>進行中專案</h3>
+          <div class="progress-item-tokugawa">
+            <img
+              src="assets/images/tokugawa-hero.webp"
+              alt="浮光樂影浮空投影音樂盒外觀設計渲染"
+              loading="lazy"
+            />
+            <div class="progress-copy">
+              <h4>
+                浮光樂影・浮空投影音樂盒
+                <span class="badge-status">產品驗證中</span>
+              </h4>
+              <p>
+                將浮空影像、音樂與觸控介面整合進木質箱體，探索居家擺件的互動體驗。目前進行產品驗證。
+              </p>
+            </div>
+          </div>
+          <div class="progress-item-t113">
+            <h4>T113 嵌入式平台開發</h4>
+            <p>
+              獨立開發專案，進行中；內容待完成階段驗證後更新。
+            </p>
+          </div>
         </div>
+      </section>
 
-      </article>
-    </section>
+      <!-- H7: 聯絡我（深色底） -->
+      <section class="contact-section" id="contact">
+        <div class="page">
+          <h2>聯絡我</h2>
+          <p class="contact-sub">
+            歡迎聯絡產品開發、系統整合與嵌入式整合相關機會。
+          </p>
+          <a class="contact-email" href="mailto:skywing61@gmail.com"
+            >skywing61@gmail.com</a
+          >
+          <div class="contact-actions">
+            <a
+              href="https://www.linkedin.com/in/%E9%88%BA%E5%B3%B0-%E9%BB%83-9b4334171"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn 聯絡</a
+            >
+            <a
+              href="documents/YF-CV-EN.pdf"
+              target="_blank"
+              rel="noopener"
+              >英文履歷（PDF）</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <section class="about page-width" id="about">
-      <figure class="portrait"><img src="assets/images/yf-portrait.webp" alt="黃鈺峰個人照片" width="1200" height="1600" decoding="async" srcset="assets/images/yf-portrait-640.webp 480w, assets/images/yf-portrait.webp 1200w" sizes="(max-width: 700px) 120px, 200px" loading="lazy">
-        <figcaption>2010 年起投入顯示產品開發<br>現居台灣</figcaption>
-      </figure>
-      <div class="about-content"><header class="about-heading"><p class="eyebrow">ABOUT</p><h2>黃鈺峰<span class="about-name-separator"> / </span><span class="about-name-en" lang="en">Yu-Feng Huang</span></h2></header>
-      <p>從工業設計出發，持續探索顯示、互動與智慧產品。這裡的作品多由我整合完成，涵蓋產品設計、互動介面與軟硬體開發，讓想法成為可以感受、可以使用的物件。</p>
-      <p class="about-meta"><span>國立成功大學工業設計碩士</span><span>2010 年起投入顯示產品開發 · 台灣</span></p></div>
-    </section>
-    <section class="awards page-width" id="awards" aria-labelledby="awards-title">
-          <p class="eyebrow">RECOGNITION</p><h2 id="awards-title">獎項</h2>
-          <ul>
-            <li><span>2024</span><strong>Gold Panel Award</strong></li>
-            <li><span>2023</span><strong>Go Next Digital — 1st Place</strong></li>
-            <li><span>2022</span><strong>AI Academy — 1st Place</strong></li>
-            <li><span>×3</span><strong>Taiwan Excellence Award</strong></li>
-          </ul>
-        </section>
-
-    <section class="contact" id="contact">
-      <div class="page-width contact-inner">
-        <p class="eyebrow">CONTACT</p>
-        <h2>保持聯繫。</h2>
-        <p class="contact-address"><a class="contact-email" href="mailto:skywing61@gmail.com">skywing61@gmail.com</a></p>
-        <div class="contact-actions"><a class="text-link"
-            href="https://www.linkedin.com/in/%E9%88%BA%E5%B3%B0-%E9%BB%83-9b4334171" target="_blank"
-            rel="noopener">LinkedIn 聯絡 ↗</a><a href="documents/YF-CV-EN.pdf" target="_blank" rel="noopener">英文履歷 ↗</a></div>
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+        <span>PRODUCT · DISPLAY · SYSTEMS</span>
       </div>
-    </section>
-  </main>
-  <footer><span>© 2026 黃鈺峰 / YU-FENG HUANG</span><span>DESIGN · DISPLAY · INTERACTION</span>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>

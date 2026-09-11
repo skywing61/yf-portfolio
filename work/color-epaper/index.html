@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>彩色電子紙桌面立牌｜黃鈺峰</title>
+    <meta
+      name="description"
+      content="彩色電子紙桌面立牌：PCB 電路、ESP32-S3 韌體、Android App 與工業機構整案開發。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">跳至主要內容</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="返回首頁">
+          <span class="brand-name">
+            <strong>黃鈺峰</strong>
+          </span>
+        </a>
+        <button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          選單
+        </button>
+        <nav id="nav" aria-label="主要導覽">
+          <a href="../../index.html#projects">作品</a>
+          <a href="../../index.html#capabilities">能力</a>
+          <a href="../../index.html#about">關於</a>
+          <a href="../../index.html#contact">聯絡</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Breadcrumbs -->
+      <nav class="crumbs page" aria-label="麵包屑導覽">
+        <a href="../../index.html">首頁</a> /
+        <span>01 彩色電子紙桌面立牌</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="detail-hero page">
+        <span class="project-tag">01 / 整案開發</span>
+        <h1>彩色電子紙桌面立牌</h1>
+        <p class="detail-subtitle">低功耗無線顯示與軟硬體整合</p>
+        <p class="detail-intro">
+          讓桌面的展示內容，可以透過手機隨時更新。
+        </p>
+        <div class="detail-role">
+          <strong>我負責</strong>PCB 電路與布局、MCU 韌體、Android App 與外觀機構設計。
+        </div>
+      </section>
+
+      <!-- Main Product Stage (背部支架與 I/O 視角，820px, 420px high) -->
+      <div class="page">
+        <figure class="detail-stage-figure">
+          <div class="detail-stage detail-stage-epaper">
+            <img
+              src="../../assets/images/epaper-stand.webp"
+              alt="7.3 吋彩色電子紙立牌背部支架與 I/O 配置"
+              loading="eager"
+            />
+          </div>
+          <figcaption class="stage-caption">從背部支架與 I/O 配置，看產品的整合方式。</figcaption>
+        </figure>
+      </div>
+
+      <!-- Non-sticky In-page Navigation -->
+      <nav class="local-nav" aria-label="章節導覽">
+        <div class="local-nav-inner">
+          <a href="#role">概況</a>
+          <a href="#architecture">架構</a>
+          <a href="#implementation">實作</a>
+          <a href="#verification">驗證</a>
+          <a href="#outcome">成果</a>
+        </div>
+      </nav>
+
+      <!-- 01 / SCOPE -->
+      <section class="detail-section page" id="role">
+        <div class="detail-section-head">
+          <p class="detail-label">01 / SCOPE</p>
+          <h2>整案開發範圍</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            這款 7.3 吋彩色電子紙桌面立牌提供手機更新展示內容的流程。工程實作橫跨電路、韌體、應用與機構，把產品從板件和狀態流程串接成完整可操作的展示物件。
+          </p>
+          <div class="facts-grid">
+            <div>
+              <dt>硬體配置</dt>
+              <dd>PCB 電路與布局、電池供電、FPC 走線、機構支架</dd>
+            </div>
+            <div>
+              <dt>MCU 韌體</dt>
+              <dd>ESP32-S3、BLE 配網、Wi-Fi 傳輸、閒置深眠控制</dd>
+            </div>
+            <div>
+              <dt>軟體與機構</dt>
+              <dd>Android App 傳圖應用、操作介面與外觀機構設計</dd>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / ARCHITECTURE -->
+      <section class="detail-section page" id="architecture">
+        <div class="detail-section-head">
+          <p class="detail-label">02 / ARCHITECTURE</p>
+          <h2>設定、更新與待機流程</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            首次設定、圖片更新與閒置待機分成不同工作狀態。BLE 讓手機找到裝置並設定 Wi-Fi；連網後回傳狀態並接收圖片；五分鐘無訊息後自動進入深眠省電。
+          </p>
+        </div>
+        <div class="detail-wide">
+          <div class="flow-grid">
+            <div class="flow-card">
+              <b>01 · BLE 設定</b>
+              <span>手機探索立牌並配置現場 Wi-Fi 連線</span>
+            </div>
+            <div class="flow-card">
+              <b>02 · Wi-Fi 更新</b>
+              <span>裝置連上網路，接收手機傳送之影像</span>
+            </div>
+            <div class="flow-card">
+              <b>03 · 顯示更新</b>
+              <span>彩色電子紙刷新畫面並常駐保持顯示</span>
+            </div>
+            <div class="flow-card">
+              <b>04 · 閒置深眠</b>
+              <span>傳圖結束五分鐘無操作自動進入深眠</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 / IMPLEMENTATION -->
+      <section class="detail-section page" id="implementation">
+        <div class="detail-section-head">
+          <p class="detail-label">03 / IMPLEMENTATION</p>
+          <h2>電路與機構一體配置</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            立牌需要在方便更新與電池使用之間取得平衡。FPC 的接出位置、電池與按鍵空間共同影響布局；天線放在產品邊緣，前側 LED 配置在 PCB 的另一面，讓狀態提示能從產品正面清楚辨識。
+          </p>
+          <div class="split-grid">
+            <div class="split-card">
+              <h3>韌體與 App 流程</h3>
+              <p>
+                分開處理 BLE 設定、Wi-Fi 圖片更新與閒置深眠，讓手機 App 能依裝置當前連線狀態順暢推進傳圖步驟。
+              </p>
+            </div>
+            <div class="split-card">
+              <h3>PCB 與機構整合</h3>
+              <p>
+                依 FPC 接出位置、電池厚度、邊緣 I/O 接孔、天線與 LED 位置安排電路板件與支架結構。
+              </p>
+            </div>
+          </div>
+          <div class="placeholder" id="ep-01">
+            <span class="placeholder-id">EP-01</span>
+            <span class="placeholder-title">主板原理圖與 PCB 布局</span>
+            <span class="placeholder-note">原始電路圖匯出或局部布線圖，建議比例 16:10</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / VERIFICATION -->
+      <section class="detail-section page" id="verification">
+        <div class="detail-section-head">
+          <p class="detail-label">04 / VERIFICATION</p>
+          <h2>問題與驗證</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            整案開發涉及無線連線、影像傳輸與省電模式切換，各階段驗證以實機流程排查為依歸。
+          </p>
+          <div class="verification-box">
+            <div class="verification-header">
+              <b>實機驗證狀態</b>
+              <span class="badge-pending">驗證紀錄待補</span>
+            </div>
+            <p>
+              已確認完成 BLE 配網、Wi-Fi 傳圖與五分鐘無訊息深眠之實機操作流程。配網重試、傳輸容錯與深眠喚醒之詳細測試日誌待補入。
+            </p>
+          </div>
+          <div class="placeholder" id="ep-02">
+            <span class="placeholder-id">EP-02</span>
+            <span class="placeholder-title">真實韌體／硬體排查紀錄</span>
+            <span class="placeholder-note">對應實際問題之排查 log、波形截圖或對照紀錄，建議比例 16:10</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 / OUTCOME -->
+      <section class="detail-section page" id="outcome">
+        <div class="detail-section-head">
+          <p class="detail-label">05 / OUTCOME</p>
+          <h2>可更新的桌面展示產品</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            交付範圍涵蓋電路硬體、MCU 韌體、Android App 與外觀機構，完成一套可實際操作、由手機端更新顯示內容的彩色電子紙桌面產品。
+          </p>
+          <div class="outcome-actions">
+            <a
+              class="button button-outline"
+              href="https://www.youtube.com/watch?v=7aF_x-LMT-A"
+              target="_blank"
+              rel="noopener"
+              >觀看實機 Demo 影片</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Works -->
+      <section class="related-section page">
+        <h2>相關案例</h2>
+        <div class="related-links">
+          <a href="../digital-frame/index.html">類紙感數位畫框與 CMS</a>
+          <a href="../payment-terminal/index.html">4.3 吋多元支付機</a>
+          <a href="../../index.html#projects">返回全部作品</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+        <span>PRODUCT · DISPLAY · SYSTEMS</span>
+      </div>
+    </footer>
+  </body>
+</html>

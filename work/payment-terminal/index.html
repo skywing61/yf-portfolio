@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>多元支付機：DTS 螢幕設定與 I²C 觸控整合｜黃鈺峰</title>
+    <meta
+      name="description"
+      content="4.3 吋多元支付機：Android 平台顯示設定（Device Tree / DTS）、I²C 觸控螢幕整合與硬體適配。"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="../../main.js" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip" href="#main">跳至主要內容</a>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../../index.html" aria-label="返回首頁">
+          <span class="brand-name">
+            <strong>黃鈺峰</strong>
+          </span>
+        </a>
+        <button
+          class="menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          選單
+        </button>
+        <nav id="nav" aria-label="主要導覽">
+          <a href="../../index.html#projects">作品</a>
+          <a href="../../index.html#capabilities">能力</a>
+          <a href="../../index.html#about">關於</a>
+          <a href="../../index.html#contact">聯絡</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Breadcrumbs -->
+      <nav class="crumbs page" aria-label="麵包屑導覽">
+        <a href="../../index.html">首頁</a> /
+        <span>03 多元支付機</span>
+      </nav>
+
+      <!-- Hero Header -->
+      <section class="detail-hero page">
+        <span class="project-tag">03 / 顯示與觸控整合</span>
+        <h1>多元支付機</h1>
+        <p class="detail-subtitle">DTS 螢幕設定與 I²C 觸控整合</p>
+        <p class="detail-intro">
+          接通顯示與觸控，讓裝置能被操作。
+        </p>
+        <div class="detail-role">
+          <strong>我負責</strong>DTS 螢幕設定與 I²C 觸控整合。
+        </div>
+      </section>
+
+      <!-- Main Product Stage (斜俯視角，760px, 520px high) -->
+      <div class="page">
+        <figure class="detail-stage-figure">
+          <div class="detail-stage detail-stage-terminal">
+            <img
+              src="../../assets/images/payment-terminal-angle.webp"
+              alt="4.3 吋多元支付機斜俯視外觀與支架配置"
+              loading="eager"
+            />
+          </div>
+          <figcaption class="stage-caption">斜俯視角下的螢幕、操作區與支架配置。</figcaption>
+        </figure>
+      </div>
+
+      <!-- Non-sticky In-page Navigation -->
+      <nav class="local-nav" aria-label="章節導覽">
+        <div class="local-nav-inner">
+          <a href="#role">概況</a>
+          <a href="#architecture">架構</a>
+          <a href="#implementation">實作</a>
+          <a href="#verification">驗證</a>
+          <a href="#outcome">成果</a>
+        </div>
+      </nav>
+
+      <!-- 01 / SCOPE -->
+      <section class="detail-section page" id="role">
+        <div class="detail-section-head">
+          <p class="detail-label">01 / SCOPE</p>
+          <h2>嵌入式平台與整合範疇</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            這款 4.3 吋多元支付裝置主要提供 NFC、QR Code 與條碼等交易操作介面。工程核心聚焦於 Android 底層的硬體周邊適配，確保面板顯示正常且電容觸控靈敏。
+          </p>
+          <div class="facts-grid">
+            <div>
+              <dt>平台環境</dt>
+              <dd>Rockchip 平台搭配 Android 系統</dd>
+            </div>
+            <div>
+              <dt>顯示整合</dt>
+              <dd>DTS 時序配置、背光與面板電源設定</dd>
+            </div>
+            <div>
+              <dt>觸控整合</dt>
+              <dd>I²C 匯流排通訊、中斷設定與座標映射</dd>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 02 / ARCHITECTURE -->
+      <section class="detail-section page" id="architecture">
+        <div class="detail-section-head">
+          <p class="detail-label">02 / ARCHITECTURE</p>
+          <h2>顯示與觸控雙獨立路徑</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            系統架構中，顯示輸出與觸控輸入為兩條獨立運作的硬體路徑；DTS 為底層硬體配置描述來源，引導驅動程序完成面板時序與匯流排掛載。
+          </p>
+          <div class="split-grid">
+            <div class="split-card">
+              <h3>路徑 A · 顯示輸出管線</h3>
+              <p>
+                DTS display-timings 時序參數配置 → SoC 顯示控制器驅動 → 4.3 吋面板時鐘與圖像訊號輸出。
+              </p>
+            </div>
+            <div class="split-card">
+              <h3>路徑 B · 觸控輸入管線</h3>
+              <p>
+                電容觸控 IC 取樣 → I²C 匯流排傳輸與硬體中斷 → Linux Kernel 驅動 → Android Input 事件座標映射。
+              </p>
+            </div>
+          </div>
+          <figure class="proof-figure">
+            <img
+              src="../../assets/images/payment-terminal-exploded.webp"
+              alt="4.3 吋多元支付機機構分件與內部走線爆炸圖"
+              loading="lazy"
+            />
+            <figcaption>4.3 吋多元支付機機構分件與內部架構展開：呈現顯示面板、觸控層、射頻天線與核心主板之整合佈局。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 03 / IMPLEMENTATION -->
+      <section class="detail-section page" id="implementation">
+        <div class="detail-section-head">
+          <p class="detail-label">03 / IMPLEMENTATION</p>
+          <h2>關鍵實作與參數調校</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            面板適配需依據面板規格書之時脈、前緣／後緣與同步脈寬進行設定，並在 Device Tree 中完成觸控晶片之 I²C 節點掛載。
+          </p>
+          <div class="split-grid">
+            <div class="placeholder" id="pay-01">
+              <span class="placeholder-id">PAY-01</span>
+              <span class="placeholder-title">實際 DTS 修改片段</span>
+              <span class="placeholder-note">顯示時序節點代碼截圖，建議比例 16:10</span>
+            </div>
+            <div class="placeholder" id="pay-02">
+              <span class="placeholder-id">PAY-02</span>
+              <span class="placeholder-title">真實觸控整合／事件紀錄</span>
+              <span class="placeholder-note">getevent 輸出或座標日誌截圖，建議比例 16:10</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 / VERIFICATION -->
+      <section class="detail-section page" id="verification">
+        <div class="detail-section-head">
+          <p class="detail-label">04 / VERIFICATION</p>
+          <h2>問題與驗證</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            顯示時序偏移排查與觸控軸向對齊是確保使用者操作順暢的基礎。
+          </p>
+          <div class="verification-box">
+            <div class="verification-header">
+              <b>驅動適配驗證狀態</b>
+              <span class="badge-pending">驗證紀錄待補</span>
+            </div>
+            <p>
+              已確認完成 4.3 吋螢幕畫面正常顯示與觸控點擊輸入之連動流程。時序抖動排查與觸控多點映射之詳細波形或 log 紀錄待補入。
+            </p>
+          </div>
+          <div class="placeholder" id="pay-03">
+            <span class="placeholder-id">PAY-03</span>
+            <span class="placeholder-title">真實顯示／觸控修正前後對照</span>
+            <span class="placeholder-note">真實時序排查波形對照或觸控軌跡截圖，建議比例 16:10</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 05 / OUTCOME -->
+      <section class="detail-section page" id="outcome">
+        <div class="detail-section-head">
+          <p class="detail-label">05 / OUTCOME</p>
+          <h2>接通顯示與觸控的操作介面</h2>
+        </div>
+        <div class="detail-text">
+          <p>
+            完成 4.3 吋多元支付機之 Android 底層 DTS 螢幕設定與 I²C 觸控整合，讓硬體裝置具備穩定顯示與即時觸控反饋，承載支付操作介面。
+          </p>
+        </div>
+      </section>
+
+      <!-- Related Works -->
+      <section class="related-section page">
+        <h2>相關案例</h2>
+        <div class="related-links">
+          <a href="../ai-truck-emirror/index.html">AI 卡車電子後視鏡</a>
+          <a href="../color-epaper/index.html">彩色電子紙桌面立牌</a>
+          <a href="../../index.html#projects">返回全部作品</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+        <span>PRODUCT · DISPLAY · SYSTEMS</span>
+      </div>
+    </footer>
+  </body>
+</html>
