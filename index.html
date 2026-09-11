@@ -54,24 +54,22 @@
         <p class="hero-intro">
           從工業設計出發，串起電路、韌體與應用，完成可操作的顯示與互動產品。
         </p>
-        <div class="hero-actions">
-          <a class="button" href="#projects">查看作品</a>
-          <a
-            class="arrow-link"
-            href="documents/YF-CV-EN.pdf"
-            target="_blank"
-            rel="noopener"
-            >英文履歷（PDF） →</a
-          >
-        </div>
       </section>
 
       <!-- H2 & H3: 代表作品 (01 - 05) -->
       <section class="section page" id="projects">
         <h2 class="section-title">代表作品</h2>
+        <p class="section-note">以下整理各專案中承擔的開發項目與整合範圍。</p>
 
         <!-- H2: 01 Color ePaper Showcase (主展示舞台) -->
         <article class="featured-project">
+          <div class="featured-header">
+            <span class="project-tag">01 / 整案開發</span>
+            <h3 class="featured-title">彩色電子紙桌面立牌</h3>
+            <p class="featured-desc">
+              整合手機設定、圖片更新與電子紙顯示，完成可操作的桌面產品。
+            </p>
+          </div>
           <div class="featured-media">
             <img
               src="assets/images/color-epaper-sign.webp"
@@ -79,17 +77,14 @@
               loading="eager"
             />
           </div>
-          <div class="featured-content">
-            <span class="project-tag">01 / 整案開發</span>
-            <h3 class="featured-title">彩色電子紙桌面立牌</h3>
-            <p class="featured-desc">
-              整合手機設定、圖片更新與電子紙顯示，完成可操作的桌面產品。
+          <div class="featured-footer">
+            <p class="featured-role">
+              <strong>開發範圍</strong>PCB 電路與布局、MCU 韌體、Android App、工業與機構設計。
             </p>
-            <div class="featured-role">
-              <strong>我的工作</strong>
-              <span>PCB 電路與布局、MCU 韌體 · Android App · 工業與機構設計</span>
-            </div>
-            <a class="arrow-link" href="work/color-epaper/index.html"
+            <a
+              class="arrow-link"
+              href="work/color-epaper/index.html"
+              aria-label="查看彩色電子紙桌面立牌開發過程"
               >查看開發過程 →</a
             >
           </div>
@@ -102,7 +97,7 @@
             <span class="project-tag">02 / 顯示與內容管理</span>
             <h3>類紙感數位畫框與 CMS</h3>
             <p class="card-desc">
-              整合感測器硬體、韌體與畫框軟體，串接內容更新流程。
+              結合環境光感測與雲端派送，呈現類紙質感的 27 吋數位畫框。
             </p>
             <div class="card-media">
               <img
@@ -112,10 +107,13 @@
               />
             </div>
             <p class="card-role">
-              <strong>我的工作</strong>我負責軟體系統架構，以及環境光感測硬體與 MCU 取樣韌體整合。
+              <strong>開發範圍</strong>軟體開發、感測器硬體與韌體整合。
             </p>
-            <a class="arrow-link" href="work/digital-frame/index.html"
-              >查看案例 →</a
+            <a
+              class="arrow-link"
+              href="work/digital-frame/index.html"
+              aria-label="查看類紙感數位畫框與 CMS 開發過程"
+              >查看開發過程 →</a
             >
           </article>
 
@@ -124,7 +122,7 @@
             <span class="project-tag">03 / 顯示與觸控整合</span>
             <h3>4.3 吋多元支付機</h3>
             <p class="card-desc">
-              在 Android 平台完成 DTS 螢幕設定與 I²C 觸控整合。
+              整合螢幕顯示、掃碼窗與非接觸感應的操作介面與支架機構。
             </p>
             <div class="card-media">
               <img
@@ -134,10 +132,13 @@
               />
             </div>
             <p class="card-role">
-              <strong>我的工作</strong>我負責 Android 平台 DTS 顯示時序配置與 I²C 觸控驅動適配。
+              <strong>開發範圍</strong>Android 平台 DTS 螢幕設定與 I²C 觸控整合。
             </p>
-            <a class="arrow-link" href="work/payment-terminal/index.html"
-              >查看案例 →</a
+            <a
+              class="arrow-link"
+              href="work/payment-terminal/index.html"
+              aria-label="查看 4.3 吋多元支付機開發過程"
+              >查看開發過程 →</a
             >
           </article>
 
@@ -146,7 +147,7 @@
             <span class="project-tag">04 / 邊緣 AI</span>
             <h3>AI 卡車電子後視鏡</h3>
             <p class="card-desc">
-              將 Linux RKNN 推論軟體與雙視角顯示、產品機構整合。
+              結合車載雙鏡頭視野與邊緣 AI 辨識標記的行車顯示系統。
             </p>
             <div class="card-media">
               <img
@@ -156,10 +157,13 @@
               />
             </div>
             <p class="card-role">
-              <strong>我的工作</strong>我負責 Linux RKNN 神經網路推論管線開發，以及雙鏡頭與外觀機構設計。
+              <strong>開發範圍</strong>Linux RKNN 推論軟體、工業與機構設計。
             </p>
-            <a class="arrow-link" href="work/ai-truck-emirror/index.html"
-              >查看案例 →</a
+            <a
+              class="arrow-link"
+              href="work/ai-truck-emirror/index.html"
+              aria-label="查看 AI 卡車電子後視鏡開發過程"
+              >查看開發過程 →</a
             >
           </article>
 
@@ -168,7 +172,7 @@
             <span class="project-tag">05 / 跨端互動</span>
             <h3>多人多視角裸視 3D</h3>
             <p class="card-desc">
-              以 PyQt、Three.js 與 Node.js／GCP 串接跨端互動。
+              提供現場觀眾以個人手機掃碼，即時連線操作立體顯示內容。
             </p>
             <div class="card-media">
               <img
@@ -178,10 +182,13 @@
               />
             </div>
             <p class="card-role">
-              <strong>我的工作</strong>我負責 PyQt 桌面校準工具、Web Three.js 視差渲染與 GCP 雲端服務開發。
+              <strong>開發範圍</strong>PyQt、Web Three.js，以及 GCP 上的 Node.js 軟體開發。
             </p>
-            <a class="arrow-link" href="work/glasses-free-3d/index.html"
-              >查看案例 →</a
+            <a
+              class="arrow-link"
+              href="work/glasses-free-3d/index.html"
+              aria-label="查看多人多視角裸視 3D 開發過程"
+              >查看開發過程 →</a
             >
           </article>
         </div>
@@ -299,80 +306,159 @@
         <h2 class="section-title">其他作品與持續開發</h2>
 
         <div class="more-grid">
-          <div class="more-item has-thumb">
-            <div class="more-thumb">
-              <img
-                src="assets/images/nft-frame-hero.webp"
-                alt="13.3 吋 Touch NFT Frame 外觀展示"
-                loading="lazy"
-              />
+          <!-- 01 Touch NFT Frame -->
+          <article class="more-card">
+            <h4>13.3 吋 Touch NFT Frame</h4>
+            <div class="more-media">
+              <a
+                href="assets/images/nft-frame-hero.webp"
+                target="_blank"
+                rel="noopener"
+                title="查看完整高解析原圖"
+              >
+                <img
+                  src="assets/images/nft-frame-hero.webp"
+                  alt="13.3 吋 Touch NFT Frame 外觀展示"
+                  loading="lazy"
+                />
+              </a>
             </div>
-            <div class="more-copy">
-              <h4>13.3 吋 Touch NFT Frame</h4>
-              <p>
-                DTS 螢幕整合、I²C 觸控整合。<br />
-                Rockchip RK3399 · Android 7 · 4K 高畫質面板。
-              </p>
+            <p>
+              Rockchip RK3399 運算平台搭配 4K 高畫質面板，完成 DTS 螢幕時序配置與 I²C 觸控螢幕整合。
+            </p>
+          </article>
+
+          <!-- 02 數位簽名板 -->
+          <article class="more-card">
+            <h4>13.3 吋數位簽名板</h4>
+            <div class="more-media">
+              <a
+                href="assets/images/signature-pad-hero.webp"
+                target="_blank"
+                rel="noopener"
+                title="查看完整高解析原圖"
+              >
+                <img
+                  src="assets/images/signature-pad-hero.webp"
+                  alt="13.3 吋數位簽名板產品外觀與人體工學筆槽"
+                  loading="lazy"
+                />
+              </a>
             </div>
-          </div>
-          <div class="more-item has-thumb">
-            <div class="more-thumb">
-              <img
-                src="assets/images/signature-pad-hero.webp"
-                alt="13.3 吋數位簽名板產品外觀與人體工學筆槽"
-                loading="lazy"
-              />
-            </div>
-            <div class="more-copy">
-              <h4>13.3 吋數位簽名板</h4>
-              <p>
-                單傳輸線整合供電與視訊，配合磁吸收納與充電之人體工學機構設計。
-              </p>
-            </div>
-          </div>
-          <div class="more-item">
+            <p>
+              單傳輸線整合供電與視訊，配合磁吸收納與充電之人體工學機構設計。
+            </p>
+          </article>
+
+          <!-- 03 7.5 吋電子紙會議室門牌 -->
+          <article class="more-card">
             <h4>7.5 吋電子紙會議室門牌</h4>
+            <div class="more-media">
+              <a
+                href="assets/images/epaper-meeting-sign-hero.webp"
+                target="_blank"
+                rel="noopener"
+                title="查看完整高解析原圖"
+              >
+                <img
+                  src="assets/images/epaper-meeting-sign-hero.webp"
+                  alt="7.5 吋三色電子紙會議室門牌正反面外觀"
+                  loading="lazy"
+                />
+              </a>
+            </div>
             <p>
-              雙 SPI 介面與雙面板超低功耗驅動設計，提供智慧辦公室常時狀態顯示。
+              雙 SPI 介面與雙面板超低功耗驅動設計，提供智慧辦公室常時會議排程顯示。
             </p>
-          </div>
-          <div class="more-item">
-            <h4>Re-Focus</h4>
+          </article>
+
+          <!-- 04 Re-Focus -->
+          <article class="more-card">
+            <h4>Re-Focus 工業影像修復</h4>
+            <div class="more-media">
+              <a
+                href="assets/images/refocus-compare.webp"
+                target="_blank"
+                rel="noopener"
+                title="查看完整高解析原圖"
+              >
+                <img
+                  src="assets/images/refocus-compare.webp"
+                  alt="Re-Focus 模糊圖樣與 AI 處理後圖樣比較"
+                  loading="lazy"
+                />
+              </a>
+            </div>
             <p>
-              基於深度學習的工業影像修復，專注於工廠瑕疵檢測前的模糊去交錯前處理。
+              針對工廠瑕疵檢測之失焦與震動問題，利用 CNN 去交錯與銳化前處理模型，大幅提升辨識良率。
             </p>
-          </div>
-          <div class="more-item">
-            <h4>AI 說</h4>
+          </article>
+
+          <!-- 05 AI 說 -->
+          <article class="more-card">
+            <h4>AI 說（Image Captioning）</h4>
+            <div class="more-media">
+              <a
+                href="assets/images/ai-say-output.webp"
+                target="_blank"
+                rel="noopener"
+                title="查看完整高解析原圖"
+              >
+                <img
+                  src="assets/images/ai-say-output.webp"
+                  alt="AI 說圖像描述模型即時口述影像輸出"
+                  loading="lazy"
+                />
+              </a>
+            </div>
             <p>
-              Image Captioning 跨模態圖像描述生成應用專題。
+              結合 CNN 與 LSTM 之跨模態模型，解析影像元素並生成口述影像語意，輔助視覺受限者理解畫面。
             </p>
-          </div>
+          </article>
         </div>
 
         <div class="progress-block">
           <h3>進行中專案</h3>
-          <div class="progress-item-tokugawa">
-            <img
-              src="assets/images/tokugawa-hero.webp"
-              alt="浮光樂影浮空投影音樂盒外觀設計渲染"
-              loading="lazy"
-            />
-            <div class="progress-copy">
+          <div class="progress-grid">
+            <article class="more-card">
               <h4>
                 浮光樂影・浮空投影音樂盒
                 <span class="badge-status">產品驗證中</span>
               </h4>
+              <div class="more-media">
+                <a
+                  href="assets/images/tokugawa-hero.webp"
+                  target="_blank"
+                  rel="noopener"
+                  title="查看完整高解析原圖"
+                >
+                  <img
+                    src="assets/images/tokugawa-hero.webp"
+                    alt="浮光樂影浮空投影音樂盒外觀設計渲染"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
               <p>
                 將浮空影像、音樂與觸控介面整合進木質箱體，探索居家擺件的互動體驗。目前進行產品驗證。
               </p>
-            </div>
-          </div>
-          <div class="progress-item-t113">
-            <h4>T113 嵌入式平台開發</h4>
-            <p>
-              獨立開發專案，進行中；內容待完成階段驗證後更新。
-            </p>
+            </article>
+
+            <article class="more-card">
+              <h4>
+                T113 嵌入式平台開發
+                <span class="badge-status">進行中</span>
+              </h4>
+              <div class="more-media">
+                <div class="more-placeholder">
+                  <span class="placeholder-title">T113 專案圖片待補</span>
+                  <span class="placeholder-note">板卡配置與開發畫面整理中</span>
+                </div>
+              </div>
+              <p>
+                獨立開發專案，進行晶片底層顯示驅動適配；待完成階段驗證後補齊測試紀錄。
+              </p>
+            </article>
           </div>
         </div>
       </section>
