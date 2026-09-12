@@ -685,22 +685,21 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  padding: 16px;
+  padding: 0;
 }
 
 .more-media a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 100%;
   height: 100%;
   text-decoration: none;
 }
 
 .more-media img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.2s ease;
 }
 
@@ -730,6 +729,12 @@ a:focus-visible, button:focus-visible {
   border-radius: 12px;
 }
 
+.more-media .img-placeholder {
+  border: none;
+  background: var(--surface);
+  border-radius: 16px;
+}
+
 .img-placeholder .placeholder-name {
   font-family: var(--mono);
   font-size: 15px;
@@ -748,15 +753,15 @@ a:focus-visible, button:focus-visible {
 .more-placeholder {
   width: 100%;
   height: 100%;
-  border: 1px dashed var(--line);
-  border-radius: 12px;
+  border: none;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--surface);
 }
 
 .more-placeholder .placeholder-title {
@@ -1683,7 +1688,7 @@ footer .footer-inner {
 
   .more-media {
     margin-bottom: 12px;
-    padding: 12px;
+    padding: 0;
   }
 
   .progress-block {
