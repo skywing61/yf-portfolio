@@ -423,7 +423,8 @@ a:focus-visible, button:focus-visible {
   font-weight: 400;
   line-height: 1.6;
   color: var(--text-sub);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  min-height: 52px;
 }
 
 .project-card .card-media {
@@ -434,7 +435,7 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .project-card .card-media img {
@@ -447,7 +448,7 @@ a:focus-visible, button:focus-visible {
   font-size: 15px;
   line-height: 1.6;
   color: var(--text-main);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .project-card .card-role strong {
@@ -456,7 +457,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .project-card .arrow-link {
-  margin-top: auto;
+  margin-top: 0;
 }
 
 /* ==========================================================================
@@ -520,28 +521,43 @@ a:focus-visible, button:focus-visible {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 190px 1fr;
+  gap: 32px;
+  align-items: flex-start;
 }
 
 .about-photo img {
-  width: 240px;
-  border-radius: 8px;
+  width: 190px;
+  border-radius: 12px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  display: block;
 }
 
-.about-content h2 {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.3;
-  color: var(--text-main);
+.about-identity {
   margin-bottom: 16px;
 }
 
+.about-name {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--mono);
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.about-content h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-main);
+  margin-bottom: 0;
+}
+
 .about-content p {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.75;
   color: var(--text-sub);
   margin-bottom: 16px;
@@ -550,7 +566,15 @@ a:focus-visible, button:focus-visible {
 .about-background {
   font-size: 14px;
   color: var(--text-sub);
-  margin-bottom: 20px;
+  margin-bottom: 0;
+}
+
+.more-caption {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: -6px;
+  margin-bottom: 8px;
 }
 
 .awards-block {
@@ -1498,12 +1522,19 @@ footer .footer-inner {
     font-size: 22px;
   }
 
+  .project-card .card-desc {
+    margin-bottom: 20px;
+    min-height: auto;
+  }
+
   .project-card .card-media {
     height: 220px;
+    margin-bottom: 20px;
   }
 
   .project-card .card-role {
     font-size: 15px;
+    margin-bottom: 16px;
   }
 
   /* Capabilities: Vertical row */
@@ -1530,13 +1561,17 @@ footer .footer-inner {
 
   .about-grid {
     display: flex;
-    flex-direction: column-reverse;
-    gap: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
 
   .about-photo img {
-    max-width: 200px;
-    margin-inline: auto;
+    width: 110px;
+    height: 146px;
+    max-width: 110px;
+    margin: 0;
+    border-radius: 10px;
   }
 
   .about-content h2 {
