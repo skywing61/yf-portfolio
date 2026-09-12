@@ -24,7 +24,9 @@
   --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -49,12 +51,24 @@ img {
   height: auto;
 }
 
-h1, h2, h3, h4, p, figure, dl, dd, ul, ol {
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+dl,
+dd,
+ul,
+ol {
   margin: 0;
   padding: 0;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--text-main);
   font-family: var(--sans);
 }
@@ -65,7 +79,8 @@ a {
   transition: color 0.15s ease;
 }
 
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -297,7 +312,7 @@ a:focus-visible, button:focus-visible {
   font-weight: 700;
   line-height: 1.25;
   color: var(--text-main);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .section-note {
@@ -685,21 +700,22 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  padding: 0;
+  padding: 16px;
 }
 
 .more-media a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   text-decoration: none;
 }
 
 .more-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   transition: transform 0.2s ease;
 }
 
@@ -731,8 +747,8 @@ a:focus-visible, button:focus-visible {
 
 .more-media .img-placeholder {
   border: none;
-  background: var(--surface);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 10px;
 }
 
 .img-placeholder .placeholder-name {
@@ -1151,7 +1167,7 @@ footer .footer-inner {
   text-align: left;
 }
 
-.detail-text p + p {
+.detail-text p+p {
   margin-top: 16px;
 }
 
@@ -1383,7 +1399,10 @@ footer .footer-inner {
    ========================================================================== */
 
 @media (max-width: 1023px) {
-  .page, .site-header .header-inner, footer .footer-inner {
+
+  .page,
+  .site-header .header-inner,
+  footer .footer-inner {
     width: calc(100% - 64px);
   }
 
@@ -1443,7 +1462,10 @@ footer .footer-inner {
    ========================================================================== */
 
 @media (max-width: 767px) {
-  .page, .site-header .header-inner, footer .footer-inner {
+
+  .page,
+  .site-header .header-inner,
+  footer .footer-inner {
     width: calc(100% - 40px);
   }
 
@@ -1552,7 +1574,7 @@ footer .footer-inner {
 
   .section-title {
     font-size: 28px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 
   /* 4 Cards: Single column */
@@ -1688,7 +1710,7 @@ footer .footer-inner {
 
   .more-media {
     margin-bottom: 12px;
-    padding: 0;
+    padding: 12px;
   }
 
   .progress-block {
@@ -1830,7 +1852,9 @@ footer .footer-inner {
     scroll-behavior: auto;
   }
 
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
   }
