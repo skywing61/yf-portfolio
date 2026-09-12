@@ -424,7 +424,6 @@ a:focus-visible, button:focus-visible {
   line-height: 1.6;
   color: var(--text-sub);
   margin-bottom: 24px;
-  min-height: 52px;
 }
 
 .project-card .card-media {
