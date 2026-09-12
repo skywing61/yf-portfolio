@@ -526,8 +526,15 @@ a:focus-visible, button:focus-visible {
   align-items: flex-start;
 }
 
-.about-photo img {
+.about-photo {
   width: 190px;
+  aspect-ratio: 3 / 4;
+  flex-shrink: 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
   border-radius: 12px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
@@ -700,6 +707,43 @@ a:focus-visible, button:focus-visible {
 
 .more-media a:hover img {
   transform: scale(1.02);
+}
+
+/* ==========================================================================
+   統一圖片待放底色框（Wireframe Placeholder）
+   ========================================================================== */
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.about-photo .img-placeholder {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+}
+
+.img-placeholder .placeholder-name {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.img-placeholder .placeholder-ratio {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-sub);
 }
 
 .more-placeholder {
@@ -1566,12 +1610,47 @@ footer .footer-inner {
     gap: 20px;
   }
 
+  .about-photo {
+    width: 110px;
+    height: 146px;
+    aspect-ratio: 110 / 146;
+  }
+
   .about-photo img {
     width: 110px;
     height: 146px;
     max-width: 110px;
     margin: 0;
     border-radius: 10px;
+  }
+
+  .img-placeholder {
+    padding: 14px;
+  }
+
+  .img-placeholder .placeholder-name {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .img-placeholder .placeholder-ratio {
+    font-size: 12px;
+  }
+
+  .about-photo .img-placeholder {
+    padding: 6px 4px;
+    border-radius: 10px;
+  }
+
+  .about-photo .img-placeholder .placeholder-name {
+    font-size: 10.5px;
+    letter-spacing: -0.3px;
+    margin-bottom: 3px;
+    white-space: nowrap;
+  }
+
+  .about-photo .img-placeholder .placeholder-ratio {
+    font-size: 10.5px;
   }
 
   .about-content h2 {
