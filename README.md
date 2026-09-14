@@ -14,7 +14,7 @@
   - digital-frame/：類紙感數位畫框與 CMS（顯示與內容管理｜開場展示環境色溫對照）
   - payment-terminal/：4.3 吋多元支付機（顯示與觸控整合｜開場展示斜俯視角）
   - i-truck-emirror/：AI 卡車電子後視鏡（邊緣 AI 與機構｜開場展示相機局部放大與說明分割舞台）
-  - glasses-free-3d/：多人多視角裸視 3D（跨端互動展示｜開場展示手機端操作與選擇介面）
+  - glasses-free-3d/：單人追眼式裸視 3D（跨端互動展示｜開場展示手機端操作與選擇介面）
 - ssets/images/：全站高畫質 WebP / PNG 影像素材
 - documents/：英文履歷與相關文檔
 

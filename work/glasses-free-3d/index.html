@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>多人多視角裸視 3D｜黃鈺峰</title>
+    <title>單人追眼式裸視 3D｜黃鈺峰</title>
     <meta
       name="description"
-      content="多人多視角裸視 3D 展示系統：PyQt 桌面端管理、Web Three.js 視差渲染與 GCP Node.js 雲端模型服務。"
+      content="單人追眼式裸視 3D 展示系統：PyQt Windows 追蹤位置串接、Web Three.js 視差渲染與 GCP Node.js 雲端模型服務。"
     />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
@@ -46,13 +46,13 @@
     <main id="main">
       <!-- Breadcrumbs -->
       <div class="page crumbs">
-        <a href="../../index.html#projects">全部作品</a> / 多人多視角裸視 3D
+        <a href="../../index.html#projects">全部作品</a> / 單人追眼式裸視 3D
       </div>
 
       <!-- Hero Header -->
       <section class="detail-hero page">
         <span class="project-tag">05 / 跨端互動</span>
-        <h1>多人多視角裸視 3D</h1>
+        <h1>單人追眼式裸視 3D</h1>
         <p class="detail-intro">
           以 PyQt、Web Three.js 與 GCP 上的 Node.js，完成跨端互動展示。
         </p>
@@ -94,12 +94,12 @@
         </div>
         <div class="detail-text">
           <p>
-            本系統將 3D 模型管理、裸視 3D 渲染與觀眾手機端互動整合成展場展示方案。軟體實作聚焦跨端核心模組：桌面端校準管理工具（PyQt）、前端 Web 視差渲染（Three.js），以及雲端模型管理與通訊服務（Node.js on GCP）。
+            本系統將 3D 模型管理、裸視 3D 渲染與觀眾手機端互動整合成展場展示方案。軟體實作聚焦跨端核心模組：整合 tracker 位置並傳送至網頁的 Windows 軟體（PyQt）、前端 Web 視差渲染（Three.js），以及雲端模型管理與通訊服務（Node.js on GCP）。
           </p>
           <div class="facts-grid">
             <div>
               <dt>桌面端</dt>
-              <dd>PyQt · 播放校準與管理控制</dd>
+              <dd>PyQt · 整合 tracker 位置並傳送至網頁</dd>
             </div>
             <div>
               <dt>Web 渲染端</dt>
@@ -131,8 +131,8 @@
               <span>3D 模型託管於雲端儲存庫</span>
             </div>
             <div class="flow-card">
-              <b>02 · 桌面載入</b>
-              <span>PyQt 管理並調校光學參數</span>
+              <b>02 · 追蹤位置串接</b>
+              <span>PyQt Windows 軟體將 tracker 位置傳送至網頁</span>
             </div>
             <div class="flow-card">
               <b>03 · 手機操作</b>
