@@ -951,7 +951,7 @@ footer .footer-inner {
   font-size: 17px;
   line-height: 1.75;
   color: var(--text-sub);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   max-width: var(--text-max);
 }
 

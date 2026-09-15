@@ -1,240 +1,504 @@
 <!doctype html>
 <html lang="zh-Hant">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>單人追眼式裸視 3D｜黃鈺峰</title>
-    <meta
-      name="description"
-      content="單人追眼式裸視 3D 展示系統：PyQt Windows 追蹤位置串接、Web Three.js 視差渲染與 GCP Node.js 雲端模型服務。"
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231d1d1f%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
-    <link rel="stylesheet" href="../../style.css" />
-    <script src="../../main.js" defer></script>
-  </head>
-  <body id="top">
-    <a class="skip" href="#main">跳至主要內容</a>
 
-    <!-- Header -->
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="../../index.html" aria-label="黃鈺峰 - 返回首頁">
-          <svg viewBox="0 0 100 100" class="brand-logo" aria-hidden="true">
-            <rect width="100" height="100" rx="22" fill="#202725" />
-            <polygon points="23.25,25 35.25,25 40.75,36 40.25,37 78.75,37 78.75,25 58.25,25 33.25,75 21.25,75 34.75,48" fill="#ffffff" />
-            <polygon points="51.25,47 78.75,47 78.75,59 57.25,59 49.25,75 37.25,75" fill="#ffffff" />
-          </svg>
-        </a>
-        <button
-          class="menu"
-          type="button"
-          aria-expanded="false"
-          aria-controls="nav"
-        >
-          選單
-        </button>
-        <nav id="nav" aria-label="主要導覽">
-          <a href="../../index.html#projects">作品</a>
-          <a href="../../index.html#capabilities">能力</a>
-          <a href="../../index.html#about">關於</a>
-          <a href="../../index.html#contact">聯絡</a>
-        </nav>
-      </div>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>單人追眼式裸視 3D｜黃鈺峰</title>
+  <meta name="description" content="單人追眼式裸視 3D 展示系統：PyQt Windows 追蹤位置串接、Web Three.js 視差渲染與 GCP Node.js 雲端模型服務。" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23202725%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    /* ==========================================================================
+       標籤與標題間距：統一為 8px
+       ========================================================================== */
+    .detail-hero .project-tag,
+    .detail-section-head .detail-label {
+      margin-bottom: 8px;
+    }
 
-    <main id="main">
-      <!-- Breadcrumbs -->
-      <div class="page crumbs">
-        <a href="../../index.html#projects">全部作品</a> / 單人追眼式裸視 3D
-      </div>
+    /* ==========================================================================
+       大標題與副標／首行內文間距：統一為 8px
+       ========================================================================== */
+    .detail-hero h1 {
+      margin-bottom: 8px;
+    }
 
-      <!-- Hero Header -->
-      <section class="detail-hero page">
-        <span class="project-tag">05 / 跨端互動</span>
-        <h1>單人追眼式裸視 3D</h1>
-        <p class="detail-intro">
-          以 PyQt、Web Three.js 與 GCP 上的 Node.js，完成跨端互動展示。
-        </p>
-        <div class="detail-role">
-          <strong>開發範圍</strong>PyQt、Web Three.js，以及 GCP 上的 Node.js 軟體開發。
-        </div>
-      </section>
+    .detail-section-head h2 {
+      margin: 0;
+      line-height: 1.25;
+    }
 
-      <!-- Main Product Stage (手機端操作體驗，1040px, 500px high) -->
-      <div class="page">
-        <figure class="detail-stage-figure" id="control-stage">
-          <div class="detail-stage detail-stage-3d">
-            <img
-              src="../../assets/images/glasses-free-3d-mobile-control.webp"
-              alt="手機端模型操作與內容選擇介面"
-              loading="eager"
-            />
-          </div>
-          <figcaption class="stage-caption">手機端的模型操作與內容選擇介面。</figcaption>
-        </figure>
-      </div>
+    /* ==========================================================================
+       章節標題至主要區塊間距：
+       - 01, 02 (接大卡片視覺)：24px (與全頁文字至圖片間距一致)
+       - 03 (接文字說明段落)：12px
+       ========================================================================== */
+    .detail-section-head {
+      max-width: none;
+      margin-inline: 0;
+      text-align: left;
+      margin-bottom: 24px;
+    }
 
-      <!-- Non-sticky In-page Navigation -->
-      <nav class="local-nav" aria-label="章節導覽">
-        <div class="local-nav-inner">
-          <a href="#role">概況</a>
-          <a href="#architecture">架構</a>
-          <a href="#implementation">實作</a>
-          <a href="#verification">驗證</a>
-          <a href="#outcome">成果</a>
-        </div>
+    #outcome .detail-section-head {
+      margin-bottom: 12px;
+    }
+
+    /* ==========================================================================
+       副標與文字排版規範 (防止單字換行)
+       ========================================================================== */
+    .detail-hero.page,
+    .detail-stage-figure {
+      max-width: none;
+    }
+
+    .detail-hero .detail-subtitle,
+    .detail-hero .detail-intro,
+    .detail-hero .detail-role {
+      max-width: none;
+      text-wrap: pretty;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* 副標與開發範圍 (保持開闊層次感) */
+    .detail-hero .detail-role {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin-top: 32px;
+    }
+
+    /* ==========================================================================
+       文字至主要視覺媒體間距：全頁統一為 24px
+       - Hero: 開發範圍 → 主舞台展示機圖片 (24px)
+       - 01/02: 章節標題 → 特色大卡片 (24px)
+       - 03: 說明段落 → 視覺／影片 (24px)
+       ========================================================================== */
+    .detail-stage-figure {
+      width: 100%;
+      margin: 24px 0 48px;
+    }
+
+    .detail-stage-epaper {
+      width: 100%;
+      max-width: none;
+      aspect-ratio: 16/10;
+      min-height: 0;
+    }
+
+    .detail-stage-epaper img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/10;
+      object-fit: contain;
+    }
+
+    /* Wireframe Placeholder 樣式加強適配舞台比例 */
+    .visual-stage .img-placeholder,
+    .detail-stage-epaper .img-placeholder,
+    .detail-outcome-stage .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      aspect-ratio: 16/10;
+    }
+
+    .detail-outcome-stage {
+      margin-top: 24px;
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .detail-outcome-stage.ratio-16-9 {
+      aspect-ratio: 16/9;
+    }
+
+    .detail-outcome-stage.ratio-16-9 .img-placeholder {
+      aspect-ratio: 16/9;
+    }
+
+    #outcome .detail-text {
+      max-width: none;
+      margin-inline: 0;
+    }
+
+    #outcome .detail-text p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.7;
+      text-wrap: pretty;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .detail-section.page {
+      padding: 48px 0;
+      border-bottom: 0;
+    }
+
+    /* ==========================================================================
+       Apple 風格大卡片 (01 / 02) 內部間距規範
+       ========================================================================== */
+    .apple-feature-box {
+      display: grid;
+      grid-template-columns: minmax(0, .35fr) minmax(0, .65fr);
+      gap: 0;
+      background: var(--surface);
+      border: 0;
+      border-radius: 20px;
+      padding: 0;
+      overflow: hidden;
+      align-items: stretch;
+      margin-top: 0;
+    }
+
+    .apple-feature-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 40px;
+    }
+
+    /* 卡片內前導說明段落：字級與行高統一為 17px / 1.7，歸零 margin 確保外層 gap 準確 */
+    .apple-feature-text .feature-intro {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-sub);
+      text-wrap: pretty;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* 步驟清單：項目間隔 20px，標題至描述 6px */
+    .feature-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feature-step-row {
+      display: block;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    .feature-step-row .step-info strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      text-wrap: balance;
+    }
+
+    .feature-step-row .step-info p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0;
+      text-wrap: pretty;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .apple-feature-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      align-self: stretch;
+    }
+
+    .apple-feature-visual .visual-stage {
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 16/10;
+      flex: 1;
+      border-radius: 0;
+      overflow: hidden;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      display: flex;
+      position: relative;
+    }
+
+    .apple-feature-visual .visual-stage img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16/10;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* ==========================================================================
+       YouTube Video Embed (成果展示影片直接嵌入)
+       ========================================================================== */
+    .video-embed-stage {
+      margin-top: 24px;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000000;
+    }
+
+    .video-embed-stage iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .detail-return {
+      display: flex;
+      justify-content: flex-end;
+      padding: 40px 0 20px;
+    }
+
+    @media (max-width:900px) {
+      .apple-feature-box {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+      }
+
+      .apple-feature-text {
+        padding: 24px;
+      }
+
+      .apple-feature-visual .visual-stage {
+        flex: none;
+        aspect-ratio: 16/10;
+        height: auto;
+      }
+
+      .apple-feature-visual .visual-stage img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @media (max-width:767px) {
+      .apple-feature-box {
+        border-radius: 16px;
+      }
+
+      .detail-stage-figure {
+        margin-bottom: 36px;
+      }
+
+      .detail-section.page {
+        padding: 36px 0;
+      }
+
+      .feature-step-row .step-info p {
+        font-size: 16px;
+      }
+    }
+  </style>
+  <script src="../../main.js" defer></script>
+</head>
+
+<body id="top">
+  <a class="skip" href="#main">跳至主要內容</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html" aria-label="黃鈺峰 - 返回首頁">
+        <svg viewBox="0 0 100 100" class="brand-logo" aria-hidden="true">
+          <rect width="100" height="100" rx="22" fill="#202725" />
+          <polygon points="23.25,25 35.25,25 40.75,36 40.25,37 78.75,37 78.75,25 58.25,25 33.25,75 21.25,75 34.75,48"
+            fill="#ffffff" />
+          <polygon points="51.25,47 78.75,47 78.75,59 57.25,59 49.25,75 37.25,75" fill="#ffffff" />
+        </svg>
+      </a>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="nav">
+        選單
+      </button>
+      <nav id="nav" aria-label="主要導覽">
+        <a href="../../index.html#projects">作品</a>
+        <a href="../../index.html#capabilities">能力</a>
+        <a href="../../index.html#about">關於</a>
+        <a href="../../index.html#contact">聯絡</a>
       </nav>
+    </div>
+  </header>
 
-      <!-- 01 / SCOPE -->
-      <section class="detail-section page" id="role">
-        <div class="detail-section-head">
-          <p class="detail-label">01 / SCOPE</p>
-          <h2>跨端分工與模組劃分</h2>
-        </div>
-        <div class="detail-text">
-          <p>
-            本系統將 3D 模型管理、裸視 3D 渲染與觀眾手機端互動整合成展場展示方案。軟體實作聚焦跨端核心模組：整合 tracker 位置並傳送至網頁的 Windows 軟體（PyQt）、前端 Web 視差渲染（Three.js），以及雲端模型管理與通訊服務（Node.js on GCP）。
-          </p>
-          <div class="facts-grid">
-            <div>
-              <dt>桌面端</dt>
-              <dd>PyQt · 整合 tracker 位置並傳送至網頁</dd>
-            </div>
-            <div>
-              <dt>Web 渲染端</dt>
-              <dd>Three.js · 即時視差與多視圖呈現</dd>
-            </div>
-            <div>
-              <dt>雲端服務端</dt>
-              <dd>Node.js on GCP · 3D 模型與通訊分發</dd>
-            </div>
-          </div>
-        </div>
-      </section>
+  <main id="main">
+    <!-- Breadcrumbs -->
+    <nav class="crumbs page" aria-label="麵包屑導覽">
+      <a href="../../index.html">首頁</a> /
+      <span>05 單人追眼式裸視 3D</span>
+    </nav>
 
-      <!-- 02 / ARCHITECTURE -->
-      <section class="detail-section page" id="architecture">
-        <div class="detail-section-head">
-          <p class="detail-label">02 / ARCHITECTURE</p>
-          <h2>跨端資料流與操作流程</h2>
-        </div>
-        <div class="detail-text">
-          <p>
-            管理者透過後台管理 3D 模型資源；現場主機載入模型並調用渲染器；觀眾以手機掃描專屬 QR Code 開啟 Web 操作介面，即時傳遞旋轉、縮放與展品切換等操作指令，螢幕同步呈現立體畫面。
-          </p>
-        </div>
-        <div class="detail-wide">
-          <div class="flow-grid">
-            <div class="flow-card">
-              <b>01 · 模型管理</b>
-              <span>3D 模型託管於雲端儲存庫</span>
-            </div>
-            <div class="flow-card">
-              <b>02 · 追蹤位置串接</b>
-              <span>PyQt Windows 軟體將 tracker 位置傳送至網頁</span>
-            </div>
-            <div class="flow-card">
-              <b>03 · 手機操作</b>
-              <span>觀眾連線發送視角控制指令</span>
-            </div>
-            <div class="flow-card">
-              <b>04 · 視差渲染</b>
-              <span>Three.js 即時運算立體多視圖</span>
-            </div>
-          </div>
-          <div class="placeholder" id="3d-01">
-            <span class="placeholder-id">3D-01</span>
-            <span class="placeholder-title">已確認的跨端分工架構圖</span>
-            <span class="placeholder-note">桌面、Web 與雲端模組分工與指令關聯圖，建議比例 16:10</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 03 / IMPLEMENTATION -->
-      <section class="detail-section page" id="implementation">
-        <div class="detail-section-head">
-          <p class="detail-label">03 / IMPLEMENTATION</p>
-          <h2>Three.js 視差渲染與雲端模型管理</h2>
-        </div>
-        <div class="detail-text">
-          <p>
-            前端渲染需兼顧光柵視差計算與行動端手勢的即時響應（操作介面對照見<a href="#control-stage">開場展示</a>），雲端服務則負責模型資源分發與操作同步。
-          </p>
-        </div>
-        <div class="detail-wide">
-          <figure class="proof-figure">
-            <img
-              src="../../assets/images/glasses-free-3d-model-upload.webp"
-              alt="雲端 3D 模型管理與上傳介面"
-              loading="lazy"
-            />
-            <figcaption>GCP 雲端模型上傳、預覽與管理後台。</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <!-- 04 / VERIFICATION -->
-      <section class="detail-section page" id="verification">
-        <div class="detail-section-head">
-          <p class="detail-label">04 / VERIFICATION</p>
-          <h2>問題與驗證</h2>
-        </div>
-        <div class="detail-text">
-          <p>
-            跨端互動系統的整合重點在於維持展場環境下的操作響應流暢度與渲染穩定性。
-          </p>
-          <div class="verification-box">
-            <div class="verification-header">
-              <b>跨端整合驗證狀態</b>
-              <span class="badge-pending">驗證紀錄待補</span>
-            </div>
-            <p>
-              已確認完成桌面 PyQt、Web Three.js 與 GCP Node.js 之連通運作與現場多端操作流程。網路延遲排查與即時指令傳輸之詳細測試紀錄待補入。
-            </p>
-          </div>
-          <div class="placeholder" id="3d-02">
-            <span class="placeholder-id">3D-02</span>
-            <span class="placeholder-title">真實跨端整合紀錄</span>
-            <span class="placeholder-note">通訊測試 log、延遲排查或多端連線紀錄，建議比例 16:10</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 05 / OUTCOME -->
-      <section class="detail-section page" id="outcome">
-        <div class="detail-section-head">
-          <p class="detail-label">05 / OUTCOME</p>
-          <h2>展場互動展示與公開展出</h2>
-        </div>
-        <div class="detail-text">
-          <p>
-            作品已於台灣與法國展出，呈現桌面、Web 與雲端服務整合的互動展示流程。
-          </p>
-          <div class="placeholder" id="3d-03">
-            <span class="placeholder-id">3D-03</span>
-            <span class="placeholder-title">台灣／法國展出實景照片</span>
-            <span class="placeholder-note">展會現場觀眾互動實景照片，建議比例 16:9</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Related Works -->
-      <section class="related-section page">
-        <h2>相關案例</h2>
-        <div class="related-links">
-          <a href="../digital-frame/index.html">類紙感數位畫框與 CMS</a>
-          <a href="../color-epaper/index.html">彩色電子紙桌面立牌</a>
-          <a href="../../index.html#projects">返回全部作品</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
-        <span>PRODUCT · DISPLAY · SYSTEMS</span>
+    <!-- Hero Header -->
+    <section class="detail-hero page">
+      <span class="project-tag">05 / 跨端互動</span>
+      <h1>單人追眼式裸視 3D</h1>
+      <p class="detail-subtitle">以 PyQt、Web Three.js 與 GCP 上的 Node.js，完成跨端互動展示。</p>
+      <div class="detail-role">
+        <strong>開發範圍</strong>PyQt、Web Three.js，以及 GCP 上的 Node.js 軟體開發。
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <!-- Main Product Stage (全頁唯一正面全景大圖預留) -->
+    <div class="page">
+      <figure class="detail-stage-figure">
+        <div class="detail-stage detail-stage-epaper">
+          <div class="img-placeholder">
+            <span class="placeholder-name">glasses-free-3d-hero.webp</span>
+            <span class="placeholder-ratio">建議比例 16:10</span>
+          </div>
+          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
+          <!-- <img src="../../assets/images/glasses-free-3d-hero.webp" alt="單人追眼式裸視 3D 互動展示系統外觀" loading="eager" /> -->
+        </div>
+      </figure>
+    </div>
+
+    <!-- 01 / ARCHITECTURE -->
+    <section class="detail-section page" id="architecture">
+      <div class="detail-section-head">
+        <p class="detail-label">01 / ARCHITECTURE</p>
+        <h2>跨端通訊與即時視差資料流。</h2>
+      </div>
+
+      <div class="apple-feature-box">
+        <div class="apple-feature-text">
+          <p class="feature-intro">
+            整合 3D 模型管理、裸視 3D 渲染與觀眾手機端互動，打造展場沉浸式立體展示。
+          </p>
+
+          <div class="feature-steps-list">
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>雲端模型資產管理</strong>
+                <p>3D 模型資源託管於 GCP Node.js 後台，支援即時分發、預覽與管理。</p>
+              </div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>PyQt 追蹤位置串接</strong>
+                <p>桌面端即時整合人眼 tracker 座標數據，快速傳送至前端網頁層。</p>
+              </div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>Three.js 視差運算</strong>
+                <p>Web 前端依據即時眼球位置與行動指令，進行多視圖光柵視差渲染。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="apple-feature-visual">
+          <div class="visual-stage">
+            <div class="img-placeholder">
+            <span class="placeholder-name">glasses-free-3d-pipeline.webp</span>
+            <span class="placeholder-ratio">建議比例 16:10</span>
+          </div>
+          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
+          <!-- <img src="../../assets/images/glasses-free-3d-pipeline.webp" alt="PyQt 追蹤串接與 Three.js 視差渲染跨端資料流圖" loading="lazy" /> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 / IMPLEMENTATION -->
+    <section class="detail-section page" id="implementation">
+      <div class="detail-section-head">
+        <p class="detail-label">02 / IMPLEMENTATION</p>
+        <h2>手機操作介面與即時指令響應。</h2>
+      </div>
+
+      <div class="apple-feature-box">
+        <div class="apple-feature-text">
+          <p class="feature-intro">
+            免安裝 App，觀眾掃描 QR Code 即可連線操作展品視角，確保展場環境低延遲互動。
+          </p>
+
+          <div class="feature-steps-list">
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>免裝 App 掃碼即用</strong>
+                <p>觀眾以手機掃描專屬 QR Code 開啟 Web 端操作介面，降低互動門檻。</p>
+              </div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>低延遲控制指令傳遞</strong>
+                <p>透過 WebSocket 即時同步旋轉、縮放與展品切換指令，達成即時回饋。</p>
+              </div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>多端連線與展場穩定性</strong>
+                <p>優化連線重試機制與模型快取，確保展會現場長時間多端操作穩定。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="apple-feature-visual">
+          <div class="visual-stage">
+            <div class="img-placeholder">
+            <span class="placeholder-name">glasses-free-3d-mobile-control.webp</span>
+            <span class="placeholder-ratio">建議比例 16:10</span>
+          </div>
+          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
+          <!-- <img src="../../assets/images/glasses-free-3d-mobile-control.webp" alt="觀眾手機端 3D 模型操控與內容選擇介面" loading="lazy" /> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / OUTCOME -->
+    <section class="detail-section page" id="outcome">
+      <div class="detail-section-head">
+        <p class="detail-label">03 / OUTCOME</p>
+        <h2>展場互動展示與公開展出</h2>
+      </div>
+      <div class="detail-text">
+        <p>
+          作品已於台灣與法國公開展出，呈現桌面、Web 與雲端服務整合的互動展示流程，獲得展會觀眾高度互動反饋。
+        </p>
+
+        <div class="detail-outcome-stage ratio-16-9">
+          <div class="img-placeholder">
+            <span class="placeholder-name">glasses-free-3d-exhibition.webp</span>
+            <span class="placeholder-ratio">建議比例 16:9</span>
+          </div>
+          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
+          <!-- <img src="../../assets/images/glasses-free-3d-exhibition.webp" alt="台灣與法國展會現場互動展示實景照" loading="lazy" /> -->
+        </div>
+      </div>
+    </section>
+
+    <div class="page detail-return">
+      <a class="arrow-link" href="../../index.html#projects">返回全部作品 →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+      <span>PRODUCT · DISPLAY · SYSTEMS</span>
+    </div>
+  </footer>
+</body>
+
 </html>
