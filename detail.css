@@ -310,3 +310,19 @@
     font-size: 16px;
   }
 }
+/* Mobile prose: align paragraph edges consistently across project pages. */
+@media (max-width: 767px) {
+  .detail-hero .detail-intro,
+  .detail-hero .detail-role,
+  .apple-feature-text .feature-intro,
+  .feature-step-row .step-info p,
+  #outcome .detail-text p {
+    text-align: justify;
+    text-align-last: start;
+    text-justify: inter-character;
+    text-wrap: wrap;
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+  }
+}
