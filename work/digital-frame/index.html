@@ -11,305 +11,7 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23202725%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
   <link rel="stylesheet" href="../../style.css" />
-  <style>
-    /* ==========================================================================
-       標籤與標題間距：統一為 8px
-       ========================================================================== */
-    .detail-hero .project-tag,
-    .detail-section-head .detail-label {
-      margin-bottom: 8px;
-    }
-
-    /* ==========================================================================
-       大標題與副標／首行內文間距：統一為 8px
-       ========================================================================== */
-    .detail-hero h1 {
-      margin-bottom: 8px;
-    }
-
-    .detail-section-head h2 {
-      margin: 0;
-      line-height: 1.25;
-    }
-
-    /* ==========================================================================
-       章節標題至主要區塊間距：
-       - 01, 02 (接大卡片視覺)：24px (與全頁文字至圖片間距一致)
-       - 03 (接文字說明段落)：12px
-       ========================================================================== */
-    .detail-section-head {
-      max-width: none;
-      margin-inline: 0;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-
-    #outcome .detail-section-head {
-      margin-bottom: 12px;
-    }
-
-    /* ==========================================================================
-       副標與文字排版規範 (防止單字換行)
-       ========================================================================== */
-    .detail-hero.page,
-    .detail-stage-figure {
-      max-width: none;
-    }
-
-    .detail-hero .detail-subtitle,
-    .detail-hero .detail-intro,
-    .detail-hero .detail-role {
-      max-width: none;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* 副標與開發範圍 (保持開闊層次感) */
-    .detail-hero .detail-role {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      margin-top: 32px;
-    }
-
-    /* ==========================================================================
-       文字至主要視覺媒體間距：全頁統一為 24px
-       - Hero: 開發範圍 → 主舞台展示機圖片 (24px)
-       - 01/02: 章節標題 → 特色大卡片 (24px)
-       - 03: 說明段落 → 視覺／影片 (24px)
-       ========================================================================== */
-    .detail-stage-figure {
-      width: 100%;
-      margin: 24px 0 48px;
-    }
-
-    .detail-stage-epaper {
-      width: 100%;
-      max-width: none;
-      aspect-ratio: 16/10;
-      min-height: 0;
-    }
-
-    .detail-stage-epaper img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/10;
-      object-fit: contain;
-    }
-
-    /* Wireframe Placeholder 樣式加強適配舞台比例 */
-    .visual-stage .img-placeholder,
-    .detail-stage-epaper .img-placeholder,
-    .detail-outcome-stage .img-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      aspect-ratio: 16/10;
-    }
-
-    .detail-outcome-stage {
-      margin-top: 24px;
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    .detail-outcome-stage.ratio-16-9 {
-      aspect-ratio: 16/9;
-    }
-
-    .detail-outcome-stage.ratio-16-9 .img-placeholder {
-      aspect-ratio: 16/9;
-    }
-
-    #outcome .detail-text {
-      max-width: none;
-      margin-inline: 0;
-    }
-
-    #outcome .detail-text p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.7;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .detail-section.page {
-      padding: 48px 0;
-      border-bottom: 0;
-    }
-
-    /* ==========================================================================
-       Apple 風格大卡片 (01 / 02) 內部間距規範
-       ========================================================================== */
-    .apple-feature-box {
-      display: grid;
-      grid-template-columns: minmax(0, .35fr) minmax(0, .65fr);
-      gap: 0;
-      background: var(--surface);
-      border: 0;
-      border-radius: 20px;
-      padding: 0;
-      overflow: hidden;
-      align-items: stretch;
-      margin-top: 0;
-    }
-
-    .apple-feature-text {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      padding: 40px;
-    }
-
-    /* 卡片內前導說明段落：字級與行高統一為 17px / 1.7，歸零 margin 確保外層 gap 準確 */
-    .apple-feature-text .feature-intro {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-sub);
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* 步驟清單：項目間隔 20px，標題至描述 6px */
-    .feature-steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .feature-step-row {
-      display: block;
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-
-    .feature-step-row .step-info strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1.3;
-      margin-bottom: 6px;
-      text-wrap: balance;
-    }
-
-    .feature-step-row .step-info p {
-      font-size: 17px;
-      line-height: 1.7;
-      margin: 0;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .apple-feature-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      min-width: 0;
-      margin: 0;
-      padding: 0;
-      align-self: stretch;
-    }
-
-    .apple-feature-visual .visual-stage {
-      width: 100%;
-      height: auto;
-      min-height: 0;
-      aspect-ratio: 16/10;
-      flex: 1;
-      border-radius: 0;
-      overflow: hidden;
-      background: transparent;
-      border: 0;
-      padding: 0;
-      display: flex;
-      position: relative;
-    }
-
-    .apple-feature-visual .visual-stage img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/10;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* ==========================================================================
-       YouTube Video Embed (成果展示影片直接嵌入)
-       ========================================================================== */
-    .video-embed-stage {
-      margin-top: 24px;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000000;
-    }
-
-    .video-embed-stage iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    .detail-return {
-      display: flex;
-      justify-content: flex-end;
-      padding: 40px 0 20px;
-    }
-
-    @media (max-width:900px) {
-      .apple-feature-box {
-        grid-template-columns: 1fr;
-        gap: 0;
-        padding: 0;
-      }
-
-      .apple-feature-text {
-        padding: 24px;
-      }
-
-      .apple-feature-visual .visual-stage {
-        flex: none;
-        aspect-ratio: 16/10;
-        height: auto;
-      }
-
-      .apple-feature-visual .visual-stage img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    @media (max-width:767px) {
-      .apple-feature-box {
-        border-radius: 16px;
-      }
-
-      .detail-stage-figure {
-        margin-bottom: 36px;
-      }
-
-      .detail-section.page {
-        padding: 36px 0;
-      }
-
-      .feature-step-row .step-info p {
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../detail.css" />
   <script src="../../main.js" defer></script>
 </head>
 
@@ -350,7 +52,10 @@
     <section class="detail-hero page">
       <span class="project-tag">02 / 顯示與內容管理</span>
       <h1>類紙感數位畫框與 CMS</h1>
-      <p class="detail-subtitle">隨環境光調整顯示，透過雲端更新畫作。</p>
+      <p class="detail-subtitle">結合低反光表面與環境光調整，呈現類紙畫作質感。</p>
+      <p class="detail-intro">
+        將數位畫作帶入居家與展示空間，需要兼顧觀看質感與內容更新。螢幕反光，以及與周遭光線不協調的亮度和色溫，都會影響畫作融入空間的效果。本案選用超低反光、抗眩光的螢幕表面材質，搭配環境光感測器調整色溫與亮度，共同呈現接近紙質畫作的觀感。開發從早期本機感測原型延伸至 CMS 連網版本，串接合作夥伴的平台遠端更新畫作，兼顧展示質感與日常管理需求。
+      </p>
       <div class="detail-role">
         <strong>開發範圍</strong>畫框端 Android App、環境光感測器硬體與韌體；串接合作夥伴的 CMS。
       </div>
@@ -375,7 +80,7 @@
       <div class="apple-feature-box">
         <div class="apple-feature-text">
           <p class="feature-intro">
-            系統架構由環境自適應與內容更新兩部分構成，兼顧本機光照調節與遠端排程派送。
+            系統架構由低反光顯示表面、環境感測調節與合作夥伴 CMS 內容更新三部分構成，兼顧觀看質感與遠端管理。
           </p>
 
           <div class="feature-steps-list">
@@ -418,14 +123,14 @@
       <div class="apple-feature-box">
         <div class="apple-feature-text">
           <p class="feature-intro">
-            歷經早期本機感測原型至 CMS 連網量產版本，完成 27 吋類紙質感的系統落地。
+            從早期本機感測原型延伸至後續 CMS 連網量產版本，完成 27 吋類紙感顯示與內容管理整合。
           </p>
 
           <div class="feature-steps-list">
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>多感測器硬體整合</strong>
-                <p>整合手勢、重力方向與環境色溫感測硬體，於周邊 MCU 開發取樣韌體。</p>
+                <p>整合手勢、重力方向與環境光感測硬體，於周邊 MCU 開發取樣韌體。</p>
               </div>
             </div>
             <div class="feature-step-row">
@@ -437,7 +142,7 @@
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>環境色溫自適應</strong>
-                <p>感測板即時取樣環境光線，透過 I²C / UART 介面微調 Android 顯示層色彩。</p>
+                <p>環境光感測器即時取樣環境光線，透過 I²C / UART 介面調整 Android 顯示層的色溫與亮度。</p>
               </div>
             </div>
           </div>

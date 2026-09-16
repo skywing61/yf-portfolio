@@ -13,10 +13,12 @@
   - color-epaper/：彩色電子紙桌面立牌（整案開發｜開場展示背部支架與 I/O 配置）
   - digital-frame/：類紙感數位畫框與 CMS（顯示與內容管理｜開場展示環境色溫對照）
   - payment-terminal/：4.3 吋多元支付機（顯示與觸控整合｜開場展示斜俯視角）
-  - i-truck-emirror/：AI 卡車電子後視鏡（邊緣 AI 與機構｜開場展示相機局部放大與說明分割舞台）
+  - ai-truck-emirror/：AI 卡車電子後視鏡（邊緣 AI 與機構｜開場展示相機局部放大與說明分割舞台）
   - glasses-free-3d/：單人追眼式裸視 3D（跨端互動展示｜開場展示手機端操作與選擇介面）
-- ssets/images/：全站高畫質 WebP / PNG 影像素材
+- assets/images/：全站高畫質 WebP / PNG 影像素材
 - documents/：英文履歷與相關文檔
+
+內頁共用排版集中於根目錄 `detail.css`，五頁由 `style.css` 後引用，便於同步維護。
 
 ## 最新版本精修重點（Keep Product Style）
 
@@ -29,5 +31,5 @@
 3. **五案詳情開場主圖差異化**：
    - 逐案指定與首頁不同的視角或操作介面，且正文段落清理重複圖片，避免一頁出現兩次同張主圖。
 4. **素材全面使用原圖生成高畫質 WebP**：
-   - 重新生成 
-ft-frame-hero.webp 與 glasses-free-3d-hero.webp，路徑全數校驗通過。
+   - 重新生成
+全站高畫質 WebP 素材路徑全數校驗通過。

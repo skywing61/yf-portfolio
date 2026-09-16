@@ -11,306 +11,7 @@
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23202725%22/><text x=%2250%22 y=%2266%22 font-size=%2254%22 font-family=%22sans-serif%22 font-weight=%22700%22 fill=%22%23ffffff%22 text-anchor=%22middle%22>YF</text></svg>" />
   <link rel="stylesheet" href="../../style.css" />
-  <style>
-    /* ==========================================================================
-       標籤與標題間距：統一為 8px
-       ========================================================================== */
-    .detail-hero .project-tag,
-    .detail-section-head .detail-label {
-      margin-bottom: 8px;
-    }
-
-    /* ==========================================================================
-       大標題與副標／首行內文間距：統一為 8px
-       ========================================================================== */
-    .detail-hero h1 {
-      margin-bottom: 8px;
-    }
-
-    .detail-section-head h2 {
-      margin: 0;
-      line-height: 1.25;
-    }
-
-    /* ==========================================================================
-       章節標題至主要區塊間距：
-       - 01, 02 (接大卡片視覺)：24px (與全頁文字至圖片間距一致)
-       - 03 (接文字說明段落)：12px
-       ========================================================================== */
-    .detail-section-head {
-      max-width: none;
-      margin-inline: 0;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-
-    #outcome .detail-section-head {
-      margin-bottom: 12px;
-    }
-
-    /* ==========================================================================
-       副標與文字排版規範 (防止單字換行)
-       ========================================================================== */
-    .detail-hero.page,
-    .detail-stage-figure {
-      max-width: none;
-    }
-
-    .detail-hero .detail-subtitle,
-    .detail-hero .detail-intro,
-    .detail-hero .detail-role {
-      max-width: none;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* 副標與開發範圍 (保持開闊層次感) */
-    .detail-hero .detail-role {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      margin-top: 32px;
-    }
-
-    /* ==========================================================================
-       文字至主要視覺媒體間距：全頁統一為 24px
-       - Hero: 開發範圍 → 主舞台展示機圖片 (24px)
-       - 01/02: 章節標題 → 特色大卡片 (24px)
-       - 03: 說明段落 → 視覺／影片 (24px)
-       ========================================================================== */
-    .detail-stage-figure {
-      width: 100%;
-      margin: 24px 0 48px;
-    }
-
-    .detail-stage-epaper {
-      width: 100%;
-      max-width: none;
-      aspect-ratio: 16/10;
-      min-height: 0;
-    }
-
-    .detail-stage-epaper img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/10;
-      object-fit: contain;
-    }
-
-    /* Wireframe Placeholder 樣式加強適配舞台比例 */
-    .visual-stage .img-placeholder,
-    .detail-stage-epaper .img-placeholder,
-    .detail-outcome-stage .img-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      aspect-ratio: 16/10;
-    }
-
-    .detail-outcome-stage {
-      margin-top: 24px;
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--surface);
-    }
-
-    .detail-outcome-stage.ratio-16-9 {
-      aspect-ratio: 16/9;
-    }
-
-    .detail-outcome-stage.ratio-16-9 .img-placeholder {
-      aspect-ratio: 16/9;
-    }
-
-    #outcome .detail-text {
-      max-width: none;
-      margin-inline: 0;
-    }
-
-    #outcome .detail-text p {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.7;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .detail-section.page {
-      padding: 48px 0;
-      border-bottom: 0;
-    }
-
-    /* ==========================================================================
-       Apple 風格大卡片 (01 / 02) 內部間距規範
-       ========================================================================== */
-    .apple-feature-box {
-      display: grid;
-      grid-template-columns: minmax(0, .35fr) minmax(0, .65fr);
-      gap: 0;
-      background: var(--surface);
-      border: 0;
-      border-radius: 20px;
-      padding: 0;
-      overflow: hidden;
-      align-items: stretch;
-      margin-top: 0;
-    }
-
-    .apple-feature-text {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 24px;
-      padding: 40px;
-    }
-
-    /* 卡片內前導說明段落：字級與行高統一為 17px / 1.7，歸零 margin 確保外層 gap 準確 */
-    .apple-feature-text .feature-intro {
-      margin: 0;
-      font-size: 17px;
-      line-height: 1.7;
-      color: var(--text-sub);
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* 步驟清單：項目間隔 20px，標題至描述 6px */
-    .feature-steps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .feature-step-row {
-      display: block;
-      background: transparent;
-      border: 0;
-      padding: 0;
-    }
-
-    .feature-step-row .step-info strong {
-      display: block;
-      font-size: 22px;
-      line-height: 1.3;
-      margin-bottom: 6px;
-      text-wrap: balance;
-    }
-
-    .feature-step-row .step-info p {
-      font-size: 17px;
-      line-height: 1.7;
-      margin: 0;
-      text-wrap: pretty;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .apple-feature-visual {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      min-width: 0;
-      margin: 0;
-      padding: 0;
-      align-self: stretch;
-    }
-
-    .apple-feature-visual .visual-stage {
-      width: 100%;
-      height: auto;
-      min-height: 0;
-      aspect-ratio: 16/10;
-      flex: 1;
-      border-radius: 0;
-      overflow: hidden;
-      background: transparent;
-      border: 0;
-      padding: 0;
-      display: flex;
-      position: relative;
-    }
-
-    .apple-feature-visual .visual-stage img {
-      width: 100%;
-      height: 100%;
-      aspect-ratio: 16/10;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* ==========================================================================
-       YouTube Video Embed (成果展示影片直接嵌入)
-       ========================================================================== */
-    .video-embed-stage {
-      margin-top: 24px;
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 16px;
-      overflow: hidden;
-      background: #000000;
-    }
-
-    .video-embed-stage iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    .detail-return {
-      display: flex;
-      justify-content: flex-end;
-      padding: 40px 0 20px;
-    }
-
-    @media (max-width:900px) {
-      .apple-feature-box {
-        grid-template-columns: 1fr;
-        gap: 0;
-        padding: 0;
-      }
-
-      .apple-feature-text {
-        padding: 24px;
-      }
-
-      .apple-feature-visual .visual-stage {
-        flex: none;
-        aspect-ratio: 16/10;
-        height: auto;
-      }
-
-      .apple-feature-visual .visual-stage img {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    @media (max-width:767px) {
-      .apple-feature-box {
-        border-radius: 16px;
-      }
-
-      .detail-stage-figure {
-        margin-bottom: 36px;
-      }
-
-      .detail-section.page {
-        padding: 36px 0;
-      }
-
-      .feature-step-row .step-info p {
-        font-size: 16px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../../detail.css" />
   <script src="../../main.js" defer></script>
 </head>
 
@@ -351,9 +52,12 @@
     <section class="detail-hero page">
       <span class="project-tag">04 / 邊緣 AI</span>
       <h1>AI 卡車電子後視鏡</h1>
-      <p class="detail-subtitle">以邊緣運算為核心，為大型卡車建構零死角的主動行車防護體系。</p>
+      <p class="detail-subtitle">整合雙視角影像與 AI 辨識，輔助駕駛留意視野盲區。</p>
+      <p class="detail-intro">
+        大型卡車在車側與車後方存在視野盲區，駕駛仍需持續注意影像中的目標與路況。本案以雙視角影像搭配邊緣 AI 辨識，在畫面上標記行人與障礙物作為輔助提示；同時將影像顯示與推論處理分開，避免等待辨識影響連續觀看，並以清楚的提示層級協助駕駛快速確認畫面，收斂為可驗證的行車輔助展示原型。
+      </p>
       <div class="detail-role">
-        <strong>開發範圍</strong>Linux 平台 RKNN 模型推論軟體、影像管線架構設計。
+        <strong>開發範圍</strong>Linux RKNN 推論軟體、影像管線架構，以及工業與機構設計。
       </div>
     </section>
 
@@ -390,7 +94,7 @@
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>盲區主動警示</strong>
-                <p>目標逼近危險範圍時觸發動態視覺提示，預防死角碰撞。</p>
+                <p>目標進入設定範圍時觸發動態視覺提示，協助駕駛留意盲區目標。</p>
               </div>
             </div>
             <div class="feature-step-row">
@@ -404,7 +108,8 @@
 
         <div class="apple-feature-visual">
           <div class="visual-stage">
-            <img src="../../assets/images/ai-truck-emirror-features.webp" alt="AI 卡車電子後視鏡設計特色：AI 物件辨識、盲區警示與雙分割視角" loading="lazy" />
+            <img src="../../assets/images/ai-truck-emirror-features.webp" alt="AI 卡車電子後視鏡設計特色：AI 物件辨識、盲區警示與雙分割視角"
+              loading="lazy" />
           </div>
         </div>
       </div>
@@ -420,14 +125,14 @@
       <div class="apple-feature-box">
         <div class="apple-feature-text">
           <p class="feature-intro">
-            為滿足車載安全的高流暢度要求，將顯示串流與 AI 推論拆解為多執行緒解耦架構，畫面更新率提升至 24 FPS。
+            將顯示串流與 AI 推論拆解為多執行緒架構，讓主影像持續輸出，辨識結果則以標記提示疊加於畫面。
           </p>
 
           <div class="feature-steps-list">
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>相機平行擷取與暫存</strong>
-                <p>雙鏡頭影像平行擷取，主顯示串流不等待推論，維持 42ms 極低顯示延遲。</p>
+                <p>雙鏡頭影像平行擷取，主顯示串流不等待推論，維持連續影像輸出。</p>
               </div>
             </div>
             <div class="feature-step-row">
@@ -461,7 +166,7 @@
       </div>
       <div class="detail-text">
         <p>
-          完成可實際運作之 12.3 吋 AI 卡車電子後視鏡展示原型，整合邊緣運算平台、Linux RKNN 推論軟體與雙視角行車監控介面，實機驗證各項行車輔助功能。
+          完成 12.3 吋 AI 卡車電子後視鏡展示原型，整合邊緣運算平台、Linux RKNN 推論軟體、影像管線架構與雙視角行車監控介面，呈現影像持續顯示及 AI 標記提示的行車輔助功能。
         </p>
 
         <!-- 實機影片直接嵌入 (YouTube) -->
