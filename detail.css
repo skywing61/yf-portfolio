@@ -310,8 +310,9 @@
     font-size: 16px;
   }
 }
-/* Mobile prose: align paragraph edges consistently across project pages. */
+/* Mobile prose, including subtitles: use consistent paragraph edges. */
 @media (max-width: 767px) {
+  .detail-hero .detail-subtitle,
   .detail-hero .detail-intro,
   .detail-hero .detail-role,
   .apple-feature-text .feature-intro,
