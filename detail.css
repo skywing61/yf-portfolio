@@ -1,5 +1,3 @@
-
-
 .visual-caption {
   font-size: 14px;
   color: var(--text-sub);
@@ -7,6 +5,7 @@
   margin: 12px 0 0;
   line-height: 1.6;
 }
+
 /* ==========================================================================
    標籤與標題間距：統一為 8px
    ========================================================================== */
@@ -65,7 +64,7 @@
   font-size: 16px;
   line-height: 1.8;
   color: var(--text-sub);
-  margin: 32px 0;
+  margin: 24px 0 64px 0;
 }
 
 .detail-hero .detail-role {
@@ -273,41 +272,41 @@
 
 @media (max-width:900px) {
   .apple-feature-box {
-grid-template-columns: 1fr;
-gap: 0;
-padding: 0;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0;
   }
 
   .apple-feature-text {
-padding: 24px;
+    padding: 24px;
   }
 
   .apple-feature-visual .visual-stage {
-flex: none;
-aspect-ratio: 16/10;
-height: auto;
+    flex: none;
+    aspect-ratio: 16/10;
+    height: auto;
   }
 
   .apple-feature-visual .visual-stage img {
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
   }
 }
 
 @media (max-width:767px) {
   .apple-feature-box {
-border-radius: 16px;
+    border-radius: 16px;
   }
 
   .detail-stage-figure {
-margin-bottom: 36px;
+    margin-bottom: 36px;
   }
 
   .detail-section.page {
-padding: 36px 0;
+    padding: 36px 0;
   }
 
   .feature-step-row .step-info p {
-font-size: 16px;
+    font-size: 16px;
   }
 }
