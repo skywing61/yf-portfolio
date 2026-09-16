@@ -350,9 +350,9 @@
     <section class="detail-hero page">
       <span class="project-tag">03 / 顯示與觸控整合</span>
       <h1>多元支付機</h1>
-      <p class="detail-subtitle">接通顯示與觸控，讓裝置能被操作。</p>
+      <p class="detail-subtitle">整合顯示與觸控，打造多元支付樣機。</p>
       <div class="detail-role">
-        <strong>開發範圍</strong>Android 平台 DTS 螢幕設定與 I²C 觸控整合。
+        <strong>開發範圍</strong>Android 平台 DTS 螢幕設定、I²C 觸控整合，以及工業與機構設計。
       </div>
     </section>
 
@@ -360,12 +360,7 @@
     <div class="page">
       <figure class="detail-stage-figure">
         <div class="detail-stage detail-stage-epaper">
-          <div class="img-placeholder">
-            <span class="placeholder-name">payment-terminal-hero.webp</span>
-            <span class="placeholder-ratio">建議比例 16:10</span>
-          </div>
-          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
-          <!-- <img src="../../assets/images/payment-terminal-hero.webp" alt="4.3 吋多元支付機正面外觀與支架" loading="eager" /> -->
+          <img src="../../assets/images/payment-terminal-angle.webp" alt="4.3 吋多元支付機正面外觀與支架" loading="eager" />
         </div>
       </figure>
     </div>
@@ -374,7 +369,7 @@
     <section class="detail-section page" id="architecture">
       <div class="detail-section-head">
         <p class="detail-label">01 / ARCHITECTURE</p>
-        <h2>顯示輸出與觸控輸入雙獨立路徑。</h2>
+        <h2>顯示時序與觸控驅動的底層配置</h2>
       </div>
 
       <div class="apple-feature-box">
@@ -387,19 +382,19 @@
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>DTS 時序參數配置</strong>
-                <p>依據面板規格定義 display-timings 時鐘頻率與同步脈寬參數。</p>
+                <p>依面板規格配置 display-timings，鎖定時脈頻率（Pixel Clock）與同步脈寬。</p>
               </div>
             </div>
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>I²C 觸控匯流排掛載</strong>
-                <p>電容觸控 IC 取樣並透過硬體中斷通知 Linux Kernel 驅動。</p>
+                <p>電容觸控 IC 取樣座標，經由中斷訊號即時通知 Linux Kernel 驅動處理。</p>
               </div>
             </div>
             <div class="feature-step-row">
               <div class="step-info">
                 <strong>Android Input 座標映射</strong>
-                <p>底層 input 事件精確映射至螢幕解析度與系統介面座標。</p>
+                <p>底層 input 事件與觸控解析度精確對應螢幕座標，消除點擊偏差。</p>
               </div>
             </div>
           </div>
@@ -407,12 +402,8 @@
 
         <div class="apple-feature-visual">
           <div class="visual-stage">
-            <div class="img-placeholder">
-            <span class="placeholder-name">payment-terminal-architecture.webp</span>
-            <span class="placeholder-ratio">建議比例 16:10</span>
-          </div>
-          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
-          <!-- <img src="../../assets/images/payment-terminal-architecture.webp" alt="DTS 顯示與 I²C 觸控獨立雙路徑架構圖" loading="lazy" /> -->
+            <img src="../../assets/images/payment-terminal-architecture.webp" alt="DTS 顯示與 I²C 觸控獨立雙路徑架構圖"
+              loading="lazy" />
           </div>
         </div>
       </div>
@@ -422,32 +413,32 @@
     <section class="detail-section page" id="implementation">
       <div class="detail-section-head">
         <p class="detail-label">02 / IMPLEMENTATION</p>
-        <h2>面板適配、機構分件與訊號調校。</h2>
+        <h2>機構分件、模組堆疊與走線配置</h2>
       </div>
 
       <div class="apple-feature-box">
         <div class="apple-feature-text">
           <p class="feature-intro">
-            在 4.3 吋精巧機身內整合螢幕、觸控、射頻天線與核心主板，排查時序偏移與軸向對齊。
+            在 4.3 吋精巧機身內整合顯示觸控總成、NFC 射頻天線、掃描模組與散熱主板，兼顧緊湊堆疊與組裝便利。
           </p>
 
           <div class="feature-steps-list">
             <div class="feature-step-row">
               <div class="step-info">
-                <strong>時脈與時序除錯</strong>
-                <p>調校前後緣時脈消除畫面抖動，確保面板背光與供電穩定運作。</p>
+                <strong>多模組空間堆疊</strong>
+                <p>垂直整合螢幕、條碼掃描模組、中框固定板與核心主板，壓縮整機厚度。</p>
               </div>
             </div>
             <div class="feature-step-row">
               <div class="step-info">
-                <strong>觸控軸向與旋轉對齊</strong>
-                <p>解決觸控採樣座標與螢幕顯示方向映射誤差，確保靈敏點擊反應。</p>
+                <strong>射頻天線與金屬淨空</strong>
+                <p>規劃 NFC 天線感應區與主板金屬件安全距離，避免刷卡訊號衰減干擾。</p>
               </div>
             </div>
             <div class="feature-step-row">
               <div class="step-info">
-                <strong>機構走線與天線配置</strong>
-                <p>整合顯示面板、觸控層、NFC 射頻天線與主板內部有限空間。</p>
+                <strong>內部走線與組裝公差</strong>
+                <p>考量 FPC 彎折半徑與內部線路走向，預留散熱風道並優化產線裝配流程。</p>
               </div>
             </div>
           </div>
@@ -455,12 +446,7 @@
 
         <div class="apple-feature-visual">
           <div class="visual-stage">
-            <div class="img-placeholder">
-            <span class="placeholder-name">payment-terminal-exploded.webp</span>
-            <span class="placeholder-ratio">建議比例 16:10</span>
-          </div>
-          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
-          <!-- <img src="../../assets/images/payment-terminal-exploded.webp" alt="4.3 吋多元支付機機構分件與內部走線爆炸圖" loading="lazy" /> -->
+            <img src="../../assets/images/payment-terminal-exploded.webp" alt="4.3 吋多元支付機機構分件與內部走線爆炸圖" loading="lazy" />
           </div>
         </div>
       </div>
@@ -470,20 +456,19 @@
     <section class="detail-section page" id="outcome">
       <div class="detail-section-head">
         <p class="detail-label">03 / OUTCOME</p>
-        <h2>接通顯示與觸控的操作介面</h2>
+        <h2>支援多元交易的實機操作樣機</h2>
       </div>
       <div class="detail-text">
         <p>
-          完成 4.3 吋多元支付機之 Android 底層 DTS 螢幕設定與 I²C 觸控整合，讓硬體裝置具備穩定顯示與即時觸控反饋，承載支付操作介面。
+          完成 4.3 吋多元支付機之軟硬體整合，涵蓋 Android DTS 顯示時序、I²C 電容觸控與緊湊機構堆疊。實機樣機能順暢執行卡片感應、條碼掃描與鍵盤輸入，提供穩定且即時的支付互動體驗。
         </p>
 
-        <div class="detail-outcome-stage">
-          <div class="img-placeholder">
-            <span class="placeholder-name">payment-terminal-angle.webp</span>
-            <span class="placeholder-ratio">建議比例 16:10</span>
-          </div>
-          <!-- 預留圖片標籤（替換時取消註解並移除上方 img-placeholder）： -->
-          <!-- <img src="../../assets/images/payment-terminal-angle.webp" alt="4.3 吋多元支付機斜俯視角操作樣機" loading="lazy" /> -->
+        <!-- 實機影片直接嵌入 (YouTube) -->
+        <div class="video-embed-stage">
+          <iframe src="https://www.youtube.com/embed/9iwMd2i-YwM" title="4.3 吋多元支付機實機操作展示"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
+          </iframe>
         </div>
       </div>
     </section>
