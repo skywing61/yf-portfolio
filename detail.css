@@ -327,3 +327,8 @@
     line-break: strict;
   }
 }
+
+/* Keep subtitle endings together without stretching balanced lines. */
+.detail-subtitle .copy-ending {
+  white-space: nowrap;
+}

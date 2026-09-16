@@ -1859,3 +1859,18 @@ footer .footer-inner {
     animation-duration: 0.01ms !important;
   }
 }
+/* Keep short copy balanced as the viewport changes. */
+.hero h1,
+.featured-title,
+.project-card h3,
+.section-title,
+.about-content h2,
+.more-card h4,
+.detail-hero h1,
+.detail-section-head h2,
+.hero-intro,
+.featured-desc,
+.project-card .card-desc,
+.contact-sub {
+  text-wrap: balance;
+}
