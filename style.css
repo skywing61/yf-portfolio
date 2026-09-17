@@ -1872,8 +1872,18 @@ footer .footer-inner {
 .detail-hero h1,
 .detail-section-head h2,
 .hero-intro,
-.featured-desc,
-.project-card .card-desc,
 .contact-sub {
   text-wrap: balance;
+}
+
+/* Card descriptions use the full text column with natural line breaks. */
+.featured-desc,
+.project-card .card-desc {
+  width: 100%;
+  text-wrap: wrap;
+}
+
+.featured-desc .copy-ending,
+.card-desc .copy-ending {
+  white-space: nowrap;
 }
