@@ -1882,8 +1882,3 @@ footer .footer-inner {
   width: 100%;
   text-wrap: wrap;
 }
-
-.featured-desc .copy-ending,
-.card-desc .copy-ending {
-  white-space: nowrap;
-}
