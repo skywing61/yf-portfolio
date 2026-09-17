@@ -1464,8 +1464,11 @@ footer .footer-inner {
 @media (max-width: 767px) {
 
   .page,
-  .site-header .header-inner,
   footer .footer-inner {
+    width: calc(100% - 56px);
+  }
+
+  .site-header .header-inner {
     width: calc(100% - 40px);
   }
 
