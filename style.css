@@ -492,7 +492,7 @@ button:focus-visible {
 }
 
 .cap-table {
-  margin-top: 32px;
+  margin-top: 0;
   border-top: 1px solid var(--line);
 }
 
@@ -604,6 +604,19 @@ button:focus-visible {
   color: var(--accent);
   margin-top: -6px;
   margin-bottom: 8px;
+}
+
+.capabilities-block {
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+  padding-top: 40px;
+}
+
+.capabilities-block h3 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 20px;
 }
 
 .awards-block {
