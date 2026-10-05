@@ -295,6 +295,14 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
 /* ==========================================================================
    Home: H2 代表作品與 01 電子紙主展示（圓角舞台設計）
    ========================================================================== */
@@ -399,7 +407,7 @@ button:focus-visible {
 }
 
 .featured-role strong {
-  color: var(--accent);
+  color: var(--text-main);
   margin-right: 8px;
 }
 
@@ -466,12 +474,12 @@ button:focus-visible {
 }
 
 .project-card .card-role strong {
-  color: var(--accent);
+  color: var(--text-main);
   margin-right: 6px;
 }
 
 .project-card .arrow-link {
-  margin-top: 0;
+  margin-top: auto;
 }
 
 /* ==========================================================================

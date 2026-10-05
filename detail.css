@@ -64,7 +64,7 @@
   font-size: 16px;
   line-height: 1.8;
   color: var(--text-sub);
-  margin: 24px 0 64px 0;
+  margin: 24px 0 32px 0;
 }
 
 .detail-hero .detail-role {
@@ -157,7 +157,7 @@
    ========================================================================== */
 .apple-feature-box {
   display: grid;
-  grid-template-columns: minmax(0, .35fr) minmax(0, .65fr);
+  grid-template-columns: minmax(0, .4fr) minmax(0, .6fr);
   gap: 0;
   background: var(--surface);
   border: 0;
@@ -366,7 +366,7 @@
 }
 
 .detail-meta-list strong {
-  color: var(--accent);
+  color: var(--text-main);
   margin-right: 8px;
 }
 
@@ -424,7 +424,7 @@
 }
 
 .feature-tradeoff strong {
-  color: var(--accent);
+  color: var(--text-main);
   margin-right: 8px;
 }
 
