@@ -535,19 +535,21 @@ button:focus-visible {
 }
 
 /* ==========================================================================
-   Home: H5 關於與榮譽
+   Home: H5 關於、核心能力與榮譽（雙欄精緻對齊架構）
    ========================================================================== */
 
 .about-section {
   background: var(--surface);
-  padding: 72px 0;
+  padding: 80px 0;
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 190px 1fr;
-  gap: 32px;
+  gap: 36px;
   align-items: flex-start;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--line);
 }
 
 .about-photo {
@@ -559,7 +561,7 @@ button:focus-visible {
 .about-photo img {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 14px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   display: block;
@@ -580,7 +582,7 @@ button:focus-visible {
 }
 
 .about-content h2 {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
   color: var(--text-main);
@@ -589,7 +591,7 @@ button:focus-visible {
 
 .about-content p {
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--text-sub);
   margin-bottom: 16px;
 }
@@ -600,74 +602,136 @@ button:focus-visible {
   margin-bottom: 0;
 }
 
-.more-caption {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--accent);
-  margin-top: -6px;
-  margin-bottom: 8px;
-}
-
-.capabilities-block {
-  margin-top: 56px;
-  border-top: 1px solid var(--line);
-  padding-top: 40px;
-}
-
-.capabilities-block h3 {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 20px;
-}
-
-.awards-block {
-  margin-top: 56px;
-}
-
-.awards-block h3 {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 20px;
-}
-
-.awards-grid {
+/* 雙欄並列：左側能力、右側榮譽 */
+.about-details-columns {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px 40px;
-  list-style: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  padding-top: 56px;
 }
 
-.awards-grid li {
+.about-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-col-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* 核心能力：精緻白底微圓角卡片群 */
+.about-cap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-cap-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(217, 223, 219, 0.6);
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.about-cap-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.about-cap-card .card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.about-cap-card .card-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-cap-card .card-arrow {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+  transition: transform 0.15s ease;
+}
+
+.about-cap-card:hover .card-arrow {
+  transform: translateX(4px);
+}
+
+.about-cap-card .card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-sub);
+  margin: 0 0 8px;
+}
+
+.about-cap-card .card-example {
+  font-size: 13px;
+  font-family: var(--mono);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* 榮譽獎項：極簡清爽清單 */
+.about-awards-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.about-awards-list li {
   display: flex;
   align-items: baseline;
-  gap: 18px;
-  padding: 14px 0;
+  gap: 20px;
+  padding: 18px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.award-year {
-  font-size: 14px;
+.about-awards-list li:first-child {
+  padding-top: 0;
+}
+
+.about-awards-list .award-year {
+  font-size: 15px;
   font-weight: 600;
   font-family: var(--mono);
-  color: var(--text-sub);
+  color: var(--accent);
   width: 48px;
   flex-shrink: 0;
 }
 
-.award-details b {
-  display: block;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-main);
+.about-awards-list .award-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.award-details small {
-  display: block;
-  font-size: 13px;
+.about-awards-list .award-info strong {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.about-awards-list .award-info small {
+  font-size: 14px;
   color: var(--text-sub);
-  margin-top: 2px;
 }
 
 /* ==========================================================================
@@ -1711,9 +1775,15 @@ footer .footer-inner {
     font-size: 16px;
   }
 
-  .awards-grid {
+  .about-details-columns {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 40px;
+    padding-top: 40px;
+  }
+
+  .about-col-title {
+    font-size: 20px;
+    margin-bottom: 16px;
   }
 
   /* Additional & In Progress */

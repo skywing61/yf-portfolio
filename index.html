@@ -172,9 +172,10 @@
       </div>
     </section>
 
-    <!-- H5: 關於、核心能力與榮譽 (淺灰底) -->
+    <!-- H5: 關於黃鈺峰 (個人背景、核心能力、榮譽獎項) -->
     <section class="about-section" id="about">
       <div class="page">
+        <!-- 頂部：個人資訊與理念 -->
         <div class="about-grid">
           <div class="about-photo">
             <img src="assets/images/yf-portrait.webp" alt="黃鈺峰肖像" loading="lazy" srcset="assets/images/yf-portrait-240.webp 240w, assets/images/yf-portrait-480.webp 480w, assets/images/yf-portrait-800.webp 800w, assets/images/yf-portrait.webp 1792w" sizes="(max-width: 767px) 110px, 190px" />
@@ -193,66 +194,84 @@
           </div>
         </div>
 
-        <!-- Capabilities Subsection -->
-        <div class="capabilities-block" id="capabilities">
-          <h3>核心開發領域</h3>
-          <div class="cap-table">
-            <div class="cap-row">
-              <div class="cap-title">產品整合</div>
-              <div class="cap-desc">電路、韌體、App 與機構共同配置。</div>
-              <a class="cap-link" href="work/color-epaper/index.html#architecture">電子紙 · 系統架構 →</a>
-            </div>
-            <div class="cap-row">
-              <div class="cap-title">顯示與觸控</div>
-              <div class="cap-desc">DTS 螢幕設定與 I²C 觸控整合。</div>
-              <a class="cap-link" href="work/payment-terminal/index.html#architecture">支付機 · 顯示與觸控 →</a>
-            </div>
-            <div class="cap-row">
-              <div class="cap-title">感測與韌體</div>
-              <div class="cap-desc">連接感測硬體、取樣韌體與顯示應用。</div>
-              <a class="cap-link" href="work/digital-frame/index.html#implementation">畫框 · 感測整合 →</a>
-            </div>
-            <div class="cap-row">
-              <div class="cap-title">跨端應用</div>
-              <div class="cap-desc">串接桌面介面、Web 互動與雲端服務。</div>
-              <a class="cap-link" href="work/glasses-free-3d/index.html#architecture">裸視 3D · 系統架構 →</a>
+        <!-- 下方雙欄：左側核心能力，右側榮譽獎項 -->
+        <div class="about-details-columns">
+          <!-- 左欄：核心能力卡片群 -->
+          <div class="about-column" id="capabilities">
+            <h3 class="about-col-title">核心開發領域</h3>
+            <div class="about-cap-list">
+              <a class="about-cap-card" href="work/color-epaper/index.html#architecture">
+                <div class="card-head">
+                  <span class="card-title">產品整合</span>
+                  <span class="card-arrow">→</span>
+                </div>
+                <p class="card-desc">電路、韌體、App 與機構共同配置。</p>
+                <span class="card-example">案例：彩色電子紙立牌</span>
+              </a>
+
+              <a class="about-cap-card" href="work/payment-terminal/index.html#architecture">
+                <div class="card-head">
+                  <span class="card-title">顯示與觸控</span>
+                  <span class="card-arrow">→</span>
+                </div>
+                <p class="card-desc">DTS 螢幕設定與 I²C 觸控整合。</p>
+                <span class="card-example">案例：4.3 吋多元支付機</span>
+              </a>
+
+              <a class="about-cap-card" href="work/digital-frame/index.html#implementation">
+                <div class="card-head">
+                  <span class="card-title">感測與韌體</span>
+                  <span class="card-arrow">→</span>
+                </div>
+                <p class="card-desc">連接感測硬體、取樣韌體與顯示應用。</p>
+                <span class="card-example">案例：類紙感數位畫框</span>
+              </a>
+
+              <a class="about-cap-card" href="work/glasses-free-3d/index.html#architecture">
+                <div class="card-head">
+                  <span class="card-title">跨端應用</span>
+                  <span class="card-arrow">→</span>
+                </div>
+                <p class="card-desc">串接桌面介面、Web 互動與雲端服務。</p>
+                <span class="card-example">案例：單人裸視 3D</span>
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- Awards Subsection -->
-        <div class="awards-block" id="awards">
-          <h3>榮譽獎項</h3>
-          <ul class="awards-grid">
-            <li>
-              <span class="award-year">2024</span>
-              <div class="award-details">
-                <b>Gold Panel Award 顯示元件產品技術獎</b>
-                <small>智慧顯示產品團隊獲獎</small>
-              </div>
-            </li>
-            <li>
-              <span class="award-year">2023</span>
-              <div class="award-details">
-                <b>Go Next Digital — 1st Place 冠軍</b>
-                <small>數位創新專案競賽</small>
-              </div>
-            </li>
-            <li>
-              <span class="award-year">2022</span>
-              <div class="award-details">
-                <b>台灣人工智慧學校 AI Academy — 1st Place 冠軍</b>
-                <small>Re-Focus 工業影像瑕疵檢測專題</small>
-              </div>
-            </li>
-            <li>
-              <span class="award-year">×3</span>
-              <div class="award-details">
-                <b>Taiwan Excellence Award 台灣精品獎（三次獲獎）</b>
-                <small>顯示與周邊硬體產品團隊獲獎</small>
-              </div>
-            </li>
-          </ul>
+          <!-- 右欄：榮譽獎項清單 -->
+          <div class="about-column" id="awards">
+            <h3 class="about-col-title">榮譽獎項</h3>
+            <ul class="about-awards-list">
+              <li>
+                <span class="award-year">2024</span>
+                <div class="award-info">
+                  <strong>Gold Panel Award 顯示元件產品技術獎</strong>
+                  <small>智慧顯示產品團隊獲獎</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">2023</span>
+                <div class="award-info">
+                  <strong>Go Next Digital — 1st Place 冠軍</strong>
+                  <small>數位創新專案競賽</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">2022</span>
+                <div class="award-info">
+                  <strong>台灣人工智慧學校 AI Academy — 1st Place 冠軍</strong>
+                  <small>Re-Focus 工業影像瑕疵檢測專題</small>
+                </div>
+              </li>
+              <li>
+                <span class="award-year">×3</span>
+                <div class="award-info">
+                  <strong>Taiwan Excellence Award 台灣精品獎（三次獲獎）</strong>
+                  <small>顯示與周邊硬體產品團隊獲獎</small>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
