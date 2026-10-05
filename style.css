@@ -623,8 +623,6 @@ button:focus-visible {
 
 .awards-block {
   margin-top: 56px;
-  border-top: 1px solid var(--line);
-  padding-top: 40px;
 }
 
 .awards-block h3 {
