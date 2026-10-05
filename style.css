@@ -402,12 +402,13 @@ button:focus-visible {
 .featured-role {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text-sub);
   margin-bottom: 16px;
 }
 
 .featured-role strong {
   color: var(--text-main);
+  font-weight: 600;
   margin-right: 8px;
 }
 
@@ -469,12 +470,13 @@ button:focus-visible {
 .project-card .card-role {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--text-main);
+  color: var(--text-sub);
   margin-bottom: 16px;
 }
 
 .project-card .card-role strong {
   color: var(--text-main);
+  font-weight: 600;
   margin-right: 6px;
 }
 
