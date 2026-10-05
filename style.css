@@ -474,30 +474,6 @@ button:focus-visible {
   margin-top: 0;
 }
 
-.project-status-note {
-  font-size: 13px;
-  font-family: var(--mono);
-  font-weight: 500;
-  color: var(--accent);
-  background: rgba(40, 101, 87, 0.08);
-  border: 1px solid rgba(40, 101, 87, 0.15);
-  padding: 6px 12px;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-}
-
-.project-status-note::before {
-  content: "";
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 /* ==========================================================================
    Home: H4 工作領域與對應案例
    ========================================================================== */

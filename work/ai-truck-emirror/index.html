@@ -51,49 +51,9 @@
       <p class="detail-intro">
         大型卡車在車側與車後方存在視野盲區，駕駛仍需持續注意影像中的目標與路況。本案以雙視角影像搭配邊緣 AI 辨識，在畫面上標記行人與障礙物作為輔助提示；同時將影像顯示與推論處理分開，避免等待辨識影響連續觀看，並以清楚的提示層級協助駕駛快速確認畫面，收斂為可驗證的行車輔助展示原型。
       </p>
-      <div class="detail-role">
-        <strong>開發範圍</strong>Linux RKNN 推論軟體、影像管線架構，以及工業與機構設計。
-      </div>
-
-      <!-- Executive Brief & Hard Metrics -->
-      <div class="exec-brief">
-        <div class="exec-brief-title">PoC 驗證決策摘要</div>
-        <div class="exec-brief-grid">
-          <div class="brief-item">
-            <strong>🎯 驗證使命 (Goal)</strong>
-            <p>驗證大型車輛雙視角相機在邊緣運算平台下，「零掉幀連續影像輸出」與「RKNN 盲區即時 AI 物件辨識」並行的可行性。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⏱️ 交付節奏 (Speed)</strong>
-            <p><strong>歷時 10 週</strong>完成全系統 PoC：從 RK3588 邊緣平台 Debian 11 環境構建、雙相機串流採集、NPU INT8 模型量化與多執行緒非同步推論管線開發。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⚖️ 關鍵技術取捨 (Trade-offs)</strong>
-            <p>顯示串流與推論完全解耦：影像串流直通硬體加速層（保證 60 FPS 穩幀），推論管線背景非同步抓幀運算並以動態圖層疊加警戒框，杜絕行車畫面卡頓風險。</p>
-          </div>
-          <div class="brief-item">
-            <strong>🏁 驗證結論 (Outcome)</strong>
-            <p>成功打造 12.3 吋雙分割視野展示原型，完成行人與障礙物盲區主動告警驗證，為後續車規級（UN R46）產品化提供完整架構原型驗證數據。</p>
-          </div>
-        </div>
-
-        <div class="metrics-strip">
-          <div class="metric-card">
-            <span class="metric-val">60 FPS</span>
-            <span class="metric-label">顯示串流穩定幀率</span>
-            <p class="metric-desc">硬體加速無阻塞管線，保障行車視覺連續性。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">35 FPS</span>
-            <span class="metric-label">RKNN INT8 推論速度</span>
-            <p class="metric-desc">調度 RK3588 3-Core NPU 算力完成即時辨識。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">&lt; 45 ms</span>
-            <span class="metric-label">影像端對端超低延遲</span>
-            <p class="metric-desc">雙鏡頭影像擷取至 12.3 吋螢幕成像之極低時延。</p>
-          </div>
-        </div>
+      <div class="detail-meta-list">
+        <p><strong>開發範圍</strong>Linux RKNN 推論軟體、影像管線架構，以及工業與機構設計。</p>
+        <p><strong>驗證使命</strong>歷時 10 週完成雙相機 RK3588 邊緣原型，驗證 60 FPS 零掉幀串流與 RKNN 盲區即時辨識可行性。</p>
       </div>
     </section>
 
@@ -105,6 +65,22 @@
             loading="eager" srcset="../../assets/images/ai-truck-emirror-scale-480.webp 480w, ../../assets/images/ai-truck-emirror-scale-800.webp 800w, ../../assets/images/ai-truck-emirror-scale-1200.webp 1200w, ../../assets/images/ai-truck-emirror-scale.webp 1920w" sizes="(max-width: 767px) calc(100vw - 56px), 1040px" />
         </div>
       </figure>
+
+      <!-- Apple-style Pure Hardware Stats -->
+      <div class="detail-stats">
+        <div class="stat-col">
+          <span class="stat-value">60 FPS</span>
+          <span class="stat-label">顯示串流穩定幀率</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">35 FPS</span>
+          <span class="stat-label">RKNN INT8 推論速度</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">&lt; 45 ms</span>
+          <span class="stat-label">端對端超低影像時延</span>
+        </div>
+      </div>
     </div>
 
     <!-- 01 / FEATURES -->
@@ -182,12 +158,12 @@
                 <strong>雙視角座標投影與疊加</strong>
                 <p>將辨識框投影至雙視角畫布，合成 12.3 吋螢幕顯示畫面。</p>
               </div>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>架構抉擇：行車關鍵系統中的「非同步解耦」</strong>
+                <p>顯示串流直通硬體加速層（保證 60 FPS 穩幀），推論管線背景非同步抓幀運算，杜絕行車畫面卡頓風險。</p>
+              </div>
             </div>
-          </div>
-
-          <div class="tradeoff-box">
-            <strong>架構抉擇：行車關鍵系統中的「非同步解耦」</strong>
-            <p>電子後視鏡屬於安全關鍵（Safety-Critical）子系統，任何一幀瞬態卡頓都可能引發駕駛誤判。若採同步處理（擷取 -> 等待 AI 算完 -> 顯示），推論的延遲抖動（Jitter）會直接摧毀顯示流暢度。解耦後，即便極端路況下 AI 推論負載上升，後視鏡畫面依然保持 60 FPS 穩幀刷新。</p>
           </div>
         </div>
 

@@ -51,49 +51,9 @@
       <p class="detail-intro">
         面對多元支付與店員人力有限的自助結帳情境，使用者需要清楚找到感應、掃碼與輸入位置，店面也希望減少設備堆疊。本案以 4.3 吋觸控螢幕整合感應與掃描模組，透過底層顯示與觸控配置及緊湊機構堆疊，完成可操作的支付整合樣機，讓不同付款方式能在同一操作介面完成確認。
       </p>
-      <div class="detail-role">
-        <strong>開發範圍</strong>Android 平台 DTS 螢幕設定、I²C 觸控整合，以及工業與機構設計。
-      </div>
-
-      <!-- Executive Brief & Hard Metrics -->
-      <div class="exec-brief">
-        <div class="exec-brief-title">PoC 驗證決策摘要</div>
-        <div class="exec-brief-grid">
-          <div class="brief-item">
-            <strong>🎯 驗證使命 (Goal)</strong>
-            <p>驗證 4.3 吋緊湊設備中，NFC 射頻感應、2D 條碼掃描與電容觸控「三合一」零干擾堆疊與操作動線的可行性。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⏱️ 交付節奏 (Speed)</strong>
-            <p><strong>歷時 8 週</strong>完成架構搭建與實體樣機：從 Android DTS 顯示時序匹配、I²C 觸控中斷驅動適配，到內部走線公差與機構分件爆炸圖組裝。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⚖️ 關鍵技術取捨 (Trade-offs)</strong>
-            <p>嚴格規劃 NFC 射頻天線與內部金屬中框的淨空距離（Clearance > 12mm），突破金屬屏蔽導致感應失敗的物理瓶頸；並將掃描數據輸入與觸控事件解耦處置。</p>
-          </div>
-          <div class="brief-item">
-            <strong>🏁 驗證結論 (Outcome)</strong>
-            <p>完成可實機操作的驗證樣機，成功整合卡片感應、條碼掃描與動態數字鍵盤輸入，通過 100% 互動連貫性驗證。</p>
-          </div>
-        </div>
-
-        <div class="metrics-strip">
-          <div class="metric-card">
-            <span class="metric-val">&lt; 15 ms</span>
-            <span class="metric-label">觸控中斷響應延遲</span>
-            <p class="metric-desc">I²C 中斷優先權調優，高頻連續點擊零卡頓。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">&gt; 40 mm</span>
-            <span class="metric-label">NFC 射頻感應距離</span>
-            <p class="metric-desc">精準金屬淨空與天線匹配，符合金融感應規範。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">100%</span>
-            <span class="metric-label">多模組並行抗干擾</span>
-            <p class="metric-desc">同時掃碼、感應與螢幕顯示維持穩定零噪訊。</p>
-          </div>
-        </div>
+      <div class="detail-meta-list">
+        <p><strong>開發範圍</strong>Android 平台 DTS 螢幕設定、I²C 觸控整合，以及工業與機構設計。</p>
+        <p><strong>驗證使命</strong>歷時 8 週完成實體樣機，驗證 NFC 感應、掃碼與觸控三合一零干擾堆疊與操作動線可行性。</p>
       </div>
     </section>
 
@@ -104,6 +64,22 @@
           <img src="../../assets/images/payment-terminal-angle.webp" alt="4.3 吋多元支付機正面外觀與支架" loading="eager" srcset="../../assets/images/payment-terminal-angle-480.webp 480w, ../../assets/images/payment-terminal-angle-800.webp 800w, ../../assets/images/payment-terminal-angle-1200.webp 1200w, ../../assets/images/payment-terminal-angle.webp 1920w" sizes="(max-width: 767px) calc(100vw - 56px), 1040px" />
         </div>
       </figure>
+
+      <!-- Apple-style Pure Hardware Stats -->
+      <div class="detail-stats">
+        <div class="stat-col">
+          <span class="stat-value">&lt; 15 ms</span>
+          <span class="stat-label">觸控中斷響應延遲</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">&gt; 40 mm</span>
+          <span class="stat-label">NFC 射頻感應距離</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">多模組並行抗干擾</span>
+        </div>
+      </div>
     </div>
 
     <!-- 01 / ARCHITECTURE -->
@@ -138,11 +114,12 @@
                 <p>將底層觸控事件映射至螢幕座標，對應操作介面的輸入位置。</p>
               </div>
             </div>
-          </div>
-
-          <div class="tradeoff-box">
-            <strong>架構抉擇：底層中斷分層與輸入防壅塞</strong>
-            <p>條碼掃描模組透過虛擬鍵盤或串列通訊突發送入大量字串，若與觸控事件共用輸入佇列容易造成 UI 瞬間掉幀。底層架構藉由獨立的中斷優先權配置與事件分流，確保高頻刷卡與螢幕密碼輸入互不阻塞。</p>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>架構抉擇：底層中斷分層與輸入防壅塞</strong>
+                <p>掃描模組突發送入大量字串，與觸控事件分流處理，確保高頻刷卡與按鍵輸入零卡頓。</p>
+              </div>
+            </div>
           </div>
         </div>
 

@@ -52,49 +52,9 @@
       <p class="detail-intro">
         精品展示需要讓觀眾看見造型比例與細節，但固定影片限制了自主觀看，若使用眼鏡也增加準備步驟。本案以單人追眼呈現立體視差，讓觀眾免戴眼鏡即可從自己的位置觀看；再以手機掃碼連線，支援旋轉、縮放、換色與切換展品，讓觀眾依興趣查看局部細節，將探索節奏交還給現場觀眾。
       </p>
-      <div class="detail-role">
-        <strong>開發範圍</strong>PyQt 追蹤串接、Web Three.js 視差渲染核心，以及 GCP Node.js 雲端服務。
-      </div>
-
-      <!-- Executive Brief & Hard Metrics -->
-      <div class="exec-brief">
-        <div class="exec-brief-title">PoC 驗證決策摘要</div>
-        <div class="exec-brief-grid">
-          <div class="brief-item">
-            <strong>🎯 驗證使命 (Goal)</strong>
-            <p>驗證國際精品展會中「觀眾免戴 3D 眼鏡、免下載 App 掃碼即控」的零門檻沉浸式裸視 3D 互動可行性。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⏱️ 交付節奏 (Speed)</strong>
-            <p><strong>法國歐洲精品展現地部署驗證</strong>：串聯眼球 3D 空間定位、WebGL (Three.js) 多視角光柵渲染、GCP Node.js 雲端資產管線與 WebSocket 房間即時同步。</p>
-          </div>
-          <div class="brief-item">
-            <strong>⚖️ 關鍵技術取捨 (Trade-offs)</strong>
-            <p>捨棄 Native 遊戲引擎，以 WebGL 自研多視點視差光柵 Shader：觀眾無需下載專屬 App，手機掃碼即建立 WebSocket 房間遙控展品，將互動摩擦力降至零。</p>
-          </div>
-          <div class="brief-item">
-            <strong>🏁 驗證結論 (Outcome)</strong>
-            <p>成功落地法國歐洲展會與台灣現場，獲非凡新聞跨海直擊報導，驗證跨端全 Web 化裸視 3D 互動的商業吸引力與高穩定度。</p>
-          </div>
-        </div>
-
-        <div class="metrics-strip">
-          <div class="metric-card">
-            <span class="metric-val">0 秒</span>
-            <span class="metric-label">免裝 App 掃碼即控</span>
-            <p class="metric-desc">標準 Web 架構消除參觀者下載摩擦力。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">&lt; 30 ms</span>
-            <span class="metric-label">人眼追蹤推播時延</span>
-            <p class="metric-desc">PyQt 取樣經濾波平滑後即時推播至網頁層。</p>
-          </div>
-          <div class="metric-card">
-            <span class="metric-val">100%</span>
-            <span class="metric-label">展會現場連線可靠度</span>
-            <p class="metric-desc">具備弱網重連與模型本機快取雙重容錯。</p>
-          </div>
-        </div>
+      <div class="detail-meta-list">
+        <p><strong>開發範圍</strong>PyQt 追蹤串接、Web Three.js 視差渲染核心，以及 GCP Node.js 雲端服務。</p>
+        <p><strong>驗證使命</strong>法國歐洲精品展現場驗證「免戴 3D 眼鏡、免裝 App 掃碼即控」的零門檻沉浸式互動可行性。</p>
       </div>
     </section>
 
@@ -105,6 +65,22 @@
           <img src="../../assets/images/glasses-free-3d-main.webp" alt="單人追眼式裸視 3D 互動展示系統外觀" loading="eager" srcset="../../assets/images/glasses-free-3d-main-480.webp 480w, ../../assets/images/glasses-free-3d-main-800.webp 800w, ../../assets/images/glasses-free-3d-main-1200.webp 1200w, ../../assets/images/glasses-free-3d-main.webp 1920w" sizes="(max-width: 767px) calc(100vw - 56px), 1040px" />
         </div>
       </figure>
+
+      <!-- Apple-style Pure Hardware Stats -->
+      <div class="detail-stats">
+        <div class="stat-col">
+          <span class="stat-value">0 秒</span>
+          <span class="stat-label">免裝 App 掃碼即控</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">&lt; 30 ms</span>
+          <span class="stat-label">人眼追蹤推播時延</span>
+        </div>
+        <div class="stat-col">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">展會現場連線可靠度</span>
+        </div>
+      </div>
     </div>
 
     <!-- 01 / ARCHITECTURE -->
@@ -139,11 +115,12 @@
                 <p>依追眼座標計算偏軸視角，渲染多視圖光柵與立體景深。</p>
               </div>
             </div>
-          </div>
-
-          <div class="tradeoff-box">
-            <strong>架構抉擇：為什麼堅持 WebGL 渲染而非 Native 遊戲引擎？</strong>
-            <p>在人流走動的公開展覽中，「下載 100MB 專用 App」會流失 90% 以上的受眾。改採自研 Three.js 視差光柵 Shader，使展台螢幕與參觀者手機全數運行於標準 Web 上；手機掃描 QR Code 即可建立長連接房間控制展品旋轉縮放，完全消除體驗阻力。</p>
+            <div class="feature-step-row">
+              <div class="step-info">
+                <strong>架構抉擇：WebGL 渲染 vs. Native 遊戲引擎</strong>
+                <p>以自研 Three.js 視差光柵 Shader 取代 Native App，掃碼即控無需等待下載，徹底消除展場互動摩擦力。</p>
+              </div>
+            </div>
           </div>
         </div>
 
