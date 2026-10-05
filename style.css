@@ -8,6 +8,7 @@
   --bg: #ffffff;
   --surface: #f4f6f5;
   --text-main: #202725;
+  --text-body: #303a35;
   --text-sub: #5e6864;
   --line: #d9dfdb;
   --accent: #286557;
@@ -16,7 +17,7 @@
 
   /* Sizing & Layout */
   --page-max: 1120px;
-  --text-max: 720px;
+  --text-max: 740px;
   --stage-max: 1040px;
 
   /* Typography Stacks (No serif) */
@@ -548,7 +549,7 @@ button:focus-visible {
   grid-template-columns: 190px 1fr;
   gap: 36px;
   align-items: flex-start;
-  padding-bottom: 56px;
+  padding-bottom: 32px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -573,12 +574,11 @@ button:focus-visible {
 
 .about-name {
   font-size: 14px;
-  font-weight: 600;
-  font-family: var(--mono);
-  letter-spacing: 0.06em;
-  color: var(--accent);
-  display: block;
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-family: var(--sans);
+  letter-spacing: 0.04em;
+  color: var(--text-sub);
+  display: inline-block;
 }
 
 .about-content h2 {
@@ -587,6 +587,45 @@ button:focus-visible {
   line-height: 1.3;
   color: var(--text-main);
   margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+}
+
+.about-content .about-position {
+  margin: 8px 0 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--accent);
+}
+
+.about-summary {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-sub);
+}
+
+.about-summary > div {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 16px;
+  align-items: baseline;
+}
+
+.about-summary dt {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.about-summary dd {
+  font-weight: 400;
+  overflow-wrap: break-word;
 }
 
 .about-content p {
@@ -605,9 +644,9 @@ button:focus-visible {
 /* 雙欄並列：左側能力、右側榮譽 */
 .about-details-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  padding-top: 56px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  padding-top: 32px;
 }
 
 .about-column {
@@ -623,34 +662,43 @@ button:focus-visible {
   letter-spacing: -0.01em;
 }
 
-/* 核心能力：精緻白底微圓角卡片群 */
+/* Core capabilities use the same open list treatment as the awards. */
 .about-cap-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0;
 }
 
 .about-cap-card {
   display: flex;
   flex-direction: column;
-  padding: 20px 22px;
-  background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid rgba(217, 223, 219, 0.6);
+  padding: 18px 0;
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
+}
+
+.about-cap-card:first-child {
+  padding-top: 0;
 }
 
 .about-cap-card:hover {
-  transform: translateY(-2px);
   border-color: var(--accent);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.about-cap-card:hover .card-title {
+  color: var(--accent);
 }
 
 .about-cap-card .card-head {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 10px;
+  line-height: 1.6;
   margin-bottom: 6px;
 }
 
@@ -720,18 +768,21 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .about-awards-list .award-info strong {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-main);
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .about-awards-list .award-info small {
   font-size: 14px;
   color: var(--text-sub);
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -1778,7 +1829,7 @@ footer .footer-inner {
   .about-details-columns {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding-top: 40px;
+    padding-top: 32px;
   }
 
   .about-col-title {
@@ -1972,4 +2023,387 @@ footer .footer-inner {
 .project-card .card-desc {
   width: 100%;
   text-wrap: wrap;
+}
+
+/* Dark headings, regular gray descriptions, and accent-colored scope labels. */
+.hero-intro,
+.featured-desc,
+.project-card .card-desc,
+.about-content p,
+.more-card p {
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
+.hero-intro {
+  font-size: 18px;
+}
+
+.featured-role,
+.project-card .card-role {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text-sub);
+}
+
+.featured-role strong,
+.project-card .card-role strong {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.project-tag {
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+  color: var(--text-sub);
+}
+
+.project-card h3 {
+  font-size: 26px;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.featured-desc,
+.featured-role,
+.about-content > p {
+  max-width: none;
+}
+
+.about-content .about-background {
+  margin-bottom: 0;
+  font-size: 14px;
+  color: var(--text-sub);
+}
+
+.about-cap-card .card-desc,
+.about-awards-list .award-info small {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
+.about-cap-card .card-title,
+.about-awards-list .award-info strong {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.about-cap-card .card-example {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Shared tracks align independent lists even when award descriptions wrap. */
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 901px) {
+    .about-details-columns {
+      grid-template-rows: auto repeat(4, auto);
+      row-gap: 0;
+    }
+
+    .about-column {
+      display: grid;
+      grid-row: span 5;
+      grid-template-rows: subgrid;
+      min-width: 0;
+    }
+
+    .about-cap-list,
+    .about-awards-list {
+      display: grid;
+      grid-row: 2 / span 4;
+      grid-template-rows: subgrid;
+    }
+
+    .about-cap-card,
+    .about-awards-list li {
+      padding: 18px 0;
+    }
+
+    .about-cap-card:first-child,
+    .about-awards-list li:first-child {
+      padding-top: 0;
+    }
+  }
+}
+
+.section-title {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .project-grid,
+  .about-details-columns,
+  .more-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .page,
+  footer .footer-inner {
+    width: calc(100% - 40px);
+  }
+
+  .featured-desc,
+  .project-card .card-desc,
+  .about-content p,
+  .more-card p {
+    font-size: 16px;
+  }
+
+  .hero-intro {
+    font-size: 17px;
+  }
+
+  .project-card h3 {
+    font-size: 23px;
+  }
+
+  .section-title {
+    margin-bottom: 20px;
+  }
+}
+
+/* ==========================================================================
+   Layout refinement: spacing, card media ratios, section rhythm
+   ========================================================================== */
+
+/* 1. Looser section rhythm */
+.section {
+  padding: 80px 0;
+}
+
+#projects.section {
+  padding-top: 72px;
+}
+
+.project-grid {
+  gap: 32px;
+}
+
+.about-section {
+  padding: 96px 0;
+}
+
+.more-section {
+  padding: 96px 0;
+}
+
+.contact-section {
+  padding: 88px 0;
+}
+
+/* In-progress projects: open layout so they read as work in flight */
+#in-progress.section {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 72px;
+}
+
+#in-progress .project-card {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+#in-progress .project-card .card-media {
+  background: var(--surface);
+  border-radius: 16px;
+}
+
+/* 2. Consistent media ratios; images are always shown whole (no cropping) */
+.featured-media {
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.featured-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
+.project-card .card-media {
+  height: auto;
+  aspect-ratio: 16 / 10;
+}
+
+.project-card .card-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+
+/* 5. About: back to white, separated by hairlines */
+.about-section {
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-details-columns {
+  padding-top: 48px;
+  column-gap: 64px;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  #projects.section,
+  #in-progress.section {
+    padding-top: 48px;
+  }
+
+  .about-section,
+  .more-section {
+    padding: 56px 0;
+  }
+
+  .contact-section {
+    padding: 56px 0;
+  }
+
+  .featured-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .project-card .card-media,
+  #in-progress .project-card .card-media {
+    height: auto;
+  }
+}
+
+/* ==========================================================================
+   About: grey band, larger portrait, independent column rhythm
+   ========================================================================== */
+
+.about-section {
+  background: var(--surface);
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.about-grid {
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.about-photo {
+  width: 220px;
+}
+
+.about-content .about-background {
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.about-summary {
+  margin: 20px 0 0;
+}
+
+/* Columns flow naturally; no forced row alignment between the two lists */
+.about-details-columns {
+  grid-template-rows: none;
+  align-items: start;
+  padding-top: 48px;
+  column-gap: 72px;
+}
+
+.about-column {
+  display: flex;
+  grid-row: auto;
+  grid-template-rows: none;
+}
+
+.about-cap-list,
+.about-awards-list {
+  display: flex;
+  flex-direction: column;
+  grid-row: auto;
+  grid-template-rows: none;
+}
+
+.about-cap-card,
+.about-awards-list li {
+  padding: 20px 0;
+}
+
+.about-cap-card:first-child,
+.about-awards-list li:first-child {
+  padding-top: 0;
+}
+
+.about-awards-list .award-info small {
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .about-grid {
+    gap: 20px;
+    padding-bottom: 32px;
+  }
+
+  .about-photo {
+    width: 110px;
+  }
+}
+
+/* ==========================================================================
+   Design review fixes
+   ========================================================================== */
+
+/* Hero intro: wide enough that it never splits a word like 韌體 across lines */
+.hero-intro {
+  max-width: 840px;
+}
+
+/* Re-Focus caption sits on the image so both "other work" descriptions align */
+.more-media {
+  position: relative;
+}
+
+.more-media .more-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(32, 39, 37, 0.78);
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Breadcrumb links: comfortable tap target */
+.crumbs a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.crumbs {
+  padding: 18px 0 8px;
+}
+
+/* Hang full-width punctuation so centred lines are optically centred */
+.hang {
+  margin-right: -0.3em;
 }

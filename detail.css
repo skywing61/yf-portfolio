@@ -45,7 +45,6 @@
 /* ==========================================================================
    副標與文字排版規範 (防止單字換行)
    ========================================================================== */
-.detail-hero.page,
 .detail-stage-figure {
   max-width: none;
 }
@@ -64,7 +63,7 @@
   font-size: 16px;
   line-height: 1.8;
   color: var(--text-sub);
-  margin: 24px 0 32px 0;
+  margin: 20px 0 24px;
 }
 
 .detail-hero .detail-role {
@@ -72,6 +71,15 @@
   border-radius: 0;
   padding: 0;
   margin-top: 0;
+  font-size: 15px;
+  color: var(--text-sub);
+}
+
+.detail-hero .detail-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--accent);
 }
 
 /* ==========================================================================
@@ -140,8 +148,9 @@
 
 #outcome .detail-text p {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
+  max-width: none;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--text-sub);
   text-wrap: pretty;
   word-break: break-word;
@@ -158,7 +167,7 @@
    ========================================================================== */
 .apple-feature-box {
   display: grid;
-  grid-template-columns: minmax(0, .4fr) minmax(0, .6fr);
+  grid-template-columns: minmax(0, .5fr) minmax(0, .5fr);
   gap: 0;
   background: var(--surface);
   border: 0;
@@ -177,11 +186,11 @@
   padding: 40px;
 }
 
-/* 卡片內前導說明段落：字級與行高統一為 17px / 1.7，歸零 margin 確保外層 gap 準確 */
+/* Supporting copy: 16px, regular weight, muted color. */
 .apple-feature-text .feature-intro {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--text-sub);
   text-wrap: pretty;
   word-break: break-word;
@@ -205,15 +214,16 @@
 .feature-step-row .step-info strong {
   display: block;
   font-size: 22px;
-  line-height: 1.3;
+  font-weight: 700;
+  line-height: 1.45;
   color: var(--text-main);
   margin-bottom: 6px;
   text-wrap: balance;
 }
 
 .feature-step-row .step-info p {
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--text-sub);
   margin: 0;
   text-wrap: pretty;
@@ -325,7 +335,7 @@
     font-size: 16px;
   }
 }
-/* Mobile prose, including subtitles: use consistent paragraph edges. */
+/* Natural spacing keeps Chinese and technical names readable on narrow screens. */
 @media (max-width: 767px) {
   .detail-hero .detail-subtitle,
   .detail-hero .detail-intro,
@@ -333,9 +343,7 @@
   .apple-feature-text .feature-intro,
   .feature-step-row .step-info p,
   #outcome .detail-text p {
-    text-align: justify;
-    text-align-last: start;
-    text-justify: inter-character;
+    text-align: left;
     text-wrap: wrap;
     word-break: normal;
     overflow-wrap: break-word;
@@ -357,10 +365,11 @@
 .detail-meta-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   margin-top: 18px;
+  max-width: none;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.75;
   color: var(--text-sub);
 }
 
@@ -369,8 +378,8 @@
 }
 
 .detail-meta-list strong {
-  color: var(--text-main);
-  font-weight: 600;
+  color: var(--accent);
+  font-weight: 700;
   margin-right: 8px;
 }
 
@@ -395,7 +404,7 @@
 .stat-value {
   font-size: 32px;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--accent);
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
@@ -421,15 +430,176 @@
 
 /* 架構抉擇外置備註：置於 .apple-feature-box 下方，維持雙欄圖文高度平衡 */
 .feature-tradeoff {
-  margin: 16px 0 0;
+  margin: 20px 0 0;
+  max-width: none;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.75;
   color: var(--text-sub);
 }
 
 .feature-tradeoff strong {
-  color: var(--text-main);
+  color: var(--accent);
+  font-weight: 700;
   margin-right: 8px;
 }
 
+@media (max-width: 767px) {
+  .detail-hero .detail-intro,
+  #outcome .detail-text p {
+    font-size: 16px;
+  }
 
+  .feature-step-row .step-info strong {
+    font-size: 21px;
+  }
+
+  .detail-hero .detail-subtitle {
+    font-size: 19px;
+    line-height: 1.6;
+  }
+}
+
+/* Spacing between the stats strip and the first section */
+.detail-stats {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  .detail-stats {
+    margin-bottom: 24px;
+  }
+}
+
+/* Feature cards inside the 900px column: more room for the image, calmer type */
+@media (min-width: 901px) {
+  .apple-feature-box {
+    grid-template-columns: minmax(0, .42fr) minmax(0, .58fr);
+  }
+
+  .apple-feature-text {
+    padding: 32px;
+    gap: 20px;
+  }
+
+  .apple-feature-visual {
+    padding: 24px 24px 24px 0;
+  }
+}
+
+.apple-feature-text .feature-intro,
+.feature-step-row .step-info p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.feature-step-row .step-info strong {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 767px) {
+  .feature-step-row .step-info strong {
+    font-size: 18px;
+  }
+
+  .feature-step-row .step-info p {
+    font-size: 15px;
+  }
+}
+
+/* Feature cards: image on top at full card width, steps in columns below */
+.apple-feature-box {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.apple-feature-visual {
+  order: -1;
+  padding: 24px 24px 0;
+}
+
+.apple-feature-text {
+  padding: 28px 32px 32px;
+  gap: 24px;
+}
+
+.feature-steps-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px 56px;
+}
+
+@media (min-width: 901px) {
+  .apple-feature-box {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .apple-feature-visual {
+    padding: 24px 24px 0;
+  }
+
+  .apple-feature-text {
+    padding: 28px 32px 32px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .apple-feature-visual {
+    padding: 16px 16px 0;
+  }
+
+  .apple-feature-text {
+    padding: 20px 20px 24px;
+  }
+
+  .feature-steps-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Hero block uses the full page column (style.css would otherwise cap it at 1040px) */
+.detail-hero.page {
+  max-width: none;
+}
+
+/* Flush variant: image runs to the card's top, left and right edges */
+.apple-feature-visual.is-flush,
+.apple-feature-visual.is-flush .visual-stage {
+  padding: 0;
+}
+
+/* Design review fixes: readable section labels and intro text at the full 1120px column */
+.detail-section-head .detail-label {
+  font-size: 13px;
+}
+
+.detail-hero .detail-intro {
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.detail-meta-list {
+  font-size: 16px;
+}
+
+#outcome .detail-text p {
+  font-size: 17px;
+}
+
+.feature-tradeoff {
+  font-size: 16px;
+}
+
+@media (max-width: 767px) {
+  .detail-hero .detail-intro,
+  #outcome .detail-text p {
+    font-size: 16px;
+  }
+
+  .detail-meta-list,
+  .feature-tradeoff {
+    font-size: 15px;
+  }
+}
