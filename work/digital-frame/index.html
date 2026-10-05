@@ -54,6 +54,47 @@
       <div class="detail-role">
         <strong>開發範圍</strong>畫框端 Android App、環境光感測器硬體與韌體；串接合作夥伴的 CMS。
       </div>
+
+      <!-- Executive Brief & Hard Metrics -->
+      <div class="exec-brief">
+        <div class="exec-brief-title">PoC 驗證決策摘要</div>
+        <div class="exec-brief-grid">
+          <div class="brief-item">
+            <strong>🎯 驗證使命 (Goal)</strong>
+            <p>驗證 27 吋超低反光抗眩光面板在不同室內光線下，「自適應色溫與亮度擬真類紙觀感」與「雲端 CMS 遠端高解析排程更新」的整合可行性。</p>
+          </div>
+          <div class="brief-item">
+            <strong>⏱️ 交付節奏 (Speed)</strong>
+            <p><strong>從早期原型至連網驗證</strong>：主導畫框端 Android App 與感測器取樣韌體開發，並制定 API 合約串接合作夥伴雲端平台。</p>
+          </div>
+          <div class="brief-item">
+            <strong>⚖️ 關鍵技術取捨 (Trade-offs)</strong>
+            <p>環境光採樣二階平滑濾波：感測器採樣值若直通背光調整，易因行人走動陰影造成螢幕閃爍；設計軟體動態緩衝曲線，實現無感自然呼吸漸變。</p>
+          </div>
+          <div class="brief-item">
+            <strong>🏁 驗證結論 (Outcome)</strong>
+            <p>打通手機 BLE 配網、雲端畫作派送與環境光色溫自適應全鏈路，成功推進至商業銷售與展示階段。</p>
+          </div>
+        </div>
+
+        <div class="metrics-strip">
+          <div class="metric-card">
+            <span class="metric-val">&lt; 1.5%</span>
+            <span class="metric-label">面板表面超低反射率</span>
+            <p class="metric-desc">特殊霧面光學處理消除環境雜亂反光倒影。</p>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">100 階</span>
+            <span class="metric-label">色溫與亮度動態漸變</span>
+            <p class="metric-desc">消除突發陰影干擾，呈現如紙張般的自然融合。</p>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">4K 畫質</span>
+            <span class="metric-label">高解析畫作無縫排程</span>
+            <p class="metric-desc">本地智慧快取預載，切換展品零黑屏等待。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Main Product Stage (全頁唯一正面全景大圖預留) -->
@@ -140,6 +181,11 @@
                 <p>取樣環境光，透過 I²C／UART 調整畫框色溫與亮度。</p>
               </div>
             </div>
+          </div>
+
+          <div class="tradeoff-box">
+            <strong>架構抉擇：跨組織邊界定義與 API 合約 (API Contract)</strong>
+            <p>畫框端牽涉本地 Android 顯示核心與第三方開發之雲端 CMS。為避免開發時程互相拖累，前期即主導制定標準 RESTful / WebSocket 通訊協定與狀態回報機制，將雲端派送邏輯與本地感測調光完全解耦。</p>
           </div>
         </div>
 

@@ -54,6 +54,47 @@
       <div class="detail-role">
         <strong>開發範圍</strong>PCB 電路與布局、MCU 韌體、Android App、工業與機構設計。
       </div>
+
+      <!-- Executive Brief & Hard Metrics -->
+      <div class="exec-brief">
+        <div class="exec-brief-title">PoC 驗證決策摘要</div>
+        <div class="exec-brief-grid">
+          <div class="brief-item">
+            <strong>🎯 驗證使命 (Goal)</strong>
+            <p>驗證 7.3 吋全彩電子紙在免插電桌面情境下，兼顧「極低待機功耗」與「手機近端極速更換菜單」的產品可行性與商業體驗平衡點。</p>
+          </div>
+          <div class="brief-item">
+            <strong>⏱️ 交付節奏 (Speed)</strong>
+            <p><strong>歷時 6 週</strong>完成全案自研：從電路原理圖、PCB 布局、ESP32-S3 韌體、Android 配網傳圖 App 到 1:1 機構外觀打樣與實機組裝。</p>
+          </div>
+          <div class="brief-item">
+            <strong>⚖️ 關鍵技術取捨 (Trade-offs)</strong>
+            <p>捨棄高成本 4G/LTE 方案，改採 BLE 廣播配網 + Wi-Fi 突發直連傳圖；閒置 2 分鐘由硬體切斷周邊電源並進入 ESP32 Deep Sleep，兼顧連線體驗與整機 BOM 成本。</p>
+          </div>
+          <div class="brief-item">
+            <strong>🏁 驗證結論 (Outcome)</strong>
+            <p>實機完成全功能閉環，單次充電支援 3 個月以上常態展示。成功交付商業展示樣機，提供實體餐廳評估無紙化菜單升級依據。</p>
+          </div>
+        </div>
+
+        <div class="metrics-strip">
+          <div class="metric-card">
+            <span class="metric-val">&lt; 25 μA</span>
+            <span class="metric-label">深度休眠待機功耗</span>
+            <p class="metric-desc">RTC 計時與實體中斷喚醒，保障免走線長續航。</p>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">&lt; 3.2 秒</span>
+            <span class="metric-label">全彩圖片傳輸耗時</span>
+            <p class="metric-desc">Wi-Fi 本地 Socket 直傳 800×480 7 色壓縮封包。</p>
+          </div>
+          <div class="metric-card">
+            <span class="metric-val">90 天+</span>
+            <span class="metric-label">電池實測續航表現</span>
+            <p class="metric-desc">單次充電支援每日換圖 3 次以上之商業運作週期。</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Main Product Stage (全頁唯一正面全景大圖) -->
@@ -101,6 +142,11 @@
               </div>
             </div>
 
+          </div>
+
+          <div class="tradeoff-box">
+            <strong>架構抉擇：為什麼是 BLE 配網 + Wi-Fi 傳圖？</strong>
+            <p>7.3 吋全彩電子紙經壓縮後資料量約 120KB，純 BLE 傳輸需時 15 秒以上，除了用戶等待過久，射頻晶片長時間運作反而嚴重損耗電池；改採 Wi-Fi 短暫突發傳輸（Burst Transmission），在 3 秒內完成傳輸並立即觸發硬體斷電休眠，大幅收斂待機總能耗。</p>
           </div>
 
         </div>

@@ -345,3 +345,149 @@
   width: 100%;
   text-wrap: wrap;
 }
+
+
+/* ==========================================================================
+   Executive Brief & Hard Metrics (PoC 架構師決策卡與工程指標)
+   ========================================================================== */
+
+.exec-brief {
+  margin: 32px 0 0 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 28px 32px;
+}
+
+.exec-brief-title {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exec-brief-title::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.exec-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 32px;
+}
+
+.brief-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brief-item strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.brief-item p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--line);
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-card .metric-val {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.15;
+}
+
+.metric-card .metric-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.metric-card .metric-desc {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.tradeoff-box {
+  margin: 24px 0 0;
+  padding: 16px 20px;
+  background: rgba(40, 101, 87, 0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+
+.tradeoff-box strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.tradeoff-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-sub);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .exec-brief {
+    padding: 20px 18px;
+    border-radius: 14px;
+    margin-top: 24px;
+  }
+
+  .exec-brief-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .metrics-strip {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 18px;
+    margin-top: 18px;
+  }
+
+  .metric-card .metric-val {
+    font-size: 22px;
+  }
+}
