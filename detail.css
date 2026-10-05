@@ -415,3 +415,17 @@
   }
 }
 
+/* 架構抉擇外置備註：置於 .apple-feature-box 下方，維持雙欄圖文高度平衡 */
+.feature-tradeoff {
+  margin: 16px 0 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-sub);
+}
+
+.feature-tradeoff strong {
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+
