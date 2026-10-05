@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>透明感夜燈｜黃鈺峰</title>
+  <meta name="description" content="透明感夜燈：自行開發 LVGL 圖片／影片播放器，以按鍵切換影片與調整亮度，共同調節 LED 燈光及面板背光。" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="icon"
+    href="../../logo.svg" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../../detail.css" />
+  <script src="../../main.js" defer></script>
+</head>
+
+<body id="top">
+  <a class="skip" href="#main">跳至主要內容</a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html" aria-label="黃鈺峰 - 返回首頁">
+        <img src="../../logo.svg" class="brand-logo" alt="" />
+      </a>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="nav">
+        選單
+      </button>
+      <nav id="nav" aria-label="主要導覽">
+        <a href="../../index.html#projects">作品</a>
+        <a href="../../index.html#capabilities">能力</a>
+        <a href="../../index.html#about">關於</a>
+        <a href="../../index.html#contact">聯絡</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="crumbs page" aria-label="麵包屑導覽"><a href="../../index.html">首頁</a> / <a href="../../index.html#in-progress">進行中專案</a> / <span>透明感夜燈</span></nav>
+    <section class="detail-hero page">
+      <span class="project-tag">進行中專案 / 開發中</span>
+      <h1>透明感夜燈</h1><p class="detail-subtitle">讓角色如同駐立於透明艙體中。</p>
+      <p class="detail-intro">以圓柱透明顯示結構探索居家夜燈的角色展示體驗，讓影像與艙體外觀共同構成產品的視覺效果。系統以 T113 驅動 SPI＋RGB 面板，自行開發 LVGL 圖片／影片播放器，透過按鍵調整亮度及切換上一部、下一部影片。亮度調整同時作用於 LED 燈光與面板背光，讓照明與影像呈現取得合適的配置。</p>
+      <div class="detail-role"><strong>開發範圍</strong>T113 平台與 SPI＋RGB 面板整合、LVGL 圖片／影片播放器開發、按鍵控制、LED 與面板背光共同調節，以及圓柱透明顯示結構規劃。</div>
+    </section>
+    <div class="page"><figure class="detail-stage-figure"><div class="detail-stage detail-stage-epaper"><img src="../../assets/images/transparent-nightlight-hero.webp" alt="透明感夜燈的圓柱透明艙體與角色展示設計示意" width="1920" height="1200" loading="eager" srcset="../../assets/images/transparent-nightlight-hero-480.webp 480w, ../../assets/images/transparent-nightlight-hero-800.webp 800w, ../../assets/images/transparent-nightlight-hero-1200.webp 1200w, ../../assets/images/transparent-nightlight-hero.webp 1920w" sizes="(max-width: 900px) calc(100vw - 56px), 1040px" /></div><figcaption class="visual-caption">產品設計示意 · 開發中</figcaption></figure></div>
+    <section class="detail-section page" id="architecture">
+      <div class="detail-section-head">
+        <p class="detail-label">01 / ARCHITECTURE</p>
+        <h2>自行開發 LVGL 圖片／影片播放器</h2>
+      </div>
+      <div class="apple-feature-box">
+        <div class="apple-feature-text">
+          <p class="feature-intro">以 T113 與 SPI＋RGB 面板為基礎，串接自行開發的 LVGL 播放器與按鍵操作。</p>
+          <div class="feature-steps-list">
+            <div class="feature-step-row">
+              <div class="step-info"><strong>圖片與影片播放</strong><p>以 LVGL 自行開發播放器，支援角色圖片與影片呈現。</p></div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info"><strong>按鍵切換影片</strong><p>透過按鍵切換上一部、下一部影片，提供直接的本機操作方式。</p></div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info"><strong>T113 面板整合</strong><p>整合 T113 平台與 SPI＋RGB 面板，銜接播放器與顯示端。</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="apple-feature-visual">
+          <div class="visual-stage">
+            <div class="img-placeholder" data-image-slot="transparent-nightlight-architecture">
+              <span class="placeholder-name">待補圖片：T113、LVGL 播放器、按鍵與面板架構</span>
+              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="detail-section page" id="implementation">
+      <div class="detail-section-head">
+        <p class="detail-label">02 / IMPLEMENTATION</p>
+        <h2>LED 與面板背光共同調節</h2>
+      </div>
+      <div class="apple-feature-box">
+        <div class="apple-feature-text">
+          <p class="feature-intro">亮度按鍵同時調節 LED 燈光與面板背光，讓艙體照明與角色影像取得合適的配置。</p>
+          <div class="feature-steps-list">
+            <div class="feature-step-row">
+              <div class="step-info"><strong>按鍵調整亮度</strong><p>透過本機按鍵調整亮度，共同改變燈光與顯示效果。</p></div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info"><strong>兩路亮度共同控制</strong><p>同一次操作調節 LED 與面板背光，協調照明及影像亮度。</p></div>
+            </div>
+            <div class="feature-step-row">
+              <div class="step-info"><strong>透明艙體的觀看效果</strong><p>配合透明艙體調整燈光與背光，呈現角色駐立其中的效果。</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="apple-feature-visual">
+          <div class="visual-stage">
+            <div class="img-placeholder" data-image-slot="transparent-nightlight-implementation">
+              <span class="placeholder-name">待補圖片：亮度按鍵與 LED／面板背光共同調節</span>
+              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="detail-section page" id="outcome">
+      <div class="detail-section-head">
+        <p class="detail-label">03 / OUTCOME</p>
+        <h2>開發進度與實機驗證</h2>
+      </div>
+      <div class="detail-text">
+        <p>目前已自行開發 LVGL 圖片／影片播放器，以按鍵切換影片及調整亮度，並共同調節 LED 燈光與面板背光。產品主圖為設計示意；後續以實機展示播放操作、上一部／下一部影片切換，以及不同亮度配置下的觀看效果。實機紀錄、測試條件與驗證結果待補。</p>
+        <div class="detail-outcome-stage">
+          <div class="img-placeholder" data-image-slot="transparent-nightlight-outcome">
+              <span class="placeholder-name">待補圖片：實機播放、按鍵操作與亮度配置比較</span>
+              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
+            </div>
+        </div>
+      </div>
+    </section>
+    <div class="page detail-return"><a class="arrow-link" href="../../index.html#in-progress">返回進行中專案 →</a></div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
+      <span>PRODUCT · DISPLAY · SYSTEMS</span>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">透明感夜燈圓柱艙體與角色影像配置示意</title>
+  <desc id="desc">圓柱透明結構中呈現角色影像。此圖說明設計概念，未表示內部零件或實機配置。</desc>
+  <rect width="1600" height="1000" fill="#f4f6f5"/>
+  <g font-family="Microsoft JhengHei, sans-serif">
+    <text x="800" y="140" text-anchor="middle" font-size="56" fill="#5e6864">結構設計示意</text>
+    <path d="M515 280v460c0 65 570 65 570 0V280" fill="#e9f0ec" fill-opacity=".55" stroke="#9cb1a5" stroke-width="4"/>
+    <ellipse cx="800" cy="280" rx="285" ry="65" fill="#eef3f0" stroke="#9cb1a5" stroke-width="4"/>
+    <ellipse cx="800" cy="740" rx="285" ry="65" fill="#e3ebe6" stroke="#9cb1a5" stroke-width="4"/>
+    <path d="M555 310v380M1045 310v380" stroke="#fff" stroke-width="14" opacity=".7"/>
+    <rect x="655" y="385" width="290" height="270" rx="24" fill="#fff" stroke="#286557" stroke-width="3" stroke-dasharray="10 10"/>
+    <g fill="#286557" text-anchor="middle"><text x="800" y="505" font-size="64" font-weight="700">角色影像</text><text x="800" y="565" font-size="48">顯示概念</text></g>
+    <path d="M1090 360h110M515 655H400" stroke="#9cb1a5" stroke-width="3"/>
+    <g fill="#202725" font-size="56"><text x="1215" y="350">圓柱透明</text><text x="1215" y="400">顯示結構</text><text x="385" y="645" text-anchor="end">角色駐立於</text><text x="385" y="695" text-anchor="end">透明艙體中</text></g>
+    <text x="800" y="900" text-anchor="middle" fill="#5e6864" font-size="48">設計概念示意 · 非內部零件配置</text>
+  </g>
+</svg>
