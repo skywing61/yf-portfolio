@@ -296,6 +296,14 @@ button:focus-visible {
   margin: 0 auto;
 }
 
+.hero-proof {
+  margin: 20px auto 0;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  color: var(--text-sub);
+}
+
 .hero-actions {
   display: flex;
   justify-content: center;
