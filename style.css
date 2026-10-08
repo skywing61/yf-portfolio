@@ -2415,3 +2415,27 @@ footer .footer-inner {
 .hang {
   margin-right: -0.3em;
 }
+
+/* Hero buttons / proof line: keep each label on one line, wrap between items */
+.button {
+  white-space: nowrap;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  display: inline-block;
+}
+
+@media (max-width: 767px) {
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+}
