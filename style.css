@@ -21,7 +21,8 @@
   --stage-max: 1040px;
 
   /* Typography Stacks (No serif) */
-  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  /* CJK faces first so Latin inside Chinese copy uses the same family's glyphs */
+  --sans: -apple-system, BlinkMacSystemFont, "Latin Dot", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
   --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
 }
 
@@ -1055,17 +1056,6 @@ footer .footer-inner {
    Detail Pages (D1–D5 左對齊開放式架構)
    ========================================================================== */
 
-.crumbs {
-  font-size: 14px;
-  color: var(--text-sub);
-  padding: 28px 0 16px;
-  text-align: left;
-}
-
-.crumbs a {
-  color: var(--accent);
-}
-
 .detail-hero {
   text-align: left;
   max-width: var(--stage-max);
@@ -1287,11 +1277,9 @@ footer .footer-inner {
 
 .detail-section-head .detail-label {
   font-size: 12px;
-  font-family: var(--mono);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: var(--accent);
-  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
@@ -2211,22 +2199,9 @@ footer .footer-inner {
   padding: 88px 0;
 }
 
-/* In-progress projects: open layout so they read as work in flight */
+/* In-progress projects share the card style; status tag sets them apart */
 #in-progress.section {
-  border-top: 1px solid var(--line);
-  margin-top: 24px;
-  padding-top: 72px;
-}
-
-#in-progress .project-card {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-}
-
-#in-progress .project-card .card-media {
-  background: var(--surface);
-  border-radius: 16px;
+  padding-top: 32px;
 }
 
 /* 2. Consistent media ratios; images are always shown whole (no cropping) */
@@ -2273,9 +2248,12 @@ footer .footer-inner {
     padding: 56px 0;
   }
 
-  #projects.section,
-  #in-progress.section {
+  #projects.section {
     padding-top: 48px;
+  }
+
+  #in-progress.section {
+    padding-top: 16px;
   }
 
   .about-section,
@@ -2291,8 +2269,7 @@ footer .footer-inner {
     aspect-ratio: 16 / 10;
   }
 
-  .project-card .card-media,
-  #in-progress .project-card .card-media {
+  .project-card .card-media {
     height: auto;
   }
 }
@@ -2401,16 +2378,6 @@ footer .footer-inner {
   white-space: nowrap;
 }
 
-/* Breadcrumb links: comfortable tap target */
-.crumbs a {
-  display: inline-block;
-  padding: 10px 0;
-}
-
-.crumbs {
-  padding: 18px 0 8px;
-}
-
 /* Hang full-width punctuation so centred lines are optically centred */
 .hang {
   margin-right: -0.3em;
@@ -2437,5 +2404,155 @@ footer .footer-inner {
   .hero-actions .button {
     padding: 10px 16px;
     font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   Design review pass 2: one card language, CJK-safe labels
+   ========================================================================== */
+
+/* Labels mix Chinese and numbers; a monospace stack has no CJK glyphs */
+.project-tag,
+.detail-hero .detail-role strong {
+  font-family: var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Other work: same grey card as the featured projects, smaller scale */
+.more-grid {
+  gap: 32px;
+}
+
+.more-card {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.more-media {
+  background: transparent;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+/* Keep CJK phrases (e.g. 開模) intact; lines break at punctuation,
+   falling back to any point only if a phrase cannot fit */
+.hero-intro,
+.detail-hero h1 {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  .more-grid {
+    gap: 20px;
+  }
+
+  .more-card {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .more-media {
+    padding: 0;
+  }
+}
+
+/* ==========================================================================
+   Design review pass 3: featured rhythm, footer
+   ========================================================================== */
+
+/* CJK fonts draw · as a full-width dot; borrow a Latin one for U+00B7 only */
+@font-face {
+  font-family: "Latin Dot";
+  src: local("Segoe UI"), local("Helvetica Neue"), local("Arial");
+  unicode-range: U+00B7;
+}
+
+/* Featured 01–02: text and image side by side, alternating */
+@media (min-width: 901px) {
+  .featured-project {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "header media"
+      "footer media";
+    column-gap: 48px;
+    padding: 48px;
+    margin-bottom: 32px;
+  }
+
+  .featured-project--reverse {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas:
+      "media header"
+      "media footer";
+  }
+
+  .featured-header {
+    grid-area: header;
+  }
+
+  .featured-media {
+    grid-area: media;
+    align-self: center;
+    aspect-ratio: 16 / 10;
+    margin: 0;
+  }
+
+  .featured-footer {
+    grid-area: footer;
+    align-self: end;
+  }
+
+  .featured-title {
+    font-size: 34px;
+  }
+
+  /* 03–05: three compact cards */
+  .project-grid--three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .project-grid--three .project-card {
+    padding: 28px;
+  }
+
+  .project-grid--three .project-card h3 {
+    font-size: 22px;
+  }
+
+  .project-grid--three .project-card .card-role {
+    font-size: 14px;
+  }
+}
+
+/* Footer: sans like the rest of the site, with a way back up */
+footer {
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* Detail pages open straight on the title (the logo already links home) */
+.detail-hero {
+  padding-top: 56px;
+}
+
+@media (max-width: 767px) {
+  .detail-hero {
+    padding-top: 36px;
   }
 }

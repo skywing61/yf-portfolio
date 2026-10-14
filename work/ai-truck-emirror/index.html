@@ -37,12 +37,6 @@
   </header>
 
   <main id="main">
-    <!-- Breadcrumbs -->
-    <nav class="crumbs page" aria-label="麵包屑導覽">
-      <a href="../../index.html">首頁</a> /
-      <span>04 AI 卡車電子後視鏡</span>
-    </nav>
-
     <!-- Hero Header -->
     <section class="detail-hero page">
       <span class="project-tag">04 / 邊緣 AI</span>
@@ -53,7 +47,7 @@
       </p>
       <div class="detail-meta-list">
         <p><strong>開發範圍</strong>Linux RKNN 推論軟體、影像管線架構，以及工業與機構設計。</p>
-        <p><strong>驗證目標</strong>歷時 10 週完成雙相機 RK3588 邊緣原型，驗證 60 FPS 零掉幀串流與 RKNN 盲區即時辨識可行性。</p>
+        <p><strong>驗證目標</strong>歷時 10 週完成單鏡頭雙視角 RK3588 邊緣原型，驗證 60 FPS 零掉幀串流與 RKNN 盲區即時辨識可行性。</p>
       </div>
     </section>
 
@@ -73,12 +67,12 @@
           <span class="stat-label">顯示串流穩定幀率</span>
         </div>
         <div class="stat-col">
-          <span class="stat-value">35 FPS</span>
-          <span class="stat-label">RKNN INT8 推論速度</span>
+          <span class="stat-value">3 倍</span>
+          <span class="stat-label">多執行緒提速，<span class="nowrap">8 → 24 FPS</span></span>
         </div>
         <div class="stat-col">
-          <span class="stat-value">&lt; 45 ms</span>
-          <span class="stat-label">端對端超低影像時延</span>
+          <span class="stat-value">10 週</span>
+          <span class="stat-label">單鏡頭雙視角原型</span>
         </div>
       </div>
     </div>
@@ -86,7 +80,7 @@
     <!-- 01 / FEATURES -->
     <section class="detail-section page" id="features">
       <div class="detail-section-head">
-        <p class="detail-label">01 / FEATURES</p>
+        <p class="detail-label">01 / 功能特色</p>
         <h2>盲區提示與雙視角顯示</h2>
       </div>
 
@@ -130,7 +124,7 @@
     <!-- 02 / ARCHITECTURE -->
     <section class="detail-section page" id="architecture">
       <div class="detail-section-head">
-        <p class="detail-label">02 / ARCHITECTURE</p>
+        <p class="detail-label">02 / 系統架構</p>
         <h2>影像擷取與非同步推論</h2>
       </div>
 
@@ -143,8 +137,8 @@
           <div class="feature-steps-list">
             <div class="feature-step-row">
               <div class="step-info">
-                <strong>相機平行擷取與暫存</strong>
-                <p>平行擷取雙鏡頭影像，顯示串流不等待推論，保持畫面連續。</p>
+                <strong>單鏡頭擷取與雙視角輸出</strong>
+                <p>單一鏡頭影像裁切為兩個視角，顯示串流不等待推論，保持畫面連續。</p>
               </div>
             </div>
             <div class="feature-step-row">
@@ -177,7 +171,7 @@
     <!-- 03 / OUTCOME -->
     <section class="detail-section page" id="outcome">
       <div class="detail-section-head">
-        <p class="detail-label">03 / OUTCOME</p>
+        <p class="detail-label">03 / 成果</p>
         <h2>雙視角 AI 後視鏡原型</h2>
       </div>
       <div class="detail-text">
@@ -195,15 +189,16 @@
       </div>
     </section>
 
-    <div class="page detail-return">
-      <a class="arrow-link" href="../../index.html#projects">返回全部作品 →</a>
-    </div>
+    <nav class="page detail-pager" aria-label="專案導覽">
+      <a class="arrow-link" href="../../index.html#projects">← 返回全部作品</a>
+      <a class="arrow-link pager-next" href="../glasses-free-3d/index.html">下一個專案：單人追眼式裸視 3D →</a>
+    </nav>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <span>© 2026 黃鈺峰 / YU-FENG HUANG</span>
-      <span>PRODUCT · DISPLAY · SYSTEMS</span>
+      <span>© 2026 黃鈺峰 Yu-Feng Huang</span>
+      <a href="#top">回到頂部 ↑</a>
     </div>
   </footer>
 </body>

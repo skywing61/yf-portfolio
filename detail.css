@@ -275,20 +275,45 @@
   aspect-ratio: 16/9;
   border-radius: 16px;
   overflow: hidden;
-  background: #000000;
+  background: transparent;
+  isolation: isolate;
 }
 
+/* YouTube thumbnails carry a 1px dark edge on the left and right;
+   scale the player slightly so the stage's rounded clip hides it */
 .video-embed-stage iframe {
   width: 100%;
   height: 100%;
   border: 0;
   display: block;
+  transform: scale(1.012);
 }
 
-.detail-return {
+.detail-pager {
   display: flex;
-  justify-content: flex-end;
-  padding: 40px 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--line);
+}
+
+.pager-next {
+  margin-left: auto;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .detail-pager {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .detail-pager .arrow-link:first-child {
+    align-self: flex-start;
+  }
 }
 
 @media (max-width:900px) {
@@ -416,15 +441,49 @@
 }
 
 @media (max-width: 767px) {
+  /* Phone: a compact left-aligned spec list, value beside its label */
   .detail-stats {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 24px 0 28px;
+    grid-template-columns: max-content minmax(0, 1fr);
+    column-gap: 28px;
+    row-gap: 0;
+    padding: 4px 0;
     margin-bottom: 24px;
+    text-align: left;
+  }
+
+  /* Rows share the two tracks so every label starts on the same line */
+  .stat-col {
+    display: contents;
+  }
+
+  .stat-value,
+  .stat-label {
+    padding: 14px 0;
+  }
+
+  .stat-col + .stat-col > * {
+    border-top: 1px solid var(--line);
+  }
+
+  /* Carry the divider across the column gap */
+  .stat-col + .stat-col > .stat-value {
+    margin-right: -28px;
+    padding-right: 28px;
+  }
+
+  /* Smaller label text: nudge down to sit on the value's baseline */
+  .stat-label {
+    padding-top: 20px;
   }
 
   .stat-value {
-    font-size: 28px;
+    font-size: 21px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 }
 
