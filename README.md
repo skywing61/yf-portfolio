@@ -15,8 +15,30 @@
   - payment-terminal/：4.3 吋多元支付機（顯示與觸控整合｜開場展示斜俯視角）
   - ai-truck-emirror/：AI 卡車電子後視鏡（邊緣 AI 與機構｜開場展示相機局部放大與說明分割舞台）
   - glasses-free-3d/：單人追眼式裸視 3D（跨端互動展示｜開場展示手機端操作與選擇介面）
-- assets/images/：全站高畫質 WebP / PNG 影像素材
+- images-src/：圖片原始檔（PNG），唯一需要維護的圖片；不會部署
+- assets/images/：由 `scripts/build_images.py` 產生的 WebP，不要手動修改
+- scripts/：維護用指令；不會部署
 - documents/：英文履歷與相關文檔
+
+## 圖片維護
+
+只需要維護 `images-src/` 的 PNG，網站用的 WebP 一律由指令產生。指令不會移動、放大或裁切圖片，構圖完全以 PNG 為準。
+
+1. 從原圖裁切好構圖後存成 PNG，放進 `images-src/`，檔名就是網站上的名稱，例如 `transparent-nightlight-pcb.png`。專案圖為 16:10，建議至少 1920 × 1200 px。
+2. 在 `vercel_package/` 執行：
+
+   ```
+   python scripts/build_images.py
+   ```
+
+   會產生 `assets/images/<名稱>.webp`（最寬 1920 px），以及頁面 `srcset` 用到的各寬度版本（例如 `-480`、`-800`、`-1200`；頁面還沒用到時預設產生這三種）。
+3. 指令最後會列出：還沒重新產生的 PNG、頁面用到卻缺少的圖、沒有 PNG 原始檔的圖、可以刪除的圖，以及不是 16:10 的 PNG。
+
+指令以 PNG 內容判斷是否需要重做（記錄在 `images-src/.build-state.json`），不看檔案日期，所以從別處複製來的舊檔也會被偵測到。
+
+其他用法：`--check` 只檢查不產生；`--force` 全部重做；在指令後面加上名稱（例如 `python scripts/build_images.py tokugawa-hero`）只重做那幾張。
+
+`images-src/_originals/` 存放未裁切的高解析原圖，指令不會讀取，作為裁切時的素材來源。
 
 內頁共用排版集中於根目錄 `detail.css`，五頁由 `style.css` 後引用，便於同步維護。
 
@@ -36,6 +58,6 @@
 
 ## 進行中專案
 
-首頁將進行中專案放於代表作品之後、其他作品之前。新增 `work/tokugawa/`（浮光樂影・浮空投影音樂盒）與 `work/transparent-nightlight/`（透明感夜燈），沿用代表作品的主圖、架構與實作版型，最後一節呈現目前進度及後續驗證。
+首頁將進行中專案放於代表作品之後、其他作品之前，目前為 `work/tokugawa/`（浮光樂影・浮空投影音樂盒），首頁不連到內頁。`work/transparent-nightlight/`（透明艙夜燈）已完成，列為代表作品 01。
 
 內頁共用格式與進行中專案的六個 16:10 補圖需求，請參考 [CONTENT_PLAN.md](CONTENT_PLAN.md)。缺少合適素材時保留具名圖位，不新增個別圖片排版覆寫。

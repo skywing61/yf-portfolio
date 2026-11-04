@@ -1,0 +1,281 @@
+{
+ "ai-truck-emirror-features": {
+  "outputs": [
+   "ai-truck-emirror-features.webp",
+   "ai-truck-emirror-features-480.webp",
+   "ai-truck-emirror-features-800.webp",
+   "ai-truck-emirror-features-1200.webp"
+  ],
+  "sha1": "b73a33da62d28435df0dda57315c1e28a00406b9"
+ },
+ "ai-truck-emirror-hero": {
+  "outputs": [
+   "ai-truck-emirror-hero.webp",
+   "ai-truck-emirror-hero-480.webp",
+   "ai-truck-emirror-hero-800.webp",
+   "ai-truck-emirror-hero-1200.webp"
+  ],
+  "sha1": "22dfc75f6a7dcd8911e15ed8cd05816b6c8e464c"
+ },
+ "ai-truck-emirror-pipeline": {
+  "outputs": [
+   "ai-truck-emirror-pipeline.webp",
+   "ai-truck-emirror-pipeline-480.webp",
+   "ai-truck-emirror-pipeline-800.webp",
+   "ai-truck-emirror-pipeline-1200.webp"
+  ],
+  "sha1": "d8251841da9199adecfed8e2258ca3c4de3056f6"
+ },
+ "ai-truck-emirror-scale": {
+  "outputs": [
+   "ai-truck-emirror-scale.webp",
+   "ai-truck-emirror-scale-480.webp",
+   "ai-truck-emirror-scale-800.webp",
+   "ai-truck-emirror-scale-1200.webp"
+  ],
+  "sha1": "fe5bcd3912bb1b88f358a3d9c9e3440c44f60e02"
+ },
+ "cms-ambient-comparison": {
+  "outputs": [
+   "cms-ambient-comparison.webp",
+   "cms-ambient-comparison-480.webp",
+   "cms-ambient-comparison-800.webp",
+   "cms-ambient-comparison-1200.webp"
+  ],
+  "sha1": "5dfc2024056ab33a8c794215606eed9e9cbcc586"
+ },
+ "cms-ble-setup": {
+  "outputs": [
+   "cms-ble-setup.webp",
+   "cms-ble-setup-480.webp",
+   "cms-ble-setup-800.webp",
+   "cms-ble-setup-1200.webp"
+  ],
+  "sha1": "3949e4392fcae523d790bc382986f8c3820d8715"
+ },
+ "cms-digital-frame": {
+  "outputs": [
+   "cms-digital-frame.webp",
+   "cms-digital-frame-480.webp",
+   "cms-digital-frame-800.webp",
+   "cms-digital-frame-1200.webp"
+  ],
+  "sha1": "20e9392c2c1314352b0761f3b154cb6a6af263c1"
+ },
+ "cms-digital-frame_2": {
+  "outputs": [
+   "cms-digital-frame_2.webp",
+   "cms-digital-frame_2-480.webp",
+   "cms-digital-frame_2-800.webp",
+   "cms-digital-frame_2-1200.webp"
+  ],
+  "sha1": "826cc8b8bb953a75ce03ef128791ab7158af4e5d"
+ },
+ "color-epaper-link": {
+  "outputs": [
+   "color-epaper-link.webp",
+   "color-epaper-link-480.webp",
+   "color-epaper-link-800.webp",
+   "color-epaper-link-1200.webp"
+  ],
+  "sha1": "a1ca4c039e58ebaa0d552fb75e589ffbc84ce2ee"
+ },
+ "color-epaper-pcb": {
+  "outputs": [
+   "color-epaper-pcb.webp",
+   "color-epaper-pcb-480.webp",
+   "color-epaper-pcb-800.webp",
+   "color-epaper-pcb-1200.webp"
+  ],
+  "sha1": "a54e4da2ba5992a0bcb3f8e0bc39e818106d91a5"
+ },
+ "color-epaper-sign": {
+  "outputs": [
+   "color-epaper-sign.webp",
+   "color-epaper-sign-480.webp",
+   "color-epaper-sign-800.webp",
+   "color-epaper-sign-1200.webp"
+  ],
+  "sha1": "1724b4547765f6fecc4ffe7b78822488f7ef5e20"
+ },
+ "epaper-stand": {
+  "outputs": [
+   "epaper-stand.webp",
+   "epaper-stand-480.webp",
+   "epaper-stand-800.webp",
+   "epaper-stand-1200.webp"
+  ],
+  "sha1": "900c8495bce7af16c22b113616290ed9b56af0d9"
+ },
+ "glasses-free-3d-exhibition": {
+  "outputs": [
+   "glasses-free-3d-exhibition.webp",
+   "glasses-free-3d-exhibition-480.webp",
+   "glasses-free-3d-exhibition-800.webp",
+   "glasses-free-3d-exhibition-1200.webp"
+  ],
+  "sha1": "5216a552bdb34a25c6f56184b013395dd36ee432"
+ },
+ "glasses-free-3d-hero": {
+  "outputs": [
+   "glasses-free-3d-hero.webp",
+   "glasses-free-3d-hero-480.webp",
+   "glasses-free-3d-hero-800.webp",
+   "glasses-free-3d-hero-1200.webp"
+  ],
+  "sha1": "7b7d465b20a2cc09b1c883dd6f319b816059d56d"
+ },
+ "glasses-free-3d-main": {
+  "outputs": [
+   "glasses-free-3d-main.webp",
+   "glasses-free-3d-main-480.webp",
+   "glasses-free-3d-main-800.webp",
+   "glasses-free-3d-main-1200.webp"
+  ],
+  "sha1": "de8b50ede56da1ef53a283252a2d604a31060e92"
+ },
+ "glasses-free-3d-mobile-control": {
+  "outputs": [
+   "glasses-free-3d-mobile-control.webp",
+   "glasses-free-3d-mobile-control-480.webp",
+   "glasses-free-3d-mobile-control-800.webp",
+   "glasses-free-3d-mobile-control-1200.webp"
+  ],
+  "sha1": "255862b463d79af5ef754011b5e60fad85beba8c"
+ },
+ "glasses-free-3d-pipeline": {
+  "outputs": [
+   "glasses-free-3d-pipeline.webp",
+   "glasses-free-3d-pipeline-480.webp",
+   "glasses-free-3d-pipeline-800.webp",
+   "glasses-free-3d-pipeline-1200.webp"
+  ],
+  "sha1": "9ea75608b458e69ab81f47b0f75e16009e482db6"
+ },
+ "nft-frame-hero": {
+  "outputs": [
+   "nft-frame-hero.webp",
+   "nft-frame-hero-480.webp",
+   "nft-frame-hero-800.webp",
+   "nft-frame-hero-1200.webp"
+  ],
+  "sha1": "d78d83197f2a0ec5c97e7ca74c9d64ec6829bd20"
+ },
+ "payment-terminal-angle": {
+  "outputs": [
+   "payment-terminal-angle.webp",
+   "payment-terminal-angle-480.webp",
+   "payment-terminal-angle-800.webp",
+   "payment-terminal-angle-1200.webp"
+  ],
+  "sha1": "a4cff6b569b59569611e438662d7ac033bc4850d"
+ },
+ "payment-terminal-architecture": {
+  "outputs": [
+   "payment-terminal-architecture.webp",
+   "payment-terminal-architecture-480.webp",
+   "payment-terminal-architecture-800.webp",
+   "payment-terminal-architecture-1200.webp"
+  ],
+  "sha1": "d21891c50ff64ff30d9a32c385b70fce5794aa55"
+ },
+ "payment-terminal-exploded": {
+  "outputs": [
+   "payment-terminal-exploded.webp",
+   "payment-terminal-exploded-480.webp",
+   "payment-terminal-exploded-800.webp",
+   "payment-terminal-exploded-1200.webp"
+  ],
+  "sha1": "cfadeb3c9eb956235374acd7f9591f042acfe5f5"
+ },
+ "payment-terminal-hero": {
+  "outputs": [
+   "payment-terminal-hero.webp",
+   "payment-terminal-hero-480.webp",
+   "payment-terminal-hero-800.webp",
+   "payment-terminal-hero-1200.webp"
+  ],
+  "sha1": "6261c9149d2308654aeb4d399fb6dcfb03a2fbb8"
+ },
+ "refocus-compare": {
+  "outputs": [
+   "refocus-compare.webp",
+   "refocus-compare-480.webp",
+   "refocus-compare-800.webp",
+   "refocus-compare-1200.webp"
+  ],
+  "sha1": "a86510f6bc8f73dfe72c779b2163b7817df3a0a1"
+ },
+ "signature-pad-hero": {
+  "outputs": [
+   "signature-pad-hero.webp",
+   "signature-pad-hero-480.webp",
+   "signature-pad-hero-800.webp",
+   "signature-pad-hero-1200.webp"
+  ],
+  "sha1": "f78024f74cfbcdc4986e64d27cb51ddbb119ea8d"
+ },
+ "smart-shelf-hero": {
+  "outputs": [
+   "smart-shelf-hero.webp",
+   "smart-shelf-hero-480.webp",
+   "smart-shelf-hero-800.webp",
+   "smart-shelf-hero-1200.webp"
+  ],
+  "sha1": "27d67cc3654bfba4cd44b3828b9545bcb480ad14"
+ },
+ "tokugawa-hero": {
+  "outputs": [
+   "tokugawa-hero.webp",
+   "tokugawa-hero-480.webp",
+   "tokugawa-hero-800.webp",
+   "tokugawa-hero-1200.webp"
+  ],
+  "sha1": "4c5d806e6d10ac3622788ad3bd062a216452a1a2"
+ },
+ "transparent-nightlight-hero": {
+  "outputs": [
+   "transparent-nightlight-hero.webp",
+   "transparent-nightlight-hero-480.webp",
+   "transparent-nightlight-hero-800.webp",
+   "transparent-nightlight-hero-1200.webp"
+  ],
+  "sha1": "cdda767ac5adf42be537bdaafcf97f03c30ae152"
+ },
+ "transparent-nightlight-main": {
+  "outputs": [
+   "transparent-nightlight-main.webp",
+   "transparent-nightlight-main-480.webp",
+   "transparent-nightlight-main-800.webp",
+   "transparent-nightlight-main-1200.webp"
+  ],
+  "sha1": "5188746625ef45ecd4657acb71a1505b0e8790fb"
+ },
+ "transparent-nightlight-pcb-layout": {
+  "outputs": [
+   "transparent-nightlight-pcb-layout.webp",
+   "transparent-nightlight-pcb-layout-480.webp",
+   "transparent-nightlight-pcb-layout-800.webp",
+   "transparent-nightlight-pcb-layout-1200.webp"
+  ],
+  "sha1": "468eb7b98b381c562680deb2ed9440dabbcc0248"
+ },
+ "transparent-nightlight-relighting": {
+  "outputs": [
+   "transparent-nightlight-relighting.webp",
+   "transparent-nightlight-relighting-480.webp",
+   "transparent-nightlight-relighting-800.webp",
+   "transparent-nightlight-relighting-1200.webp"
+  ],
+  "sha1": "771aa7acad9a7339a4d21c6cb74e75504cce3983"
+ },
+ "yf-portrait": {
+  "outputs": [
+   "yf-portrait.webp",
+   "yf-portrait-240.webp",
+   "yf-portrait-480.webp",
+   "yf-portrait-800.webp"
+  ],
+  "sha1": "9a34af94c7270ed66e1cea09754cada45ba544b3"
+ }
+}
