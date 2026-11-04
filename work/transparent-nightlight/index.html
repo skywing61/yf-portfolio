@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>透明感夜燈｜黃鈺峰</title>
-  <meta name="description" content="透明感夜燈：自行開發 LVGL 圖片／影片播放器，以按鍵切換影片與調整亮度，共同調節 LED 燈光及面板背光。" />
+  <title>透明艙夜燈｜黃鈺峰</title>
+  <meta name="description" content="透明艙夜燈以圓柱透明艙體呈現角色，整合 AI 深度佈光、LVGL 播放器、實體按鍵與 T113-S3 自製控制板。" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <link rel="icon"
@@ -38,38 +38,35 @@
 
   <main id="main">
     <section class="detail-hero page">
-      <span class="project-tag">開發中</span>
-      <h1>透明感夜燈</h1><p class="detail-subtitle">讓角色如同駐立於透明艙體中。</p>
-      <p class="detail-intro">以圓柱透明顯示結構探索居家夜燈的角色展示體驗，讓影像與艙體外觀共同構成產品的視覺效果。系統以 T113 驅動 SPI＋RGB 面板，自行開發 LVGL 圖片／影片播放器，透過按鍵調整亮度及切換上一部、下一部影片。亮度調整同時作用於 LED 燈光與面板背光，讓照明與影像呈現取得合適的配置。</p>
-      <div class="detail-role"><strong>開發範圍</strong>T113 平台與 SPI＋RGB 面板整合、LVGL 圖片／影片播放器開發、按鍵控制、LED 與面板背光共同調節，以及圓柱透明顯示結構規劃。</div>
+      <span class="project-tag">01 / 顯示與燈光整合</span>
+      <h1>透明艙夜燈</h1><p class="detail-subtitle">讓角色如同駐立於透明艙體中。</p>
+      <p class="detail-intro">在透明圓柱艙體裡，角色影像與燈光一起構成夜燈的觀看體驗。我用深度佈光工具準備角色素材，再透過自製的 LVGL 播放器呈現。自製控制板將直式顯示、燈條、音訊與實體按鍵整合到同一個裝置。</p>
+      <div class="detail-role"><strong>開發範圍</strong>ARM Cortex-A7 控制板 PCB 設計、LVGL 播放器與按鍵韌體、WebGL 深度佈光工具，以及工業與機構設計。</div>
     </section>
-    <div class="page"><figure class="detail-stage-figure"><div class="detail-stage detail-stage-epaper"><img src="../../assets/images/transparent-nightlight-hero.webp" alt="透明感夜燈的圓柱透明艙體與角色展示設計示意" width="1920" height="1200" loading="eager" srcset="../../assets/images/transparent-nightlight-hero-480.webp 480w, ../../assets/images/transparent-nightlight-hero-800.webp 800w, ../../assets/images/transparent-nightlight-hero-1200.webp 1200w, ../../assets/images/transparent-nightlight-hero.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1216px) calc(100vw - 64px), 1120px" /></div><figcaption class="visual-caption">產品設計示意 · 開發中</figcaption></figure></div>
+    <div class="page"><figure class="detail-stage-figure"><div class="detail-stage detail-stage-epaper"><img src="../../assets/images/transparent-nightlight-main.webp" alt="三台透明艙夜燈並排，艙內分別呈現橘色狐狸、白色狐狸與坐在岩石上的少年角色" width="1920" height="1200" loading="eager" srcset="../../assets/images/transparent-nightlight-main-480.webp 480w, ../../assets/images/transparent-nightlight-main-800.webp 800w, ../../assets/images/transparent-nightlight-main-1200.webp 1200w, ../../assets/images/transparent-nightlight-main.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1216px) calc(100vw - 64px), 1120px" /></div></figure></div>
     <section class="detail-section page" id="architecture">
       <div class="detail-section-head">
         <p class="detail-label">01 / 系統架構</p>
-        <h2>自行開發 LVGL 圖片／影片播放器</h2>
+        <h2>以 T113-S3 整合顯示、照明與音訊</h2>
       </div>
       <div class="apple-feature-box">
         <div class="apple-feature-text">
-          <p class="feature-intro">以 T113 與 SPI＋RGB 面板為基礎，串接自行開發的 LVGL 播放器與按鍵操作。</p>
+          <p class="feature-intro">自製 4 層控制板把直式顯示、素材儲存、燈光、音訊與實體按鍵整合在同一塊板上。</p>
           <div class="feature-steps-list">
             <div class="feature-step-row">
-              <div class="step-info"><strong>圖片與影片播放</strong><p>以 LVGL 自行開發播放器，支援角色圖片與影片呈現。</p></div>
+              <div class="step-info"><strong>直式顯示與素材儲存</strong><p>5.5 吋直式面板以 SPI 初始化、RGB666 顯示，素材存於 NAND。</p></div>
             </div>
             <div class="feature-step-row">
-              <div class="step-info"><strong>按鍵切換影片</strong><p>透過按鍵切換上一部、下一部影片，提供直接的本機操作方式。</p></div>
+              <div class="step-info"><strong>雙路 PWM 調光</strong><p>背光與 5 V COB 燈條各自以 PWM 驅動，由同一組五段亮度同步切換。</p></div>
             </div>
             <div class="feature-step-row">
-              <div class="step-info"><strong>T113 面板整合</strong><p>整合 T113 平台與 SPI＋RGB 面板，銜接播放器與顯示端。</p></div>
+              <div class="step-info"><strong>USB-C 與音訊</strong><p>單一 USB-C 供電，並以大容量儲存模式傳輸素材；LM4871 驅動喇叭。</p></div>
             </div>
           </div>
         </div>
         <div class="apple-feature-visual">
           <div class="visual-stage">
-            <div class="img-placeholder" data-image-slot="transparent-nightlight-architecture">
-              <span class="placeholder-name">待補圖片：T113、LVGL 播放器、按鍵與面板架構</span>
-              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
-            </div>
+            <img src="../../assets/images/transparent-nightlight-pcb-layout.webp" alt="T113-S3 播放器控制板：左側為 PCB 3D 俯視圖，右側與下方為 4 層板各層 layout" loading="lazy" srcset="../../assets/images/transparent-nightlight-pcb-layout-480.webp 480w, ../../assets/images/transparent-nightlight-pcb-layout-800.webp 800w, ../../assets/images/transparent-nightlight-pcb-layout-1200.webp 1200w, ../../assets/images/transparent-nightlight-pcb-layout.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1216px) calc(100vw - 64px), 1120px" />
           </div>
         </div>
       </div>
@@ -77,29 +74,26 @@
     <section class="detail-section page" id="implementation">
       <div class="detail-section-head">
         <p class="detail-label">02 / 實作細節</p>
-        <h2>LED 與面板背光共同調節</h2>
+        <h2>深度佈光素材與按鍵播放</h2>
       </div>
       <div class="apple-feature-box">
         <div class="apple-feature-text">
-          <p class="feature-intro">亮度按鍵同時調節 LED 燈光與面板背光，讓艙體照明與角色影像取得合適的配置。</p>
+          <p class="feature-intro">自製瀏覽器工具重新調整角色光影，再由自行開發的 LVGL 播放器在裝置上播放。</p>
           <div class="feature-steps-list">
             <div class="feature-step-row">
-              <div class="step-info"><strong>按鍵調整亮度</strong><p>透過本機按鍵調整亮度，共同改變燈光與顯示效果。</p></div>
+              <div class="step-info"><strong>AI 深度重新佈光</strong><p>以 Depth Anything V2 估算深度，WebGL2 依形體計算側光與輪廓光。</p></div>
             </div>
             <div class="feature-step-row">
-              <div class="step-info"><strong>兩路亮度共同控制</strong><p>同一次操作調節 LED 與面板背光，協調照明及影像亮度。</p></div>
+              <div class="step-info"><strong>影片防閃爍與輸出</strong><p>平滑相鄰畫格深度以減少閃爍，再裁切為直式 24 fps H.264 影片。</p></div>
             </div>
             <div class="feature-step-row">
-              <div class="step-info"><strong>透明艙體的觀看效果</strong><p>配合透明艙體調整燈光與背光，呈現角色駐立其中的效果。</p></div>
+              <div class="step-info"><strong>四顆實體按鍵</strong><p>分別負責調光與休眠、音效與音量、角色與定時，LOAD 鍵供韌體燒錄。</p></div>
             </div>
           </div>
         </div>
         <div class="apple-feature-visual">
           <div class="visual-stage">
-            <div class="img-placeholder" data-image-slot="transparent-nightlight-implementation">
-              <span class="placeholder-name">待補圖片：亮度按鍵與 LED／面板背光共同調節</span>
-              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
-            </div>
+            <img src="../../assets/images/transparent-nightlight-relighting.webp" alt="Depth Relight 網頁工具：左右對照原片與重新佈光後的角色影片，右側為光線、立體感、聚光範圍與輸出設定" loading="lazy" srcset="../../assets/images/transparent-nightlight-relighting-480.webp 480w, ../../assets/images/transparent-nightlight-relighting-800.webp 800w, ../../assets/images/transparent-nightlight-relighting-1200.webp 1200w, ../../assets/images/transparent-nightlight-relighting.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1216px) calc(100vw - 64px), 1120px" />
           </div>
         </div>
       </div>
@@ -107,20 +101,24 @@
     <section class="detail-section page" id="outcome">
       <div class="detail-section-head">
         <p class="detail-label">03 / 成果</p>
-        <h2>開發進度與實機驗證</h2>
+        <h2>可切換角色的透明艙夜燈</h2>
       </div>
       <div class="detail-text">
-        <p>目前已自行開發 LVGL 圖片／影片播放器，以按鍵切換影片及調整亮度，並共同調節 LED 燈光與面板背光。產品主圖為設計示意；後續以實機展示播放操作、上一部／下一部影片切換，以及不同亮度配置下的觀看效果。實機紀錄、測試條件與驗證結果待補。</p>
-        <div class="detail-outcome-stage">
-          <div class="img-placeholder" data-image-slot="transparent-nightlight-outcome">
-              <span class="placeholder-name">待補圖片：實機播放、按鍵操作與亮度配置比較</span>
-              <span class="placeholder-ratio">16:10 · 建議 1920 × 1200 px</span>
-            </div>
+        <p>
+          完成可切換角色與音效的透明艙夜燈實機，整合自製 T113-S3 控制板、LVGL 播放器、按鍵韌體與透明艙體機構。實機能以按鍵切換五段亮度、角色與音效，並支援音量調整、1／2／3 小時定時與深度休眠喚醒；面板色序、低亮度溫升、USB 傳檔與音訊品質皆已完成驗證。
+        </p>
+        <!-- 實機影片 (YouTube)：上傳後把 VIDEO_ID 換成影片 ID，並移除外層註解即可顯示
+        <div class="video-embed-stage">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="透明艙夜燈實機操作展示"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
+          </iframe>
         </div>
+        -->
       </div>
     </section>
     <nav class="page detail-pager" aria-label="專案導覽">
-      <a class="arrow-link" href="../../index.html#in-progress">← 返回進行中專案</a>
+      <a class="arrow-link" href="../../index.html#projects">← 返回全部作品</a>
       <a class="arrow-link pager-next" href="../color-epaper/index.html">下一個專案：彩色電子紙桌面立牌 →</a>
     </nav>
   </main>

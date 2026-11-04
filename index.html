@@ -52,21 +52,41 @@
       </div>
     </section>
 
-    <!-- H2 & H3: 代表作品 (01 - 05) -->
+    <!-- H2 & H3: 代表作品 (01 - 06) -->
     <section class="section page" id="projects">
       <h2 class="section-title">代表作品</h2>
 
-      <!-- H2: 01 Color ePaper Showcase (主展示舞台) -->
+      <!-- 01 Transparent Nightlight (主展示舞台) -->
       <article class="featured-project">
         <div class="featured-header">
-          <span class="project-tag">01 / 獨立開發</span>
+          <span class="project-tag">01 / 顯示與燈光整合</span>
+          <h3 class="featured-title">透明艙夜燈</h3>
+          <p class="featured-desc">
+            讓角色如同駐立於透明艙體中。
+          </p>
+        </div>
+        <div class="featured-media">
+          <img src="assets/images/transparent-nightlight-hero.webp" alt="透明艙夜燈的圓柱透明艙體與角色展示" loading="eager" srcset="assets/images/transparent-nightlight-hero-480.webp 480w, assets/images/transparent-nightlight-hero-800.webp 800w, assets/images/transparent-nightlight-hero-1200.webp 1200w, assets/images/transparent-nightlight-hero.webp 1920w" sizes="(max-width: 767px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 144px), 620px" />
+        </div>
+        <div class="featured-footer">
+          <p class="featured-role">
+            <strong>開發範圍</strong>ARM Cortex-A7 控制板 PCB 設計、LVGL 播放器與按鍵韌體、WebGL 深度佈光工具，以及工業與機構設計。
+          </p>
+          <a class="arrow-link" href="work/transparent-nightlight/index.html" aria-label="查看透明艙夜燈開發過程">查看開發過程 →</a>
+        </div>
+      </article>
+
+      <!-- 02 Color ePaper (左圖右文) -->
+      <article class="featured-project featured-project--reverse">
+        <div class="featured-header">
+          <span class="project-tag">02 / 獨立開發</span>
           <h3 class="featured-title">彩色電子紙桌面立牌</h3>
           <p class="featured-desc">
             手機更新資訊，減少換紙。
           </p>
         </div>
         <div class="featured-media">
-          <img src="assets/images/color-epaper-sign.webp" alt="7.3 吋彩色電子紙桌面立牌正面外觀" loading="eager" srcset="assets/images/color-epaper-sign-480.webp 480w, assets/images/color-epaper-sign-800.webp 800w, assets/images/color-epaper-sign-1200.webp 1200w, assets/images/color-epaper-sign.webp 1920w" sizes="(max-width: 767px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 144px), 620px" />
+          <img src="assets/images/color-epaper-sign.webp" alt="7.3 吋彩色電子紙桌面立牌正面外觀" loading="lazy" srcset="assets/images/color-epaper-sign-480.webp 480w, assets/images/color-epaper-sign-800.webp 800w, assets/images/color-epaper-sign-1200.webp 1200w, assets/images/color-epaper-sign.webp 1920w" sizes="(max-width: 767px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 144px), 620px" />
         </div>
         <div class="featured-footer">
           <p class="featured-role">
@@ -76,10 +96,10 @@
         </div>
       </article>
 
-      <!-- 02 Digital Frame (第二主展示，左圖右文) -->
-      <article class="featured-project featured-project--reverse">
+      <!-- 03 Digital Frame -->
+      <article class="featured-project">
         <div class="featured-header">
-          <span class="project-tag">02 / 顯示與內容管理 · 已量產銷售</span>
+          <span class="project-tag">03 / 顯示與內容管理 · 已量產銷售</span>
           <h3 class="featured-title">類紙感數位畫框與 CMS</h3>
           <p class="featured-desc">
             隨環境光調整的類紙畫框，成功落地量產銷售。
@@ -96,12 +116,12 @@
         </div>
       </article>
 
-      <!-- 03 - 05 三欄卡片 -->
+      <!-- 04 - 06 三欄卡片 -->
       <div class="project-grid project-grid--three">
 
-        <!-- 03 Payment Terminal -->
+        <!-- 04 Payment Terminal -->
         <article class="project-card">
-          <span class="project-tag">03 / 顯示與觸控整合</span>
+          <span class="project-tag">04 / 顯示與觸控整合</span>
           <h3>4.3 吋多元支付機</h3>
           <p class="card-desc">
             感應、掃碼與觸控整合。
@@ -116,9 +136,9 @@
           <a class="arrow-link" href="work/payment-terminal/index.html" aria-label="查看 4.3 吋多元支付機開發過程">查看開發過程 →</a>
         </article>
 
-        <!-- 04 Edge AI Truck Mirror -->
+        <!-- 05 Edge AI Truck Mirror -->
         <article class="project-card">
-          <span class="project-tag">04 / 邊緣 AI</span>
+          <span class="project-tag">05 / 邊緣 AI</span>
           <h3>AI 卡車電子後視鏡</h3>
           <p class="card-desc">
             雙視角影像與 AI 輔助辨識。
@@ -132,9 +152,9 @@
           <a class="arrow-link" href="work/ai-truck-emirror/index.html" aria-label="查看 AI 卡車電子後視鏡開發過程">查看開發過程 →</a>
         </article>
 
-        <!-- 05 Glasses-Free 3D -->
+        <!-- 06 Glasses-Free 3D -->
         <article class="project-card">
-          <span class="project-tag">05 / 跨端互動</span>
+          <span class="project-tag">06 / 跨端互動</span>
           <h3>單人追眼式裸視 3D</h3>
           <p class="card-desc">
             手機操控，追眼立體展示。
@@ -153,29 +173,26 @@
     <!-- 進行中專案 -->
     <section class="section page" id="in-progress">
       <h2 class="section-title">進行中專案</h2>
-      <div class="project-grid">
-        <article class="project-card">
+      <article class="featured-project">
+        <div class="featured-header">
           <span class="project-tag">產品驗證中</span>
-          <h3>浮光樂影・浮空投影音樂盒</h3>
-          <p class="card-desc">將音樂與浮空影像，收進木質箱體。</p>
-          <div class="card-media">
-            <img src="assets/images/tokugawa-hero.webp" alt="浮光樂影浮空投影音樂盒外觀設計渲染" loading="lazy" srcset="assets/images/tokugawa-hero-480.webp 480w, assets/images/tokugawa-hero-800.webp 800w, assets/images/tokugawa-hero-1200.webp 1200w, assets/images/tokugawa-hero.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 900px) calc(100vw - 128px), 544px" />
-          </div>
-          <p class="card-role"><strong>開發範圍</strong>產品外觀與機構規劃、Android 播放端、手機 BLE 控制與軟硬體整合。</p>
-          <p class="card-role"><strong>驗證進度</strong>機箱樣品與浮空光學驗證中，實機紀錄後續補齊。</p>
-        </article>
-
-        <article class="project-card">
-          <span class="project-tag">開發中</span>
-          <h3>透明感夜燈</h3>
-          <p class="card-desc">讓角色如同駐立於透明艙體中。</p>
-          <div class="card-media">
-            <img src="assets/images/transparent-nightlight-hero.webp" alt="透明感夜燈外觀與圓柱透明顯示展示" loading="lazy" srcset="assets/images/transparent-nightlight-hero-480.webp 480w, assets/images/transparent-nightlight-hero-800.webp 800w, assets/images/transparent-nightlight-hero-1200.webp 1200w, assets/images/transparent-nightlight-hero.webp 1920w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 900px) calc(100vw - 128px), 544px" />
-          </div>
-          <p class="card-role"><strong>開發範圍</strong>T113 與 SPI+RGB 面板整合、LVGL 播放器開發、按鍵控制與兩路亮度連動調節。</p>
-          <p class="card-role"><strong>驗證進度</strong>LVGL 播放器已調通，正進行透光率與背光配比調校。</p>
-        </article>
-      </div>
+          <h3 class="featured-title"><span class="nowrap">浮光樂影・</span><span class="nowrap">浮空投影音樂盒</span></h3>
+          <p class="featured-desc">
+            將音樂與浮空影像，收進木質箱體。
+          </p>
+        </div>
+        <div class="featured-media">
+          <img src="assets/images/tokugawa-hero.webp" alt="浮光樂影浮空投影音樂盒外觀設計渲染" loading="lazy" srcset="assets/images/tokugawa-hero-480.webp 480w, assets/images/tokugawa-hero-800.webp 800w, assets/images/tokugawa-hero-1200.webp 1200w, assets/images/tokugawa-hero.webp 1920w" sizes="(max-width: 767px) calc(100vw - 80px), (max-width: 900px) calc(100vw - 144px), 620px" />
+        </div>
+        <div class="featured-footer">
+          <p class="featured-role">
+            <strong>開發範圍</strong>產品外觀與機構規劃、Android 播放端、手機 BLE 控制與軟硬體整合。
+          </p>
+          <p class="featured-role">
+            <strong>驗證進度</strong>機箱樣品與浮空光學驗證中，實機紀錄後續補齊。
+          </p>
+        </div>
+      </article>
     </section>
 
     <!-- H5: 關於黃鈺峰 (個人背景、核心能力、榮譽獎項) -->
